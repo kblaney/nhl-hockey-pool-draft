@@ -248,19 +248,19 @@ final class MainFrame extends JFrame
 
     atlanticDivisionPanel.setLayout(new java.awt.BorderLayout());
 
-    newJerseyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newJersey.png"))); // NOI18N
+    newJerseyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/newJersey.png"))); // NOI18N
     atlanticDivisionTeamPanel.add(newJerseyLabel);
 
-    newYorkIslandersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newYorkIslanders.png"))); // NOI18N
+    newYorkIslandersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/newYorkIslanders.png"))); // NOI18N
     atlanticDivisionTeamPanel.add(newYorkIslandersLabel);
 
-    newYorkRangersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newYorkRangers.png"))); // NOI18N
+    newYorkRangersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/newYorkRangers.png"))); // NOI18N
     atlanticDivisionTeamPanel.add(newYorkRangersLabel);
 
-    philadelphiaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/philadelphia.png"))); // NOI18N
+    philadelphiaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/philadelphia.png"))); // NOI18N
     atlanticDivisionTeamPanel.add(philadelphiaLabel);
 
-    pittsburghLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pittsburgh.png"))); // NOI18N
+    pittsburghLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/pittsburgh.png"))); // NOI18N
     atlanticDivisionTeamPanel.add(pittsburghLabel);
 
     atlanticDivisionPanel.add(atlanticDivisionTeamPanel, java.awt.BorderLayout.CENTER);
@@ -274,19 +274,19 @@ final class MainFrame extends JFrame
 
     southeastDivisionPanel.setLayout(new java.awt.BorderLayout());
 
-    carolinaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carolina.png"))); // NOI18N
+    carolinaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/carolina.png"))); // NOI18N
     southeastDivisionTeamsPanel.add(carolinaLabel);
 
-    floridaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/florida.png"))); // NOI18N
+    floridaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/florida.png"))); // NOI18N
     southeastDivisionTeamsPanel.add(floridaLabel);
 
-    tampaBayLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tampaBay.png"))); // NOI18N
+    tampaBayLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/tampaBay.png"))); // NOI18N
     southeastDivisionTeamsPanel.add(tampaBayLabel);
 
-    washingtonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/washington.png"))); // NOI18N
+    washingtonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/washington.png"))); // NOI18N
     southeastDivisionTeamsPanel.add(washingtonLabel);
 
-    winnipegLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/winnipeg.png"))); // NOI18N
+    winnipegLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/winnipeg.png"))); // NOI18N
     southeastDivisionTeamsPanel.add(winnipegLabel);
 
     southeastDivisionPanel.add(southeastDivisionTeamsPanel, java.awt.BorderLayout.CENTER);
@@ -300,19 +300,19 @@ final class MainFrame extends JFrame
 
     northeastDivisionPanel.setLayout(new java.awt.BorderLayout());
 
-    bostonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boston.png"))); // NOI18N
+    bostonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/boston.png"))); // NOI18N
     northeastDivisionTeamsPanel.add(bostonLabel);
 
-    buffaloLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buffalo.png"))); // NOI18N
+    buffaloLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/buffalo.png"))); // NOI18N
     northeastDivisionTeamsPanel.add(buffaloLabel);
 
-    montrealLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/montreal.png"))); // NOI18N
+    montrealLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/montreal.png"))); // NOI18N
     northeastDivisionTeamsPanel.add(montrealLabel);
 
-    ottawaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ottawa.png"))); // NOI18N
+    ottawaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/ottawa.png"))); // NOI18N
     northeastDivisionTeamsPanel.add(ottawaLabel);
 
-    torontoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toronto.png"))); // NOI18N
+    torontoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/toronto.png"))); // NOI18N
     northeastDivisionTeamsPanel.add(torontoLabel);
 
     northeastDivisionPanel.add(northeastDivisionTeamsPanel, java.awt.BorderLayout.CENTER);
@@ -345,19 +345,19 @@ final class MainFrame extends JFrame
     pacificDivisionLabel.setText("Pacific");
     pacificDivisionPanel.add(pacificDivisionLabel, java.awt.BorderLayout.NORTH);
 
-    anaheimLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anaheim.png"))); // NOI18N
+    anaheimLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/anaheim.png"))); // NOI18N
     pacificDivisionTeamsPanel.add(anaheimLabel);
 
-    dallasLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dallas.png"))); // NOI18N
+    dallasLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/dallas.png"))); // NOI18N
     pacificDivisionTeamsPanel.add(dallasLabel);
 
-    losAngelesLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/losAngeles.png"))); // NOI18N
+    losAngelesLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/losAngeles.png"))); // NOI18N
     pacificDivisionTeamsPanel.add(losAngelesLabel);
 
-    phoenixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phoenix.png"))); // NOI18N
+    phoenixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/phoenix.png"))); // NOI18N
     pacificDivisionTeamsPanel.add(phoenixLabel);
 
-    sanJoseLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sanJose.png"))); // NOI18N
+    sanJoseLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/sanJose.png"))); // NOI18N
     pacificDivisionTeamsPanel.add(sanJoseLabel);
 
     pacificDivisionPanel.add(pacificDivisionTeamsPanel, java.awt.BorderLayout.CENTER);
@@ -366,19 +366,19 @@ final class MainFrame extends JFrame
 
     northwestDivisionPanel.setLayout(new java.awt.BorderLayout());
 
-    calgaryLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calgary.png"))); // NOI18N
+    calgaryLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/calgary.png"))); // NOI18N
     northwestDivisionTeamsPanel.add(calgaryLabel);
 
-    coloradoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/colorado.png"))); // NOI18N
+    coloradoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/colorado.png"))); // NOI18N
     northwestDivisionTeamsPanel.add(coloradoLabel);
 
-    edmontonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edmonton.png"))); // NOI18N
+    edmontonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/edmonton.png"))); // NOI18N
     northwestDivisionTeamsPanel.add(edmontonLabel);
 
-    minnesotaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/minnesota.png"))); // NOI18N
+    minnesotaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/minnesota.png"))); // NOI18N
     northwestDivisionTeamsPanel.add(minnesotaLabel);
 
-    vancouverLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vancouver.png"))); // NOI18N
+    vancouverLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/vancouver.png"))); // NOI18N
     northwestDivisionTeamsPanel.add(vancouverLabel);
 
     northwestDivisionPanel.add(northwestDivisionTeamsPanel, java.awt.BorderLayout.CENTER);
@@ -392,19 +392,19 @@ final class MainFrame extends JFrame
 
     centralDivisionPanel.setLayout(new java.awt.BorderLayout());
 
-    chicagoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chicago.png"))); // NOI18N
+    chicagoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/chicago.png"))); // NOI18N
     centralDivisionTeamsPanel.add(chicagoLabel);
 
-    columbusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/columbus.png"))); // NOI18N
+    columbusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/columbus.png"))); // NOI18N
     centralDivisionTeamsPanel.add(columbusLabel);
 
-    detroitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detroit.png"))); // NOI18N
+    detroitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/detroit.png"))); // NOI18N
     centralDivisionTeamsPanel.add(detroitLabel);
 
-    nashvilleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nashville.png"))); // NOI18N
+    nashvilleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/nashville.png"))); // NOI18N
     centralDivisionTeamsPanel.add(nashvilleLabel);
 
-    stLouisLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stLouis.png"))); // NOI18N
+    stLouisLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/team-logos/stLouis.png"))); // NOI18N
     centralDivisionTeamsPanel.add(stLouisLabel);
 
     centralDivisionPanel.add(centralDivisionTeamsPanel, java.awt.BorderLayout.CENTER);
