@@ -17,19 +17,19 @@ import java.io.Reader;
 import org.apache.commons.io.IOUtils;
 
 /**
- * The class that contains the starting point of the application.
+ * The class that contains the entry point of the application.
  */
-public final class AppMain
+public final class EntryPoint
 {
   /**
    * Constructor made private to restrict instantiation.
    */
-  private AppMain()
+  private EntryPoint()
   {
   }
 
   /**
-   * The starting point of the application.
+   * The entry point of the application.
    *
    * @param args the command line arguments
    */
