@@ -243,7 +243,7 @@ final class MainFrame extends JFrame
 
     easternConferenceLabel.setFont(new java.awt.Font("Tahoma", 1, 24));
     easternConferenceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    easternConferenceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/easternConference.gif"))); // NOI18N
+    easternConferenceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nhl-logos/easternConference.gif"))); // NOI18N
     easternConferencePanel.add(easternConferenceLabel);
 
     atlanticDivisionPanel.setLayout(new java.awt.BorderLayout());
@@ -335,7 +335,7 @@ final class MainFrame extends JFrame
 
     westernConferenceLabel.setFont(new java.awt.Font("Tahoma", 1, 24));
     westernConferenceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    westernConferenceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/westernConference.gif"))); // NOI18N
+    westernConferenceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nhl-logos/westernConference.gif"))); // NOI18N
     westernConferencePanel.add(westernConferenceLabel);
 
     pacificDivisionPanel.setLayout(new java.awt.BorderLayout());
