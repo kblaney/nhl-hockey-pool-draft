@@ -19,26 +19,20 @@ import java.util.List;
  */
 public final class DraftCsvReaderWriter implements DraftReaderWriter
 {
-  private final FirstCsvLineReaderWriter firstCsvLineReaderWriter =
-        new FirstCsvLineReaderWriter();
-  private final PooleeCsvLineReaderWriter pooleeCsvLineReaderWriter =
-        new PooleeCsvLineReaderWriter();
-  private final DraftPickCsvLineReaderWriter draftPickCsvLineReaderWriter =
-        new DraftPickCsvLineReaderWriter();
+  private final FirstCsvLineReaderWriter firstCsvLineReaderWriter = new FirstCsvLineReaderWriter();
+  private final PooleeCsvLineReaderWriter pooleeCsvLineReaderWriter = new PooleeCsvLineReaderWriter();
+  private final DraftPickCsvLineReaderWriter draftPickCsvLineReaderWriter = new DraftPickCsvLineReaderWriter();
   private final PlayersByTeamAndPosition playersByTeamAndPosition;
   private final DraftOrderGetter draftOrderGetter;
 
   /**
-   * Constructs a new instance of DraftCsvReaderWriter that uses
-   * specified players and a specified object to get the draft order.
-   *
-   * @param playersByTeamAndPosition the players (that determine player
-   * validity when reading), which can't be null
-   * @param draftOrderGetter the object that gets the draft order, which
-   * can't be null
+   * Constructs a new instance of DraftCsvReaderWriter that uses specified players and a specified object to get the
+   * draft order.
+   * 
+   * @param playersByTeamAndPosition the players (that determine player validity when reading), which can't be null
+   * @param draftOrderGetter the object that gets the draft order, which can't be null
    */
-  public DraftCsvReaderWriter(
-        final PlayersByTeamAndPosition playersByTeamAndPosition,
+  public DraftCsvReaderWriter(final PlayersByTeamAndPosition playersByTeamAndPosition,
         final DraftOrderGetter draftOrderGetter)
   {
     ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
@@ -49,8 +43,7 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
   }
 
   /** {@inheritDoc} */
-  public void writeDraft(final Draft draft, final Writer writer)
-        throws IOException
+  public void writeDraft(final Draft draft, final Writer writer) throws IOException
   {
     ArgAssert.notNull(draft, "draft");
     ArgAssert.notNull(writer, "writer");
@@ -68,16 +61,14 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
     }
   }
 
-  private void writeFirstLine(final Draft draft, final CSVPrint csvPrinter)
-        throws IOException
+  private void writeFirstLine(final Draft draft, final CSVPrint csvPrinter) throws IOException
   {
-    final String[] fields = firstCsvLineReaderWriter.getFields(
-          draft.getSeasonType(), draft.getNumRounds(), draft.getNumPoolees());
+    final String[] fields = firstCsvLineReaderWriter.getFields(draft.getSeasonType(), draft.getNumRounds(),
+          draft.getNumPoolees());
     csvPrinter.writeln(fields);
   }
 
-  private void writePooleeLines(final Draft draft, final CSVPrint csvPrinter)
-        throws IOException
+  private void writePooleeLines(final Draft draft, final CSVPrint csvPrinter) throws IOException
   {
     for (final Poolee poolee : draft.getFirstRoundDraftOrder())
     {
@@ -89,8 +80,7 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
     }
   }
 
-  private void writeDraftPickLines(final Draft draft, final CSVPrint csvPrinter)
-        throws IOException
+  private void writeDraftPickLines(final Draft draft, final CSVPrint csvPrinter) throws IOException
   {
     for (final DraftPick draftPick : draft.getDraftPicks())
     {
@@ -112,31 +102,25 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
   }
 
   /** {@inheritDoc} */
-  public Draft readDraft(final Reader reader) throws IOException,
-        ParseException
+  public Draft readDraft(final Reader reader) throws IOException, ParseException
   {
     ArgAssert.notNull(reader, "reader");
 
     final CSVParse csvParser = new CSVParser(reader);
 
     final String[] firstLineFields = csvParser.getLine();
-    final SeasonType seasonType = firstCsvLineReaderWriter.getSeasonType(
-          firstLineFields);
-    final int numRounds = firstCsvLineReaderWriter.getNumRounds(
-          firstLineFields);
-    final int numPoolees = firstCsvLineReaderWriter.getNumPoolees(
-          firstLineFields);
-    final List<Poolee> firstRoundDraftOrder = getFirstRoundDraftOrder(csvParser,
-          numPoolees);
+    final SeasonType seasonType = firstCsvLineReaderWriter.getSeasonType(firstLineFields);
+    final int numRounds = firstCsvLineReaderWriter.getNumRounds(firstLineFields);
+    final int numPoolees = firstCsvLineReaderWriter.getNumPoolees(firstLineFields);
+    final List<Poolee> firstRoundDraftOrder = getFirstRoundDraftOrder(csvParser, numPoolees);
     final List<DraftPick> draftPicks = getDraftPicks(csvParser);
 
-    return new DraftFactoryImpl().resumeDraft(seasonType,
-          playersByTeamAndPosition, numRounds, numPoolees, draftOrderGetter,
-          firstRoundDraftOrder, draftPicks);
+    return new DraftFactoryImpl().resumeDraft(seasonType, playersByTeamAndPosition, numRounds, numPoolees,
+          draftOrderGetter, firstRoundDraftOrder, draftPicks);
   }
 
-  private List<Poolee> getFirstRoundDraftOrder(final CSVParse csvParser,
-        final int numPoolees) throws IOException, ParseException
+  private List<Poolee> getFirstRoundDraftOrder(final CSVParse csvParser, final int numPoolees) throws IOException,
+        ParseException
   {
     final List<Poolee> firstRoundDraftOrder = Lists.newArrayList();
     final String[][] pooleeLines = new String[numPoolees][];
@@ -158,14 +142,12 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
     return firstRoundDraftOrder;
   }
 
-  private Poolee getPoolee(final String[] pooleeLineFields)
-        throws ParseException
+  private Poolee getPoolee(final String[] pooleeLineFields) throws ParseException
   {
     return pooleeCsvLineReaderWriter.getPoolee(pooleeLineFields);
   }
 
-  private List<DraftPick> getDraftPicks(final CSVParse csvParser)
-        throws IOException, ParseException
+  private List<DraftPick> getDraftPicks(final CSVParse csvParser) throws IOException, ParseException
   {
     final String[][] draftPickLines = csvParser.getAllValues();
     if (draftPickLines == null)
@@ -183,8 +165,7 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
     }
   }
 
-  private DraftPick getDraftPick(final String[] draftPickLineFields)
-        throws ParseException
+  private DraftPick getDraftPick(final String[] draftPickLineFields) throws ParseException
   {
     return draftPickCsvLineReaderWriter.getDraftPick(draftPickLineFields);
   }

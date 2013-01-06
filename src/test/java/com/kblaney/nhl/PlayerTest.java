@@ -100,30 +100,26 @@ public final class PlayerTest
   @Test
   public void getFullName()
   {
-    assertEquals("Kyle Blaney", new Player("Kyle", "Blaney", team,
-          position).getFullName());
+    assertEquals("Kyle Blaney", new Player("Kyle", "Blaney", team, position).getFullName());
   }
 
   @Test
   public void getShortenedFullName_shortFirstNameShortLastName()
   {
-    assertEquals("K. Blaney", new Player("Kyle", "Blaney", team,
-          position).getShortenedFullName());
+    assertEquals("K. Blaney", new Player("Kyle", "Blaney", team, position).getShortenedFullName());
   }
 
   @Test
   public void getShortenedFullName_shortFirstNameLongLastName()
   {
-    assertEquals("K. Blaneywilsonsmith", new Player("Kyle", "Blaneywilsonsmith",
-          team, position).getShortenedFullName());
+    assertEquals("K. Blaneywilsonsmith", new Player("Kyle", "Blaneywilsonsmith", team, position).getShortenedFullName());
   }
 
   @Test
   public void getShortenedFullName_firstNameContainsDash()
   {
-    assertEquals("J.P. Blaneywilsonsmith", new Player("Jean-Pierre",
-          "Blaneywilsonsmith", team, position).
-          getShortenedFullName());
+    assertEquals("J.P. Blaneywilsonsmith",
+          new Player("Jean-Pierre", "Blaneywilsonsmith", team, position).getShortenedFullName());
   }
 
   @Test
@@ -143,8 +139,7 @@ public final class PlayerTest
   public void equals_differentFirstName()
   {
     final String differentFirstName = firstName + "A";
-    final Player playerWithDifferentFirstName = new Player(differentFirstName,
-          lastName, team, position);
+    final Player playerWithDifferentFirstName = new Player(differentFirstName, lastName, team, position);
     assertNotEquals(playerWithEmptyId, playerWithDifferentFirstName);
   }
 
@@ -158,8 +153,7 @@ public final class PlayerTest
   public void equals_differentLastName()
   {
     final String differentLastName = lastName + "A";
-    final Player playerWithDifferentLastName = new Player(firstName,
-          differentLastName, team, position);
+    final Player playerWithDifferentLastName = new Player(firstName, differentLastName, team, position);
     assertNotEquals(playerWithEmptyId, playerWithDifferentLastName);
   }
 
@@ -168,8 +162,7 @@ public final class PlayerTest
   {
     final Team differentTeam = Team.WINNIPEG_JETS;
     assertFalse(team == differentTeam);
-    final Player playerWithDifferentTeam = new Player(firstName,
-          lastName, differentTeam, position);
+    final Player playerWithDifferentTeam = new Player(firstName, lastName, differentTeam, position);
     assertNotEquals(playerWithEmptyId, playerWithDifferentTeam);
   }
 
@@ -178,8 +171,7 @@ public final class PlayerTest
   {
     final Position differentPosition = Position.FORWARD;
     assertFalse(position == differentPosition);
-    final Player playerWithDifferentPosition = new Player(firstName,
-          lastName, team, differentPosition);
+    final Player playerWithDifferentPosition = new Player(firstName, lastName, team, differentPosition);
     assertNotEquals(playerWithEmptyId, playerWithDifferentPosition);
   }
 
@@ -187,8 +179,7 @@ public final class PlayerTest
   public void equals_differentId()
   {
     final String id = "1";
-    final Player playerWithNonEmptyId = new Player(firstName,
-          lastName, team, position, id);
+    final Player playerWithNonEmptyId = new Player(firstName, lastName, team, position, id);
     assertNotEquals(playerWithEmptyId, playerWithNonEmptyId);
   }
 

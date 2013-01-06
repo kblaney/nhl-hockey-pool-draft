@@ -41,24 +41,22 @@ public final class DraftFactoryImplTest
   @Test(expected = IllegalArgumentException.class)
   public void createNewDraft_nullSeasonType()
   {
-    draftFactory.createNewDraft(null,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter);
+    draftFactory.createNewDraft(null, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds, arbitraryNumPoolees,
+          arbitraryDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void createNewDraft_nullPlayersByTeamAndPosition()
   {
-    draftFactory.createNewDraft(arbitrarySeasonType, null, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter);
+    draftFactory.createNewDraft(arbitrarySeasonType, null, arbitraryNumRounds, arbitraryNumPoolees,
+          arbitraryDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void createNewDraft_invalidNumRounds()
   {
     final int arbitraryInvalidNumRounds = -14;
-    draftFactory.createNewDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryInvalidNumRounds,
+    draftFactory.createNewDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryInvalidNumRounds,
           arbitraryNumPoolees, arbitraryDraftOrderGetter);
   }
 
@@ -66,25 +64,22 @@ public final class DraftFactoryImplTest
   public void createNewDraft_invalidNumPoolees()
   {
     final int arbitraryInvalidNumPoolees = 0;
-    draftFactory.createNewDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+    draftFactory.createNewDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
           arbitraryInvalidNumPoolees, arbitraryDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void createNewDraft_nullDraftOrderGetter()
   {
-    draftFactory.createNewDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+    draftFactory.createNewDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
           arbitraryNumPoolees, null);
   }
 
   @Test
   public void createNewDraft()
   {
-    final Draft draft = draftFactory.createNewDraft(arbitrarySeasonType,
-            arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-            arbitraryNumPoolees, arbitraryDraftOrderGetter);
+    final Draft draft = draftFactory.createNewDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition,
+          arbitraryNumRounds, arbitraryNumPoolees, arbitraryDraftOrderGetter);
     assertTrue(draft.getDraftPicks().isEmpty());
     assertEquals(1, draft.getNextDraftPickNum());
   }
@@ -92,76 +87,61 @@ public final class DraftFactoryImplTest
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_nullSeasonType()
   {
-    draftFactory.resumeDraft(null, arbitraryPlayersByTeamAndPosition,
-          arbitraryNumRounds, arbitraryNumPoolees, arbitraryDraftOrderGetter,
-          arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
+    draftFactory.resumeDraft(null, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds, arbitraryNumPoolees,
+          arbitraryDraftOrderGetter, arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_nullPlayersByTeamAndPosition()
   {
-    draftFactory.resumeDraft(arbitrarySeasonType, null, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter,
-          arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
+    draftFactory.resumeDraft(arbitrarySeasonType, null, arbitraryNumRounds, arbitraryNumPoolees,
+          arbitraryDraftOrderGetter, arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_invalidNumRounds()
   {
     final int arbitraryInvalidNumRounds = 0;
-    draftFactory.resumeDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryInvalidNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter,
-          arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
+    draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryInvalidNumRounds,
+          arbitraryNumPoolees, arbitraryDraftOrderGetter, arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_invalidNumPoolees()
   {
     final int arbitraryInvalidNumPoolees = -9;
-    draftFactory.resumeDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryInvalidNumPoolees, arbitraryDraftOrderGetter,
-          arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
+    draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+          arbitraryInvalidNumPoolees, arbitraryDraftOrderGetter, arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_nullDraftOrderGetter()
   {
-    draftFactory.resumeDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryNumPoolees, null, arbitraryFirstRoundDraftOrder,
-          arbitraryDraftPicks);
+    draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+          arbitraryNumPoolees, null, arbitraryFirstRoundDraftOrder, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_nullFirstRoundDraftOrder()
   {
-    draftFactory.resumeDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter, null,
-          arbitraryDraftPicks);
+    draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+          arbitraryNumPoolees, arbitraryDraftOrderGetter, null, arbitraryDraftPicks);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void resumeDraft_nullDraftPicks()
   {
-    draftFactory.resumeDraft(arbitrarySeasonType,
-          arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter,
-          arbitraryFirstRoundDraftOrder, null);
+    draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
+          arbitraryNumPoolees, arbitraryDraftOrderGetter, arbitraryFirstRoundDraftOrder, null);
   }
 
   @Test
   public void resumeDraft_noPooleesAndNoDraftPicks()
   {
-    final List<Poolee> firstRoundDraftOrder =
-          Collections.nCopies(arbitraryNumPoolees, null);
+    final List<Poolee> firstRoundDraftOrder = Collections.nCopies(arbitraryNumPoolees, null);
     final List<DraftPick> draftPicks = Collections.emptyList();
-    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType,
-            arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-            arbitraryNumPoolees, arbitraryDraftOrderGetter,
-            firstRoundDraftOrder, draftPicks);
+    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition,
+          arbitraryNumRounds, arbitraryNumPoolees, arbitraryDraftOrderGetter, firstRoundDraftOrder, draftPicks);
 
     assertEquals(arbitrarySeasonType, draft.getSeasonType());
     assertEquals(arbitraryNumRounds, draft.getNumRounds());
@@ -175,14 +155,11 @@ public final class DraftFactoryImplTest
   public void resumeDraft_allPooleesAndNoDraftPicks()
   {
     final int numPoolees = 3;
-    final List<Poolee> firstRoundDraftOrder = Lists.newArrayList(
-          new Poolee("FIRST", "POOLEE"), new Poolee("SECOND", "POOLEE"),
-          new Poolee("THIRD", "POOLEE"));
+    final List<Poolee> firstRoundDraftOrder = Lists.newArrayList(new Poolee("FIRST", "POOLEE"), new Poolee("SECOND",
+          "POOLEE"), new Poolee("THIRD", "POOLEE"));
     final List<DraftPick> draftPicks = Collections.emptyList();
-    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType,
-            arbitraryPlayersByTeamAndPosition, arbitraryNumRounds,
-            numPoolees, arbitraryDraftOrderGetter, firstRoundDraftOrder,
-            draftPicks);
+    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType, arbitraryPlayersByTeamAndPosition,
+          arbitraryNumRounds, numPoolees, arbitraryDraftOrderGetter, firstRoundDraftOrder, draftPicks);
 
     assertEquals(arbitrarySeasonType, draft.getSeasonType());
     assertEquals(arbitraryNumRounds, draft.getNumRounds());
@@ -197,13 +174,10 @@ public final class DraftFactoryImplTest
   {
     final int numPoolees = 2;
     final Poolee firstPoolee = new Poolee("FIRST", "POOLEE");
-    final List<Poolee> firstRoundDraftOrder = Lists.newArrayList(
-          firstPoolee, new Poolee("SECOND", "POOLEE"));
+    final List<Poolee> firstRoundDraftOrder = Lists.newArrayList(firstPoolee, new Poolee("SECOND", "POOLEE"));
     final List<DraftPick> draftPicks = getDraftPicksForOnlyOnePick(firstPoolee);
-    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType,
-            getPlayerSetThatContainsEveryPlayer(), arbitraryNumRounds,
-            numPoolees, new SCurveDraftOrderGetter(), firstRoundDraftOrder,
-            draftPicks);
+    final Draft draft = draftFactory.resumeDraft(arbitrarySeasonType, getPlayerSetThatContainsEveryPlayer(),
+          arbitraryNumRounds, numPoolees, new SCurveDraftOrderGetter(), firstRoundDraftOrder, draftPicks);
 
     assertEquals(arbitrarySeasonType, draft.getSeasonType());
     assertEquals(arbitraryNumRounds, draft.getNumRounds());
@@ -216,27 +190,21 @@ public final class DraftFactoryImplTest
   private PlayersByTeamAndPosition getPlayerSetThatContainsEveryPlayer()
   {
     @SuppressWarnings("unchecked")
-	final Set<Player> setThatIndicatesThatItContainsEverything =
-          mock(Set.class);
-    when(setThatIndicatesThatItContainsEverything.contains(any(Player.class))).
-          thenReturn(true);
+    final Set<Player> setThatIndicatesThatItContainsEverything = mock(Set.class);
+    when(setThatIndicatesThatItContainsEverything.contains(any(Player.class))).thenReturn(true);
 
-    final PlayersByTeamAndPosition mockPlayersByTeamAndPosition =
-          mock(PlayersByTeamAndPosition.class);
-    when(mockPlayersByTeamAndPosition.getPlayersOnTeamAtPosition(
-          (Team) anyObject(), (Position) anyObject())).
-          thenReturn(setThatIndicatesThatItContainsEverything);
+    final PlayersByTeamAndPosition mockPlayersByTeamAndPosition = mock(PlayersByTeamAndPosition.class);
+    when(mockPlayersByTeamAndPosition.getPlayersOnTeamAtPosition((Team) anyObject(), (Position) anyObject()))
+          .thenReturn(setThatIndicatesThatItContainsEverything);
 
     return mockPlayersByTeamAndPosition;
   }
 
   private List<DraftPick> getDraftPicksForOnlyOnePick(final Poolee poolee)
   {
-    final Player arbitraryDraftedPlayer = new Player("FIRST_NAME", "LAST_NAME",
-          Team.WINNIPEG_JETS, Position.DEFENSEMAN);
+    final Player arbitraryDraftedPlayer = new Player("FIRST_NAME", "LAST_NAME", Team.WINNIPEG_JETS, Position.DEFENSEMAN);
     final int roundNum = 1;
     final int pickNum = 1;
-    return Lists.newArrayList(new DraftPick(arbitraryDraftedPlayer, poolee,
-          roundNum, pickNum));
+    return Lists.newArrayList(new DraftPick(arbitraryDraftedPlayer, poolee, roundNum, pickNum));
   }
 }

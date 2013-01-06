@@ -44,10 +44,8 @@ public final class DraftImplStartedDraftWithDoublePickUpNextTest
   @Test(expected = IllegalArgumentException.class)
   public void addDraftPick_pooleeDraftingTwiceFromSameTeamInRegularSeason()
   {
-    final Player firstPlayer = new Player("Pavel", "Datsyuk",
-          Team.DETROIT_RED_WINGS, Position.FORWARD);
-    final Player secondPlayer = new Player("Henrik","Zetterberg",
-          Team.DETROIT_RED_WINGS, Position.FORWARD);
+    final Player firstPlayer = new Player("Pavel", "Datsyuk", Team.DETROIT_RED_WINGS, Position.FORWARD);
+    final Player secondPlayer = new Player("Henrik", "Zetterberg", Team.DETROIT_RED_WINGS, Position.FORWARD);
     draft.addDraftPick(firstPlayer, Drafts.THIRD_POOLEE);
     draft.addDraftPick(secondPlayer, Drafts.THIRD_POOLEE);
   }

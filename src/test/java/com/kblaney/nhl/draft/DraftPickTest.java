@@ -28,16 +28,13 @@ public final class DraftPickTest
     arbitraryPlayerLastName = "Iginla";
     arbitraryTeam = Team.CALGARY_FLAMES;
     arbitraryPosition = Position.FORWARD;
-    arbitraryPlayer = new Player(arbitraryPlayerFirstName,
-          arbitraryPlayerLastName, arbitraryTeam, arbitraryPosition);
+    arbitraryPlayer = new Player(arbitraryPlayerFirstName, arbitraryPlayerLastName, arbitraryTeam, arbitraryPosition);
     arbitraryPooleeFirstName = "Kyle";
     arbitraryPooleeLastName = "Blaney";
-    arbitraryPoolee = new Poolee(arbitraryPooleeFirstName,
-          arbitraryPooleeLastName);
+    arbitraryPoolee = new Poolee(arbitraryPooleeFirstName, arbitraryPooleeLastName);
     arbitraryRoundNum = 2;
     arbitraryPickNum = 17;
-    arbitraryDraftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee,
-          arbitraryRoundNum, arbitraryPickNum);
+    arbitraryDraftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum, arbitraryPickNum);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -56,16 +53,14 @@ public final class DraftPickTest
   public void constructor_invalidRoundNum()
   {
     final int arbitraryInvalidRoundNum = 0;
-    new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryInvalidRoundNum,
-          arbitraryPickNum);
+    new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryInvalidRoundNum, arbitraryPickNum);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void constructor_invalidPickNum()
   {
     final int arbitraryInvalidPickNum = -6;
-    new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum,
-          arbitraryInvalidPickNum);
+    new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum, arbitraryInvalidPickNum);
   }
 
   @Test
@@ -108,11 +103,10 @@ public final class DraftPickTest
   @Test
   public void equals_differentPlayer()
   {
-    final Player arbitraryDifferentPlayer = new Player(arbitraryPlayerFirstName,
-          arbitraryPlayerLastName + "B", arbitraryTeam, arbitraryPosition);
-    final DraftPick draftPickWithDifferentPlayer = new DraftPick(
-          arbitraryDifferentPlayer, arbitraryPoolee, arbitraryRoundNum,
-          arbitraryPickNum);
+    final Player arbitraryDifferentPlayer = new Player(arbitraryPlayerFirstName, arbitraryPlayerLastName + "B",
+          arbitraryTeam, arbitraryPosition);
+    final DraftPick draftPickWithDifferentPlayer = new DraftPick(arbitraryDifferentPlayer, arbitraryPoolee,
+          arbitraryRoundNum, arbitraryPickNum);
 
     assertFalse(arbitraryDraftPick.equals(draftPickWithDifferentPlayer));
     assertFalse(draftPickWithDifferentPlayer.equals(arbitraryDraftPick));
@@ -121,10 +115,9 @@ public final class DraftPickTest
   @Test
   public void equals_differentPoolee()
   {
-    final Poolee arbitraryDifferentPoolee = new Poolee(
-          arbitraryPooleeFirstName + "A", arbitraryPooleeLastName);
-    final DraftPick draftPickWithDifferentPoolee = new DraftPick(arbitraryPlayer,
-          arbitraryDifferentPoolee, arbitraryRoundNum, arbitraryPickNum);
+    final Poolee arbitraryDifferentPoolee = new Poolee(arbitraryPooleeFirstName + "A", arbitraryPooleeLastName);
+    final DraftPick draftPickWithDifferentPoolee = new DraftPick(arbitraryPlayer, arbitraryDifferentPoolee,
+          arbitraryRoundNum, arbitraryPickNum);
 
     assertFalse(arbitraryDraftPick.equals(draftPickWithDifferentPoolee));
     assertFalse(draftPickWithDifferentPoolee.equals(arbitraryDraftPick));
@@ -134,9 +127,8 @@ public final class DraftPickTest
   public void equals_differentRoundNum()
   {
     final int arbitraryDifferentRoundNum = arbitraryRoundNum + 1;
-    final DraftPick draftPickWithDifferentRoundNum = new DraftPick(
-          arbitraryPlayer, arbitraryPoolee, arbitraryDifferentRoundNum,
-          arbitraryPickNum);
+    final DraftPick draftPickWithDifferentRoundNum = new DraftPick(arbitraryPlayer, arbitraryPoolee,
+          arbitraryDifferentRoundNum, arbitraryPickNum);
 
     assertFalse(arbitraryDraftPick.equals(draftPickWithDifferentRoundNum));
     assertFalse(draftPickWithDifferentRoundNum.equals(arbitraryDraftPick));
@@ -146,8 +138,7 @@ public final class DraftPickTest
   public void equals_differentPickNum()
   {
     final int arbitraryDifferentPickNum = arbitraryPickNum + 1;
-    final DraftPick draftPickWithDifferentPickNum = new DraftPick(
-          arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum,
+    final DraftPick draftPickWithDifferentPickNum = new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum,
           arbitraryDifferentPickNum);
 
     assertFalse(arbitraryDraftPick.equals(draftPickWithDifferentPickNum));
@@ -157,8 +148,8 @@ public final class DraftPickTest
   @Test
   public void equals_equalDraftPick()
   {
-    final DraftPick equalDraftPick = new DraftPick(arbitraryPlayer,
-          arbitraryPoolee, arbitraryRoundNum, arbitraryPickNum);
+    final DraftPick equalDraftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum,
+          arbitraryPickNum);
 
     assertTrue(arbitraryDraftPick.equals(equalDraftPick));
     assertTrue(equalDraftPick.equals(arbitraryDraftPick));
@@ -168,8 +159,8 @@ public final class DraftPickTest
   @Test
   public void hashCode_equalDraftPicks()
   {
-    final DraftPick equalDraftPick = new DraftPick(arbitraryPlayer,
-          arbitraryPoolee, arbitraryRoundNum, arbitraryPickNum);
+    final DraftPick equalDraftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum,
+          arbitraryPickNum);
 
     assertEquals(arbitraryDraftPick.hashCode(), equalDraftPick.hashCode());
   }

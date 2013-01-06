@@ -17,7 +17,7 @@ public final class Poolee
 
   /**
    * Constructs a new instance of Poolee with a specified first and last name.
-   *
+   * 
    * @param firstName the poolee's first name, which can't be null or empty
    * @param lastName the poolee's last name, which can't be null or empty
    */
@@ -32,7 +32,7 @@ public final class Poolee
 
   /**
    * Gets this poolee's first name.
-   *
+   * 
    * @return this poolee's first name
    */
   public String getFirstName()
@@ -42,7 +42,7 @@ public final class Poolee
 
   /**
    * Gets this poolee's last name.
-   *
+   * 
    * @return this poolee's last name
    */
   public String getLastName()
@@ -52,7 +52,7 @@ public final class Poolee
 
   /**
    * Gets this poolee's full name.
-   *
+   * 
    * @return this poolee's full name
    */
   public String getFullName()
@@ -75,9 +75,7 @@ public final class Poolee
     else
     {
       final Poolee that = (Poolee) thatObject;
-      return new EqualsBuilder().
-            append(firstName, that.firstName).
-            append(lastName, that.lastName).isEquals();
+      return new EqualsBuilder().append(firstName, that.firstName).append(lastName, that.lastName).isEquals();
     }
   }
 
@@ -85,9 +83,7 @@ public final class Poolee
   @Override
   public int hashCode()
   {
-    return new HashCodeBuilder().
-          append(firstName).
-          append(lastName).toHashCode();
+    return new HashCodeBuilder().append(firstName).append(lastName).toHashCode();
   }
 
   /** {@inheritDoc} */

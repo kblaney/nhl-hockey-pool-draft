@@ -86,8 +86,7 @@ public final class PooleeTest
 
     assertTrue(poolee.equals(samePoolee));
     assertTrue(samePoolee.equals(poolee));
-    assertTrue("Equal poolees should have equal hash codes",
-          poolee.hashCode() == samePoolee.hashCode());
+    assertTrue("Equal poolees should have equal hash codes", poolee.hashCode() == samePoolee.hashCode());
   }
 
   @Test

@@ -19,8 +19,7 @@ public final class DraftImplNotStartedDraftWithAllPooleesTest
   @Test
   public void getFirstRoundDraftOrder()
   {
-    final List<Poolee> expected = Lists.newArrayList(
-          Drafts.FIRST_POOLEE, Drafts.SECOND_POOLEE, Drafts.THIRD_POOLEE);
+    final List<Poolee> expected = Lists.newArrayList(Drafts.FIRST_POOLEE, Drafts.SECOND_POOLEE, Drafts.THIRD_POOLEE);
     assertEquals(expected, draft.getFirstRoundDraftOrder());
   }
 

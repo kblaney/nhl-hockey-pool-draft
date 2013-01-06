@@ -37,12 +37,10 @@ public final class DraftPickCsvLineReaderWriterTest
   @Test
   public void testRoundTrip() throws Exception
   {
-    final Poolee arbitraryPoolee = new Poolee(arbitraryPooleeFirstName,
-          arbitraryPooleeLastName);
-    final Player arbitraryPlayer = new Player(arbitraryPlayerFirstName,
-          arbitraryPlayerLastName, arbitraryTeam, arbitraryPosition);
-    final DraftPick draftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee,
-          arbitraryRoundNum, arbitraryPickNum);
+    final Poolee arbitraryPoolee = new Poolee(arbitraryPooleeFirstName, arbitraryPooleeLastName);
+    final Player arbitraryPlayer = new Player(arbitraryPlayerFirstName, arbitraryPlayerLastName, arbitraryTeam,
+          arbitraryPosition);
+    final DraftPick draftPick = new DraftPick(arbitraryPlayer, arbitraryPoolee, arbitraryRoundNum, arbitraryPickNum);
     final String[] fields = readerWriter.getFields(draftPick);
 
     assertEquals(draftPick, readerWriter.getDraftPick(fields));
@@ -59,17 +57,10 @@ public final class DraftPickCsvLineReaderWriterTest
   public void getDraftPick_invalidDraftPickRoundNum() throws Exception
   {
     final String arbitraryInvalidDraftPickRoundNum = "Yo";
-    final String[] fieldsWithInvalidTeamShortform = new String[]
-    {
-      arbitraryInvalidDraftPickRoundNum,
-      Integer.toString(arbitraryPickNum),
-      arbitraryPooleeFirstName,
-      arbitraryPooleeLastName,
-      arbitraryPlayerFirstName,
-      arbitraryPlayerLastName,
-      arbitraryTeam.getShortform(),
-      arbitraryPosition.getShortform(),
-    };
+    final String[] fieldsWithInvalidTeamShortform = new String[] { arbitraryInvalidDraftPickRoundNum,
+          Integer.toString(arbitraryPickNum), arbitraryPooleeFirstName, arbitraryPooleeLastName,
+          arbitraryPlayerFirstName, arbitraryPlayerLastName, arbitraryTeam.getShortform(),
+          arbitraryPosition.getShortform(), };
     readerWriter.getDraftPick(fieldsWithInvalidTeamShortform);
   }
 
@@ -77,17 +68,9 @@ public final class DraftPickCsvLineReaderWriterTest
   public void getDraftPick_invalidDraftPickNum() throws Exception
   {
     final String arbitraryInvalidDraftPickNum = "A";
-    final String[] fieldsWithInvalidTeamShortform = new String[]
-    {
-      Integer.toString(arbitraryRoundNum),
-      arbitraryInvalidDraftPickNum,
-      arbitraryPooleeFirstName,
-      arbitraryPooleeLastName,
-      arbitraryPlayerFirstName,
-      arbitraryPlayerLastName,
-      arbitraryTeam.getShortform(),
-      arbitraryPosition.getShortform(),
-    };
+    final String[] fieldsWithInvalidTeamShortform = new String[] { Integer.toString(arbitraryRoundNum),
+          arbitraryInvalidDraftPickNum, arbitraryPooleeFirstName, arbitraryPooleeLastName, arbitraryPlayerFirstName,
+          arbitraryPlayerLastName, arbitraryTeam.getShortform(), arbitraryPosition.getShortform(), };
     readerWriter.getDraftPick(fieldsWithInvalidTeamShortform);
   }
 
@@ -95,17 +78,10 @@ public final class DraftPickCsvLineReaderWriterTest
   public void getDraftPick_invalidTeamShortform() throws Exception
   {
     final String arbitraryInvalidTeamShortform = "BUBBA";
-    final String[] fieldsWithInvalidTeamShortform = new String[]
-    {
-      Integer.toString(arbitraryRoundNum),
-      Integer.toString(arbitraryPickNum),
-      arbitraryPooleeFirstName,
-      arbitraryPooleeLastName,
-      arbitraryPlayerFirstName,
-      arbitraryPlayerLastName,
-      arbitraryInvalidTeamShortform,
-      arbitraryPosition.getShortform(),
-    };
+    final String[] fieldsWithInvalidTeamShortform = new String[] { Integer.toString(arbitraryRoundNum),
+          Integer.toString(arbitraryPickNum), arbitraryPooleeFirstName, arbitraryPooleeLastName,
+          arbitraryPlayerFirstName, arbitraryPlayerLastName, arbitraryInvalidTeamShortform,
+          arbitraryPosition.getShortform(), };
     readerWriter.getDraftPick(fieldsWithInvalidTeamShortform);
   }
 
@@ -113,17 +89,10 @@ public final class DraftPickCsvLineReaderWriterTest
   public void getDraftPick_invalidPositionShortform() throws Exception
   {
     final String arbitraryInvalidPositionShortform = "K";
-    final String[] fieldsWithInvalidTeamShortform = new String[]
-    {
-      Integer.toString(arbitraryRoundNum),
-      Integer.toString(arbitraryPickNum),
-      arbitraryPooleeFirstName,
-      arbitraryPooleeLastName,
-      arbitraryPlayerFirstName,
-      arbitraryPlayerLastName,
-      arbitraryTeam.getShortform(),
-      arbitraryInvalidPositionShortform,
-    };
+    final String[] fieldsWithInvalidTeamShortform = new String[] { Integer.toString(arbitraryRoundNum),
+          Integer.toString(arbitraryPickNum), arbitraryPooleeFirstName, arbitraryPooleeLastName,
+          arbitraryPlayerFirstName, arbitraryPlayerLastName, arbitraryTeam.getShortform(),
+          arbitraryInvalidPositionShortform, };
     readerWriter.getDraftPick(fieldsWithInvalidTeamShortform);
   }
 }

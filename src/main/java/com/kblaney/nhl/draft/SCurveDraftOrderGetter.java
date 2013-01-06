@@ -6,19 +6,16 @@ import java.util.List;
 import org.apache.commons.lang3.Validate;
 
 /**
- * Gets a draft order that is an "S"-curve.  For example, the poolee that drafts
- * last in the first round drafts first in the second round.
+ * Gets a draft order that is an "S"-curve. For example, the poolee that drafts last in the first round drafts first in
+ * the second round.
  */
 public final class SCurveDraftOrderGetter implements DraftOrderGetter
 {
-  private final IntOrStringValidator numRoundsValidator =
-        new NumRoundsValidator();
-  private final IntOrStringValidator numPooleesValidator =
-        new NumPooleesValidator();
+  private final IntOrStringValidator numRoundsValidator = new NumRoundsValidator();
+  private final IntOrStringValidator numPooleesValidator = new NumPooleesValidator();
 
   /** {@inheritDoc} */
-  public List<Poolee> getDraftOrder(final List<Poolee> firstRoundDraftOrder,
-        final int numRounds)
+  public List<Poolee> getDraftOrder(final List<Poolee> firstRoundDraftOrder, final int numRounds)
   {
     ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
     Validate.isTrue(numPooleesValidator.isValid(firstRoundDraftOrder.size()));

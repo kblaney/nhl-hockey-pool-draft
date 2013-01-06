@@ -9,19 +9,16 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The implementation of a collection of players optimized for retrieval by team
- * and position that uses a map.
+ * The implementation of a collection of players optimized for retrieval by team and position that uses a map.
  */
-public final class PlayersByTeamAndPositionMapImpl
-      implements PlayersByTeamAndPosition
+public final class PlayersByTeamAndPositionMapImpl implements PlayersByTeamAndPosition
 {
   /**
-   * Our main data structure: a map indexed by team where each value is itself
-   * a map indexed by position.  The innermost values are sets of players who
-   * play on the team at the position.
+   * Our main data structure: a map indexed by team where each value is itself a map indexed by position. The innermost
+   * values are sets of players who play on the team at the position.
    */
-  private final Map<Team, Map<Position, Set<Player>>> playersByTeamAndPosition =
-          new EnumMap<Team, Map<Position, Set<Player>>>(Team.class);
+  private final Map<Team, Map<Position, Set<Player>>> playersByTeamAndPosition = new EnumMap<Team, Map<Position, Set<Player>>>(
+        Team.class);
 
   /** {@inheritDoc} */
   public void addPlayer(final Player player)
@@ -45,8 +42,7 @@ public final class PlayersByTeamAndPositionMapImpl
 
   private void addFirstPlayerToTeam(final Player player)
   {
-    final Map<Position, Set<Player>> playersOnTeam =
-          new EnumMap<Position, Set<Player>>(Position.class);
+    final Map<Position, Set<Player>> playersOnTeam = new EnumMap<Position, Set<Player>>(Position.class);
     playersOnTeam.put(player.getPosition(), Sets.newHashSet(player));
 
     playersByTeamAndPosition.put(player.getTeam(), playersOnTeam);
@@ -54,10 +50,8 @@ public final class PlayersByTeamAndPositionMapImpl
 
   private void addPlayerToTeamThatAlreadyHasPlayers(final Player player)
   {
-    final Map<Position, Set<Player>> playersOnTeam =
-          playersByTeamAndPosition.get(player.getTeam());
-    final Set<Player> playersOnTeamAtPosition = playersOnTeam.get(
-          player.getPosition());
+    final Map<Position, Set<Player>> playersOnTeam = playersByTeamAndPosition.get(player.getTeam());
+    final Set<Player> playersOnTeamAtPosition = playersOnTeam.get(player.getPosition());
     if (playersOnTeamAtPosition == null)
     {
       // This player is the first at his position for his team.
@@ -72,8 +66,7 @@ public final class PlayersByTeamAndPositionMapImpl
   }
 
   /** {@inheritDoc} */
-  public Set<Player> getPlayersOnTeamAtPosition(final Team team,
-        final Position position)
+  public Set<Player> getPlayersOnTeamAtPosition(final Team team, final Position position)
   {
     ArgAssert.notNull(team, "team");
     ArgAssert.notNull(position, "position");
@@ -96,8 +89,7 @@ public final class PlayersByTeamAndPositionMapImpl
   {
     ArgAssert.notNull(team, "team");
 
-    final Map<Position, Set<Player>> playersOnTeam =
-          playersByTeamAndPosition.get(team);
+    final Map<Position, Set<Player>> playersOnTeam = playersByTeamAndPosition.get(team);
 
     if (playersOnTeam == null)
     {
@@ -124,8 +116,7 @@ public final class PlayersByTeamAndPositionMapImpl
 
     for (final Team team : playersByTeamAndPosition.keySet())
     {
-      final Map<Position, Set<Player>> playersOnTeam =
-            playersByTeamAndPosition.get(team);
+      final Map<Position, Set<Player>> playersOnTeam = playersByTeamAndPosition.get(team);
       for (final Position position : playersOnTeam.keySet())
       {
         numPlayers += playersOnTeam.get(position).size();

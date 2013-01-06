@@ -18,19 +18,15 @@ public final class PooleeCsvLineReaderWriterTest
   {
     arbitraryFirstName = "Kyle";
     arbitraryLastName = "Blaney";
-    fieldsWithArbitraryValues = new String[]
-    {
-      arbitraryFirstName,
-      arbitraryLastName,
-    };
+    fieldsWithArbitraryValues = new String[] { arbitraryFirstName, arbitraryLastName, };
     readerWriter = new PooleeCsvLineReaderWriter();
   }
 
   @Test
   public void getFields()
   {
-    assertTrue(Arrays.equals(fieldsWithArbitraryValues, readerWriter.getFields(
-          new Poolee(arbitraryFirstName, arbitraryLastName))));
+    assertTrue(Arrays.equals(fieldsWithArbitraryValues,
+          readerWriter.getFields(new Poolee(arbitraryFirstName, arbitraryLastName))));
   }
 
   @Test(expected = ParseException.class)
@@ -43,7 +39,6 @@ public final class PooleeCsvLineReaderWriterTest
   @Test
   public void getPoolee() throws Exception
   {
-    assertEquals(new Poolee(arbitraryFirstName, arbitraryLastName),
-          readerWriter.getPoolee(fieldsWithArbitraryValues));
+    assertEquals(new Poolee(arbitraryFirstName, arbitraryLastName), readerWriter.getPoolee(fieldsWithArbitraryValues));
   }
 }

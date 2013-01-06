@@ -27,30 +27,26 @@ public final class DraftImplConstructorTest
   @Test(expected = IllegalArgumentException.class)
   public void constructor_nullSeasonType()
   {
-    new DraftImpl(null, playersByTeamAndPosition, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter);
+    new DraftImpl(null, playersByTeamAndPosition, arbitraryNumRounds, arbitraryNumPoolees, arbitraryDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void constructor_nullPlayersByTeamAndPosition()
   {
-    new DraftImpl(arbitrarySeasonType, null, arbitraryNumRounds,
-          arbitraryNumPoolees, arbitraryDraftOrderGetter);
+    new DraftImpl(arbitrarySeasonType, null, arbitraryNumRounds, arbitraryNumPoolees, arbitraryDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void constructor_nullDraftOrderGetter()
   {
-    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition,
-          arbitraryNumRounds, arbitraryNumPoolees, null);
+    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition, arbitraryNumRounds, arbitraryNumPoolees, null);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void constructor_invalidNumRounds()
   {
     final int arbitraryInvalidNumRounds = 0;
-    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition,
-          arbitraryInvalidNumRounds, arbitraryNumPoolees,
+    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition, arbitraryInvalidNumRounds, arbitraryNumPoolees,
           arbitraryDraftOrderGetter);
   }
 
@@ -58,17 +54,15 @@ public final class DraftImplConstructorTest
   public void constructor_invalidNumPoolees()
   {
     final int arbitraryInvalidNumPooleess = 0;
-    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition,
-          arbitraryNumRounds, arbitraryInvalidNumPooleess,
+    new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition, arbitraryNumRounds, arbitraryInvalidNumPooleess,
           arbitraryDraftOrderGetter);
   }
 
   @Test
   public void constructor_allParametersValid()
   {
-    final Draft draft = new DraftImpl(arbitrarySeasonType,
-          playersByTeamAndPosition, arbitraryNumRounds, arbitraryNumPoolees,
-          arbitraryDraftOrderGetter);
+    final Draft draft = new DraftImpl(arbitrarySeasonType, playersByTeamAndPosition, arbitraryNumRounds,
+          arbitraryNumPoolees, arbitraryDraftOrderGetter);
     assertEquals(arbitrarySeasonType, draft.getSeasonType());
     assertEquals(arbitraryNumRounds, draft.getNumRounds());
     assertEquals(arbitraryNumPoolees, draft.getNumPoolees());

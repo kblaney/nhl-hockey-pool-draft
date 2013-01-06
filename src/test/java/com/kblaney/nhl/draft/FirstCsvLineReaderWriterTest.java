@@ -24,14 +24,10 @@ public final class FirstCsvLineReaderWriterTest
     final SeasonType arbitrarySeasonType = SeasonType.PLAYOFF;
     final int arbitraryNumRounds = 3;
     final int arbitraryNumPoolees = 4;
-    final String[] expectedFields = new String[]
-    {
-      arbitrarySeasonType.toString(),
-      Integer.toString(arbitraryNumRounds),
-      Integer.toString(arbitraryNumPoolees),
-    };
-    assertTrue(Arrays.equals(expectedFields, readerWriter.getFields(
-          arbitrarySeasonType, arbitraryNumRounds, arbitraryNumPoolees)));
+    final String[] expectedFields = new String[] { arbitrarySeasonType.toString(),
+          Integer.toString(arbitraryNumRounds), Integer.toString(arbitraryNumPoolees), };
+    assertTrue(Arrays.equals(expectedFields,
+          readerWriter.getFields(arbitrarySeasonType, arbitraryNumRounds, arbitraryNumPoolees)));
   }
 
   @Test(expected = ParseException.class)
@@ -44,34 +40,27 @@ public final class FirstCsvLineReaderWriterTest
   public void getSeasonType_invalidSeasonTypeString() throws Exception
   {
     final String arbitraryInvalidSeasonTypeString = "BUBBA";
-    readerWriter.getSeasonType(getFieldsWithSeasonTypeString(
-          arbitraryInvalidSeasonTypeString));
+    readerWriter.getSeasonType(getFieldsWithSeasonTypeString(arbitraryInvalidSeasonTypeString));
   }
 
   private String[] getFieldsWithSeasonTypeString(final String seasonTypeString)
   {
     final int arbitraryNumRounds = 3;
     final int arbitraryNumPoolees = 4;
-    return new String[]
-    {
-      seasonTypeString,
-      Integer.toString(arbitraryNumRounds),
-      Integer.toString(arbitraryNumPoolees),
-    };
+    return new String[] { seasonTypeString, Integer.toString(arbitraryNumRounds),
+          Integer.toString(arbitraryNumPoolees), };
   }
 
   @Test
   public void getSeasonType_playoff() throws Exception
   {
-    assertEquals(SeasonType.PLAYOFF, readerWriter.getSeasonType(
-          getFieldsWithSeasonTypeString("PLAYOFF")));
+    assertEquals(SeasonType.PLAYOFF, readerWriter.getSeasonType(getFieldsWithSeasonTypeString("PLAYOFF")));
   }
 
   @Test
   public void getSeasonType_regularSeason() throws Exception
   {
-    assertEquals(SeasonType.REGULAR_SEASON, readerWriter.getSeasonType(
-          getFieldsWithSeasonTypeString("REGULAR_SEASON")));
+    assertEquals(SeasonType.REGULAR_SEASON, readerWriter.getSeasonType(getFieldsWithSeasonTypeString("REGULAR_SEASON")));
   }
 
   @Test(expected = ParseException.class)
@@ -84,28 +73,22 @@ public final class FirstCsvLineReaderWriterTest
   public void getNumRounds_invalidNumRounds() throws Exception
   {
     final int arbitraryInvalidNumRounds = 0;
-    readerWriter.getNumRounds(getFieldsWithNumRounds(
-          arbitraryInvalidNumRounds));
+    readerWriter.getNumRounds(getFieldsWithNumRounds(arbitraryInvalidNumRounds));
   }
 
   private String[] getFieldsWithNumRounds(final int numRounds)
   {
     final SeasonType arbitrarySeasonType = SeasonType.REGULAR_SEASON;
     final int arbitraryNumPoolees = 6;
-    return new String[]
-    {
-      arbitrarySeasonType.toString(),
-      Integer.toString(numRounds),
-      Integer.toString(arbitraryNumPoolees),
-    };
+    return new String[] { arbitrarySeasonType.toString(), Integer.toString(numRounds),
+          Integer.toString(arbitraryNumPoolees), };
   }
 
   @Test
   public void getNumRounds_validNumRounds() throws Exception
   {
     final int arbitraryNumRounds = 12;
-    assertEquals(arbitraryNumRounds, readerWriter.getNumRounds(
-          getFieldsWithNumRounds(arbitraryNumRounds)));
+    assertEquals(arbitraryNumRounds, readerWriter.getNumRounds(getFieldsWithNumRounds(arbitraryNumRounds)));
   }
 
   @Test(expected = ParseException.class)
@@ -118,27 +101,21 @@ public final class FirstCsvLineReaderWriterTest
   public void getNumPoolees_invalidNumPoolees() throws Exception
   {
     final int arbitraryInvalidNumPoolees = -2;
-    readerWriter.getNumPoolees(getFieldsWithNumPoolees(
-          arbitraryInvalidNumPoolees));
+    readerWriter.getNumPoolees(getFieldsWithNumPoolees(arbitraryInvalidNumPoolees));
   }
 
   private String[] getFieldsWithNumPoolees(final int numPoolees)
   {
     final SeasonType arbitrarySeasonType = SeasonType.PLAYOFF;
     final int arbitraryNumRounds = 14;
-    return new String[]
-    {
-      arbitrarySeasonType.toString(),
-      Integer.toString(arbitraryNumRounds),
-      Integer.toString(numPoolees),
-    };
+    return new String[] { arbitrarySeasonType.toString(), Integer.toString(arbitraryNumRounds),
+          Integer.toString(numPoolees), };
   }
 
   @Test
   public void getNumPoolees_validNumRounds() throws Exception
   {
     final int arbitraryNumPoolees = 12;
-    assertEquals(arbitraryNumPoolees, readerWriter.getNumPoolees(
-          getFieldsWithNumPoolees(arbitraryNumPoolees)));
+    assertEquals(arbitraryNumPoolees, readerWriter.getNumPoolees(getFieldsWithNumPoolees(arbitraryNumPoolees)));
   }
 }

@@ -7,9 +7,7 @@ import com.kblaney.commons.lang.ArgAssert;
  */
 public enum Position
 {
-  FORWARD("Forward", "F"),
-  DEFENSEMAN("Defenseman", "D"),
-  GOALIE("Goalie", "G");
+  FORWARD("Forward", "F"), DEFENSEMAN("Defenseman", "D"), GOALIE("Goalie", "G");
 
   private final String longform;
   private final String shortform;
@@ -26,14 +24,13 @@ public enum Position
   }
 
   /**
-   * Determines if there is a position that has a specified shortform.  Note
-   * that {@code shortform} is not case-significant.
-   *
+   * Determines if there is a position that has a specified shortform. Note that {@code shortform} is not
+   * case-significant.
+   * 
    * @param shortform the shortform
-   *
-   * @return {@code true} if there is a position that has the specified
-   * shortform; {@code false} otherwise
-   *
+   * 
+   * @return {@code true} if there is a position that has the specified shortform; {@code false} otherwise
+   * 
    * @see #getPositionThatHasShortform(String)
    */
   public static boolean isPositionThatHasShortform(final String shortform)
@@ -49,13 +46,12 @@ public enum Position
   }
 
   /**
-   * Gets the position that has a specified shortform.  Note that
-   * {@code shortform} is not case-significant.
-   *
+   * Gets the position that has a specified shortform. Note that {@code shortform} is not case-significant.
+   * 
    * @param shortform the shortform, which can't be null
-   *
+   * 
    * @return the position with the specified shortform
-   *
+   * 
    * @see #isPositionThatHasShortform(String)
    */
   public static Position getPositionThatHasShortform(final String shortform)
@@ -70,8 +66,7 @@ public enum Position
       }
     }
 
-    throw new IllegalArgumentException("Invalid position shortform:" +
-          shortform);
+    throw new IllegalArgumentException("Invalid position shortform:" + shortform);
   }
 
   /** {@inheritDoc} */

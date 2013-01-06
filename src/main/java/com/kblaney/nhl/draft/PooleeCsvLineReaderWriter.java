@@ -31,9 +31,7 @@ final class PooleeCsvLineReaderWriter
     }
     else
     {
-      throw ParseExceptions.newInstance(
-            "Invalid number of items on poolee line:" +
-            Arrays.toString(fields));
+      throw ParseExceptions.newInstance("Invalid number of items on poolee line:" + Arrays.toString(fields));
     }
   }
 }

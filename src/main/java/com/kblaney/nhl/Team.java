@@ -53,14 +53,12 @@ public enum Team
   }
 
   /**
-   * Determines if there is a team that has a specified shortform.  Note that
-   * {@code shortform} is not case-significant.
-   *
+   * Determines if there is a team that has a specified shortform. Note that {@code shortform} is not case-significant.
+   * 
    * @param shortform the shortform
-   *
-   * @return {@code true} if there is a team that has the specified shortform;
-   * {@code false} otherwise
-   *
+   * 
+   * @return {@code true} if there is a team that has the specified shortform; {@code false} otherwise
+   * 
    * @see #getTeamThatHasShortform(String)
    */
   public static boolean isTeamThatHasShortform(final String shortform)
@@ -77,9 +75,9 @@ public enum Team
 
   /**
    * Gets the team that has a specified shortform.
-   *
+   * 
    * @param shortform the team's shortform, which can't be null
-   *
+   * 
    * @return the team with the specified shortform
    */
   public static Team getTeamThatHasShortform(final String shortform)
@@ -94,8 +92,7 @@ public enum Team
       }
     }
 
-    throw new IllegalArgumentException(shortform +
-          " is not a legal NHL team shortform");
+    throw new IllegalArgumentException(shortform + " is not a legal NHL team shortform");
   }
 
   /** {@inheritDoc} */

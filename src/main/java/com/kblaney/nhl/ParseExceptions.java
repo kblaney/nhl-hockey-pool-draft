@@ -13,9 +13,9 @@ public final class ParseExceptions
 
   /**
    * Gets a new instance of ParseException with a specified message.
-   *
+   * 
    * @param msg the message
-   *
+   * 
    * @return the exception
    */
   public static ParseException newInstance(final String msg)

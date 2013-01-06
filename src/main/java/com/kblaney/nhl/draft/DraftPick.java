@@ -22,16 +22,13 @@ public final class DraftPick
 
   /**
    * Constructs a new instance of DraftPick.
-   *
+   * 
    * @param player the player that is drafted, which can't be null
    * @param poolee the poolee that drafted the player, which can't be null
-   * @param roundNum the round number in which the player was drafted, which
-   * must be positive
-   * @param pickNum the pick number in which the player was drafted, which must
-   * be positive
+   * @param roundNum the round number in which the player was drafted, which must be positive
+   * @param pickNum the pick number in which the player was drafted, which must be positive
    */
-  public DraftPick(final Player player, final Poolee poolee,
-        final int roundNum, final int pickNum)
+  public DraftPick(final Player player, final Poolee poolee, final int roundNum, final int pickNum)
   {
     ArgAssert.notNull(player, "player");
     ArgAssert.notNull(poolee, "poolee");
@@ -46,7 +43,7 @@ public final class DraftPick
 
   /**
    * Gets the player of this draft pick.
-   *
+   * 
    * @return the player of this draft pick
    */
   public Player getPlayer()
@@ -58,7 +55,7 @@ public final class DraftPick
 
   /**
    * Gets the poolee of this draft pick.
-   *
+   * 
    * @return the poolee of this draft pick
    */
   public Poolee getPoolee()
@@ -70,7 +67,7 @@ public final class DraftPick
 
   /**
    * Gets the round number of this draft pick.
-   *
+   * 
    * @return the round number of this draft pick
    */
   public int getRoundNum()
@@ -80,7 +77,7 @@ public final class DraftPick
 
   /**
    * Gets the pick number of this draft pick.
-   *
+   * 
    * @return the pick number of this draft pick
    */
   public int getPickNum()
@@ -103,11 +100,8 @@ public final class DraftPick
     else
     {
       final DraftPick that = (DraftPick) thatObject;
-      return new EqualsBuilder().
-            append(roundNum, that.roundNum).
-            append(pickNum, that.pickNum).
-            append(player, that.player).
-            append(poolee, that.poolee).isEquals();
+      return new EqualsBuilder().append(roundNum, that.roundNum).append(pickNum, that.pickNum)
+            .append(player, that.player).append(poolee, that.poolee).isEquals();
     }
   }
 
@@ -115,21 +109,14 @@ public final class DraftPick
   @Override
   public int hashCode()
   {
-    return new HashCodeBuilder().
-          append(roundNum).
-          append(pickNum).
-          append(player).
-          append(poolee).toHashCode();
+    return new HashCodeBuilder().append(roundNum).append(pickNum).append(player).append(poolee).toHashCode();
   }
 
   /** {@inheritDoc} */
   @Override
   public String toString()
   {
-    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).
-          append(roundNum).
-          append(pickNum).
-          append(player).
-          append(poolee).toString();
+    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append(roundNum).append(pickNum).append(player)
+          .append(poolee).toString();
   }
 }

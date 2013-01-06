@@ -25,8 +25,7 @@ public final class DraftCsvReaderWriterTest
   {
     mockPlayersByTeamAndPosition = mock(PlayersByTeamAndPosition.class);
     mockDraftOrderGetter = mock(DraftOrderGetter.class);
-    readerWriter = new DraftCsvReaderWriter(mockPlayersByTeamAndPosition,
-          mockDraftOrderGetter);
+    readerWriter = new DraftCsvReaderWriter(mockPlayersByTeamAndPosition, mockDraftOrderGetter);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -72,18 +71,14 @@ public final class DraftCsvReaderWriterTest
     assertDraftCanBeWrittenAndRead(Drafts.completedDraft());
   }
 
-  private void assertDraftCanBeWrittenAndRead(final Draft draft)
-        throws Exception
+  private void assertDraftCanBeWrittenAndRead(final Draft draft) throws Exception
   {
     @SuppressWarnings("unchecked")
-	final Set<Player> set = mock(Set.class);
+    final Set<Player> set = mock(Set.class);
     when(set.contains(any(Player.class))).thenReturn(true);
-    when(mockPlayersByTeamAndPosition.getPlayersOnTeamAtPosition(
-          any(Team.class), any(Position.class))).thenReturn(set);
-    final DraftOrderGetter arbitraryDraftOrderGetter =
-          new SCurveDraftOrderGetter();
-    readerWriter = new DraftCsvReaderWriter(mockPlayersByTeamAndPosition,
-          arbitraryDraftOrderGetter);
+    when(mockPlayersByTeamAndPosition.getPlayersOnTeamAtPosition(any(Team.class), any(Position.class))).thenReturn(set);
+    final DraftOrderGetter arbitraryDraftOrderGetter = new SCurveDraftOrderGetter();
+    readerWriter = new DraftCsvReaderWriter(mockPlayersByTeamAndPosition, arbitraryDraftOrderGetter);
 
     final Writer writer = new StringWriter();
     readerWriter.writeDraft(draft, writer);

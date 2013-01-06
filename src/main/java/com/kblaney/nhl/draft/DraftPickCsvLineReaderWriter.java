@@ -25,10 +25,8 @@ final class DraftPickCsvLineReaderWriter
   public String[] getFields(final DraftPick draftPick)
   {
     final String[] fields = new String[NUM_FIELDS];
-    fields[DRAFT_PICK_ROUND_NUM_INDEX] =
-          Integer.toString(draftPick.getRoundNum());
-    fields[DRAFT_PICK_NUM_INDEX] =
-          Integer.toString(draftPick.getPickNum());
+    fields[DRAFT_PICK_ROUND_NUM_INDEX] = Integer.toString(draftPick.getRoundNum());
+    fields[DRAFT_PICK_NUM_INDEX] = Integer.toString(draftPick.getPickNum());
 
     final Poolee poolee = draftPick.getPoolee();
     fields[POOLEE_FIRST_NAME_INDEX] = poolee.getFirstName();
@@ -38,8 +36,7 @@ final class DraftPickCsvLineReaderWriter
     fields[PLAYER_FIRST_NAME_INDEX] = player.getFirstName();
     fields[PLAYER_LAST_NAME_INDEX] = player.getLastName();
     fields[PLAYER_TEAM_SHORTFORM_INDEX] = player.getTeam().getShortform();
-    fields[PLAYER_POSITION_SHORTFORM_INDEX] =
-          player.getPosition().getShortform();
+    fields[PLAYER_POSITION_SHORTFORM_INDEX] = player.getPosition().getShortform();
     return fields;
   }
 
@@ -55,9 +52,7 @@ final class DraftPickCsvLineReaderWriter
     }
     else
     {
-      throw ParseExceptions.newInstance(
-            "Invalid number of fields on draft pick line:" +
-            Arrays.toString(fields));
+      throw ParseExceptions.newInstance("Invalid number of fields on draft pick line:" + Arrays.toString(fields));
     }
   }
 
@@ -96,13 +91,11 @@ final class DraftPickCsvLineReaderWriter
     }
     else
     {
-      throw ParseExceptions.newInstance("Invalid team shortform:" +
-            teamShortform);
+      throw ParseExceptions.newInstance("Invalid team shortform:" + teamShortform);
     }
   }
 
-  private Position getPlayerPosition(final String[] fields)
-        throws ParseException
+  private Position getPlayerPosition(final String[] fields) throws ParseException
   {
     final String positionShortform = fields[PLAYER_POSITION_SHORTFORM_INDEX];
     if (Position.isPositionThatHasShortform(positionShortform))
@@ -111,8 +104,7 @@ final class DraftPickCsvLineReaderWriter
     }
     else
     {
-      throw ParseExceptions.newInstance("Invalid position shortform:" +
-            positionShortform);
+      throw ParseExceptions.newInstance("Invalid position shortform:" + positionShortform);
     }
   }
 
@@ -125,8 +117,7 @@ final class DraftPickCsvLineReaderWriter
     }
     catch (final IllegalArgumentException e)
     {
-      throw ParseExceptions.newInstance("Invalid draft pick round num:" +
-            draftPickRoundNumString);
+      throw ParseExceptions.newInstance("Invalid draft pick round num:" + draftPickRoundNumString);
     }
   }
 
@@ -139,8 +130,7 @@ final class DraftPickCsvLineReaderWriter
     }
     catch (final IllegalArgumentException e)
     {
-      throw ParseExceptions.newInstance("Invalid draft pick num:" +
-            draftPickNumString);
+      throw ParseExceptions.newInstance("Invalid draft pick num:" + draftPickNumString);
     }
   }
 }

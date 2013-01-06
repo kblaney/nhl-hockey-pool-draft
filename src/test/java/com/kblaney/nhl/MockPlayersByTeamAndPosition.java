@@ -6,11 +6,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * An implementation of the PlayersByTeamAndPosition interface that comes with
- * many players already added.
+ * An implementation of the PlayersByTeamAndPosition interface that comes with many players already added.
  */
-public final class MockPlayersByTeamAndPosition
-      implements PlayersByTeamAndPosition
+public final class MockPlayersByTeamAndPosition implements PlayersByTeamAndPosition
 {
   private PlayersByTeamAndPosition playersByTeamAndPosition;
 
@@ -823,14 +821,12 @@ public final class MockPlayersByTeamAndPosition
     playersByTeamAndPosition.addPlayer(player);
   }
 
-  public Map<Position, Set<Player>> getPlayersOnTeam(
-        final Team team)
+  public Map<Position, Set<Player>> getPlayersOnTeam(final Team team)
   {
     return playersByTeamAndPosition.getPlayersOnTeam(team);
   }
 
-  public Set<Player> getPlayersOnTeamAtPosition(final Team team,
-        final Position position)
+  public Set<Player> getPlayersOnTeamAtPosition(final Team team, final Position position)
   {
     return playersByTeamAndPosition.getPlayersOnTeamAtPosition(team, position);
   }

@@ -62,8 +62,7 @@ public final class PositionTest
     assertPositionHasShortforms(Position.GOALIE, "G", "g");
   }
 
-  private void assertPositionHasShortforms(final Position position,
-        final String... shortforms)
+  private void assertPositionHasShortforms(final Position position, final String... shortforms)
   {
     for (final String shortform : shortforms)
     {

@@ -72,7 +72,6 @@ public final class SCurveDraftOrderGetterTest
   @Test
   public void getDraftOrder()
   {
-    assertEquals(expectedDraftOrder, draftOrderGetter.getDraftOrder(
-          firstRoundDraftOrder, numRounds));
+    assertEquals(expectedDraftOrder, draftOrderGetter.getDraftOrder(firstRoundDraftOrder, numRounds));
   }
 }

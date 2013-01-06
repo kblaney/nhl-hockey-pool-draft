@@ -10,13 +10,11 @@ import java.util.List;
 
 /**
  * Gets teams in the playoffs.
- *
+ * 
  * <p>
- * This class requires that the reader passed to its constructor has two lines,
- * each with comma-separated team shortforms.  The first line is shortforms of
- * the teams in the upper half.  The second line is shortforms of the teams in
- * the lower half.  Typically, the two lists correspond to the NHL's Easter and
- * Western Conferences.
+ * This class requires that the reader passed to its constructor has two lines, each with comma-separated team
+ * shortforms. The first line is shortforms of the teams in the upper half. The second line is shortforms of the teams
+ * in the lower half. Typically, the two lists correspond to the NHL's Easter and Western Conferences.
  * </p>
  */
 public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
@@ -30,15 +28,13 @@ public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
 
   /**
    * Constructs a new instance of CsvPlayoffTeamsGetter.
-   *
+   * 
    * @param reader the reader, which can't be null
-   *
+   * 
    * @throws IOException if an error occurs reading from {@code reader}
-   * @throws ParseException if an error occurs parsing the contents of
-   * {@code reader}
+   * @throws ParseException if an error occurs parsing the contents of {@code reader}
    */
-  public CsvPlayoffTeamsGetter(final Reader reader)
-        throws IOException, ParseException
+  public CsvPlayoffTeamsGetter(final Reader reader) throws IOException, ParseException
   {
     ArgAssert.notNull(reader, "reader");
 
@@ -63,14 +59,12 @@ public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
     {
       if (lines.length < MIN_NUM_LINES)
       {
-        throw ParseExceptions.newInstance(
-              "Too few lines in playoff teams reader");
+        throw ParseExceptions.newInstance("Too few lines in playoff teams reader");
       }
     }
   }
 
-  private List<Team> getUpperHalfTeams(final String[][] lines)
-        throws ParseException
+  private List<Team> getUpperHalfTeams(final String[][] lines) throws ParseException
   {
     final String[] line = lines[UPPER_HALF_TEAMS_LINE_INDEX];
     final List<Team> teams = getTeamsOnLine(line);
@@ -81,8 +75,7 @@ public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
     return teams;
   }
 
-  private List<Team> getLowerHalfTeams(final String[][] lines)
-        throws ParseException
+  private List<Team> getLowerHalfTeams(final String[][] lines) throws ParseException
   {
     final String[] line = lines[LOWER_HALF_TEAMS_LINE_INDEX];
     final List<Team> teams = getTeamsOnLine(line);
@@ -104,8 +97,7 @@ public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
       }
       else
       {
-        throw ParseExceptions.newInstance("Invalid team shortform:" +
-              teamShortform);
+        throw ParseExceptions.newInstance("Invalid team shortform:" + teamShortform);
       }
     }
     return teams;

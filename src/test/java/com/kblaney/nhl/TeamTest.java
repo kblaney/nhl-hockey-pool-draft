@@ -54,8 +54,7 @@ public final class TeamTest
     for (final Team team : Team.values())
     {
       assertTrue(Team.isTeamThatHasShortform(team.getShortform()));
-      assertTrue(Team.isTeamThatHasShortform(
-            team.getShortform().toLowerCase()));
+      assertTrue(Team.isTeamThatHasShortform(team.getShortform().toLowerCase()));
     }
   }
 
@@ -78,8 +77,7 @@ public final class TeamTest
     for (final Team team : Team.values())
     {
       assertEquals(team, Team.getTeamThatHasShortform(team.getShortform()));
-      assertEquals(team, Team.getTeamThatHasShortform(
-            team.getShortform().toLowerCase()));
+      assertEquals(team, Team.getTeamThatHasShortform(team.getShortform().toLowerCase()));
     }
   }
 }

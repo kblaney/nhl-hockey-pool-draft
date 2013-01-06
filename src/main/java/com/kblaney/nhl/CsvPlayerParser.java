@@ -25,15 +25,15 @@ public final class CsvPlayerParser implements PlayerParser
   private final CSVParse csvParser;
 
   /**
-   * Constructs a new instance of CsvPlayerParser that gets its input from a
-   * specified reader.  Each line of the reader must have the following fields:
+   * Constructs a new instance of CsvPlayerParser that gets its input from a specified reader. Each line of the reader
+   * must have the following fields:
    * <nl>
    * <li>the player's first name</li>
    * <li>the player's last name</li>
    * <li>the shortform of the player's team</li>
    * <li>the shortform of the player's position</li>
    * </nl>
-   *
+   * 
    * @param reader the reader, which can't be null
    */
   public CsvPlayerParser(final Reader reader)
@@ -44,13 +44,11 @@ public final class CsvPlayerParser implements PlayerParser
   }
 
   /** {@inheritDoc} */
-  public PlayersByTeamAndPosition getPlayersByTeamAndPosition()
-        throws IOException, ParseException
+  public PlayersByTeamAndPosition getPlayersByTeamAndPosition() throws IOException, ParseException
   {
     final String[][] allLines = csvParser.getAllValues();
 
-    final PlayersByTeamAndPosition playersByTeamAndPosition =
-          new PlayersByTeamAndPositionMapImpl();
+    final PlayersByTeamAndPosition playersByTeamAndPosition = new PlayersByTeamAndPositionMapImpl();
     for (final String[] line : allLines)
     {
       validate(line);
@@ -64,8 +62,7 @@ public final class CsvPlayerParser implements PlayerParser
   {
     if ((line.length < MIN_NUM_FIELDS) || (line.length > MAX_NUM_FIELDS))
     {
-      throw ParseExceptions.newInstance("Invalid # fields:" +
-            Arrays.toString(line));
+      throw ParseExceptions.newInstance("Invalid # fields:" + Arrays.toString(line));
     }
   }
 
@@ -84,8 +81,7 @@ public final class CsvPlayerParser implements PlayerParser
     final String firstName = line[FIRST_NAME_INDEX];
     if (StringUtils.isEmpty(firstName))
     {
-      throw ParseExceptions.newInstance("Empty first name" +
-            Arrays.toString(line));
+      throw ParseExceptions.newInstance("Empty first name" + Arrays.toString(line));
     }
     return firstName;
   }
@@ -95,8 +91,7 @@ public final class CsvPlayerParser implements PlayerParser
     final String lastName = line[LAST_NAME_INDEX];
     if (StringUtils.isEmpty(lastName))
     {
-      throw ParseExceptions.newInstance("Empty last name" +
-            Arrays.toString(line));
+      throw ParseExceptions.newInstance("Empty last name" + Arrays.toString(line));
     }
     return lastName;
   }
@@ -110,8 +105,7 @@ public final class CsvPlayerParser implements PlayerParser
     }
     catch (final IllegalArgumentException e)
     {
-      throw ParseExceptions.newInstance("Invalid team shortform:" +
-            teamShortform);
+      throw ParseExceptions.newInstance("Invalid team shortform:" + teamShortform);
     }
   }
 
@@ -124,8 +118,7 @@ public final class CsvPlayerParser implements PlayerParser
     }
     else
     {
-      throw ParseExceptions.newInstance(
-            "Invalid position shortform:" + positionShortform);
+      throw ParseExceptions.newInstance("Invalid position shortform:" + positionShortform);
     }
   }
 
@@ -150,7 +143,7 @@ public final class CsvPlayerParser implements PlayerParser
     }
     catch (final IOException e)
     {
-      // We intentionally ignore this exception.  (That's what is meant by
+      // We intentionally ignore this exception. (That's what is meant by
       // the "quietly" in the method name.)
     }
   }

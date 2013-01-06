@@ -16,8 +16,7 @@ public final class DraftPositionInFirstRoundValidatorTest
   public void isValid_threePoolees()
   {
     final int numPoolees = 3;
-    final IntOrStringValidator validator =
-          new DraftPositionInFirstRoundValidator(numPoolees);
+    final IntOrStringValidator validator = new DraftPositionInFirstRoundValidator(numPoolees);
     assertFalse(validator.isValid("0"));
     assertFalse(validator.isValid("4"));
     assertFalse(validator.isValid("bubba"));

@@ -15,10 +15,8 @@ public final class DraftFactoryImpl implements DraftFactory
   private IntOrStringValidator numPooleesValidator = new NumPooleesValidator();
 
   /** {@inheritDoc} */
-  public Draft createNewDraft(final SeasonType seasonType,
-        final PlayersByTeamAndPosition playersByTeamAndPosition,
-        final int numRounds, final int numPoolees,
-        final DraftOrderGetter draftOrderGetter)
+  public Draft createNewDraft(final SeasonType seasonType, final PlayersByTeamAndPosition playersByTeamAndPosition,
+        final int numRounds, final int numPoolees, final DraftOrderGetter draftOrderGetter)
   {
     ArgAssert.notNull(seasonType, "seasonType");
     ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
@@ -26,18 +24,13 @@ public final class DraftFactoryImpl implements DraftFactory
     Validate.isTrue(numRoundsValidator.isValid(numRounds));
     Validate.isTrue(numPooleesValidator.isValid(numPoolees));
 
-    return new DraftImpl(seasonType, playersByTeamAndPosition, numRounds,
-          numPoolees, draftOrderGetter);
+    return new DraftImpl(seasonType, playersByTeamAndPosition, numRounds, numPoolees, draftOrderGetter);
   }
 
   /** {@inheritDoc} */
-  public Draft resumeDraft(
-        final SeasonType seasonType,
-        final PlayersByTeamAndPosition playersByTeamAndPosition,
-        final int numRounds, final int numPoolees,
-        final DraftOrderGetter draftOrderGetter,
-        final List<Poolee> firstRoundDraftOrder,
-        final List<DraftPick> draftPicks)
+  public Draft resumeDraft(final SeasonType seasonType, final PlayersByTeamAndPosition playersByTeamAndPosition,
+        final int numRounds, final int numPoolees, final DraftOrderGetter draftOrderGetter,
+        final List<Poolee> firstRoundDraftOrder, final List<DraftPick> draftPicks)
   {
     ArgAssert.notNull(seasonType, "seasonType");
     ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
@@ -47,8 +40,7 @@ public final class DraftFactoryImpl implements DraftFactory
     ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
     ArgAssert.notNull(draftPicks, "draftPicks");
 
-    final Draft draft = new DraftImpl(seasonType, playersByTeamAndPosition,
-          numRounds, numPoolees, draftOrderGetter);
+    final Draft draft = new DraftImpl(seasonType, playersByTeamAndPosition, numRounds, numPoolees, draftOrderGetter);
 
     int draftPosition = 1;
     for (final Poolee poolee : firstRoundDraftOrder)
@@ -75,8 +67,7 @@ public final class DraftFactoryImpl implements DraftFactory
     return draft;
   }
 
-  boolean isFirstRoundDraftOrderComplete(
-        final List<Poolee> firstRoundDraftOrder)
+  boolean isFirstRoundDraftOrderComplete(final List<Poolee> firstRoundDraftOrder)
   {
     return (!firstRoundDraftOrder.contains(null));
   }

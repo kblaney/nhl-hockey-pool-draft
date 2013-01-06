@@ -51,8 +51,7 @@ public final class DraftImplCompletedDraftTest
   @Test
   public void getDraftPicks()
   {
-    assertEquals(Drafts.NUM_POOLEES * Drafts.NUM_ROUNDS,
-          draft.getDraftPicks().size());
+    assertEquals(Drafts.NUM_POOLEES * Drafts.NUM_ROUNDS, draft.getDraftPicks().size());
   }
 
   @Test
@@ -63,8 +62,7 @@ public final class DraftImplCompletedDraftTest
 
     for (final Poolee poolee : Drafts.ALL_POOLEES)
     {
-      assertEquals(expectedNumTeamsAvailable,
-            draft.getTeamsAvailableToDraftFrom(poolee).size());
+      assertEquals(expectedNumTeamsAvailable, draft.getTeamsAvailableToDraftFrom(poolee).size());
     }
   }
 
@@ -73,13 +71,9 @@ public final class DraftImplCompletedDraftTest
   {
     for (final Poolee poolee : Drafts.ALL_POOLEES)
     {
-      assertEquals(Drafts.NUM_ROUNDS,
-            draft.getDraftPicksOfPooleeAtPosition(
-            poolee, Position.FORWARD).size() +
-            draft.getDraftPicksOfPooleeAtPosition(
-            poolee, Position.DEFENSEMAN).size() +
-            draft.getDraftPicksOfPooleeAtPosition(
-            poolee, Position.GOALIE).size());
+      assertEquals(Drafts.NUM_ROUNDS, draft.getDraftPicksOfPooleeAtPosition(poolee, Position.FORWARD).size() +
+            draft.getDraftPicksOfPooleeAtPosition(poolee, Position.DEFENSEMAN).size() +
+            draft.getDraftPicksOfPooleeAtPosition(poolee, Position.GOALIE).size());
     }
   }
 

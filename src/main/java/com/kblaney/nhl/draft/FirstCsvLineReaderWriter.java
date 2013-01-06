@@ -14,8 +14,7 @@ final class FirstCsvLineReaderWriter
   private static final int NUM_POOLEES_INDEX = 2;
   private static final int NUM_FIELDS = 3;
 
-  public String[] getFields(final SeasonType seasonType, final int numRounds,
-        final int numPoolees)
+  public String[] getFields(final SeasonType seasonType, final int numRounds, final int numPoolees)
   {
     final String[] fields = new String[NUM_FIELDS];
     fields[SEASON_TYPE_INDEX] = seasonType.toString();
@@ -35,8 +34,7 @@ final class FirstCsvLineReaderWriter
     }
     catch (final IllegalArgumentException e)
     {
-      throw ParseExceptions.newInstance("Invalid season type:" +
-            seasonTypeString);
+      throw ParseExceptions.newInstance("Invalid season type:" + seasonTypeString);
     }
   }
 
@@ -44,8 +42,7 @@ final class FirstCsvLineReaderWriter
   {
     if (fields.length != NUM_FIELDS)
     {
-      throw ParseExceptions.newInstance("Invalid num fields on first line:" +
-            Arrays.toString(fields));
+      throw ParseExceptions.newInstance("Invalid num fields on first line:" + Arrays.toString(fields));
     }
   }
 
@@ -70,8 +67,7 @@ final class FirstCsvLineReaderWriter
     final IntOrStringValidator numPooleesValidator = new NumPooleesValidator();
     if (!numPooleesValidator.isValid(numPooleesString))
     {
-      throw ParseExceptions.newInstance("Invalid numPoolees:" +
-            numPooleesString);
+      throw ParseExceptions.newInstance("Invalid numPoolees:" + numPooleesString);
     }
     return Integer.parseInt(numPooleesString);
   }

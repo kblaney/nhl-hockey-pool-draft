@@ -21,8 +21,7 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   public void setUp()
   {
     draft = Drafts.startedDraftNoDraftPicks();
-    player = new Player("Steve", "Yzerman", Team.DETROIT_RED_WINGS,
-          Position.FORWARD);
+    player = new Player("Steve", "Yzerman", Team.DETROIT_RED_WINGS, Position.FORWARD);
     poolee = Drafts.FIRST_POOLEE;
   }
 
@@ -85,8 +84,7 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   {
     final Team arbitraryTeam = Team.CHICAGO_BLACKHAWKS;
     final Position arbitraryPosition = Position.DEFENSEMAN;
-    final Player unknownPlayer = new Player("UNKNOWN_FIRST_NAME",
-          "UNKNOWN_LAST_NAME", arbitraryTeam, arbitraryPosition);
+    final Player unknownPlayer = new Player("UNKNOWN_FIRST_NAME", "UNKNOWN_LAST_NAME", arbitraryTeam, arbitraryPosition);
     draft.addDraftPick(unknownPlayer, poolee);
   }
 
@@ -111,14 +109,11 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
 
     final int roundNum = 1;
     final int pickNum = 1;
-    final List<DraftPick> singleton = Collections.singletonList(
-          new DraftPick(player, poolee, roundNum, pickNum));
+    final List<DraftPick> singleton = Collections.singletonList(new DraftPick(player, poolee, roundNum, pickNum));
     assertEquals(singleton, draft.getDraftPicks());
     assertEquals(singleton, draft.getDraftPicksOfPoolee(poolee));
-    assertEquals(singleton, draft.getDraftPicksOfPooleeAtPosition(poolee,
-          player.getPosition()));
-    assertEquals(singleton, draft.getDraftPicksOfPooleeFromTeam(poolee,
-          player.getTeam()));
+    assertEquals(singleton, draft.getDraftPicksOfPooleeAtPosition(poolee, player.getPosition()));
+    assertEquals(singleton, draft.getDraftPicksOfPooleeFromTeam(poolee, player.getTeam()));
     assertEquals(singleton, draft.getDraftPicksOnTeam(player.getTeam()));
     assertEquals(singleton, draft.getMostRecentNDraftPicks(1));
     assertEquals(singleton, draft.getMostRecentNDraftPicks(2));
@@ -130,8 +125,7 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   @Test
   public void getFirstRoundDraftOrder()
   {
-    final List<Poolee> expected = Lists.newArrayList(
-          Drafts.FIRST_POOLEE, Drafts.SECOND_POOLEE, Drafts.THIRD_POOLEE);
+    final List<Poolee> expected = Lists.newArrayList(Drafts.FIRST_POOLEE, Drafts.SECOND_POOLEE, Drafts.THIRD_POOLEE);
     assertEquals(expected, draft.getFirstRoundDraftOrder());
   }
 
@@ -150,8 +144,7 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   @Test
   public void getTeamsAvailableToDraftFrom()
   {
-    assertTrue(draft.getTeamsAvailableToDraftFrom(
-          poolee).equals(EnumSet.allOf(Team.class)));
+    assertTrue(draft.getTeamsAvailableToDraftFrom(poolee).equals(EnumSet.allOf(Team.class)));
   }
 
   @Test
@@ -166,22 +159,19 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   @Test
   public void getForwardsDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.FORWARD).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.FORWARD).isEmpty());
   }
 
   @Test
   public void getDefensemenDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.DEFENSEMAN).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.DEFENSEMAN).isEmpty());
   }
 
   @Test
   public void getGoaliesDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.GOALIE).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.GOALIE).isEmpty());
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -195,7 +185,6 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
   public void getMostRecentNDraftPicks()
   {
     final int arbitraryNumDraftPicks = 2;
-    assertTrue(draft.getMostRecentNDraftPicks(arbitraryNumDraftPicks).
-          isEmpty());
+    assertTrue(draft.getMostRecentNDraftPicks(arbitraryNumDraftPicks).isEmpty());
   }
 }

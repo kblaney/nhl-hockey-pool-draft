@@ -9,14 +9,14 @@ public interface PlayoffTeamsGetter
 {
   /**
    * Gets the upper half teams.
-   *
+   * 
    * @return the teams
    */
   List<Team> getUpperHalfTeams();
 
   /**
    * Gets the lower-half teams.
-   *
+   * 
    * @return the teams
    */
   List<Team> getLowerHalfTeams();

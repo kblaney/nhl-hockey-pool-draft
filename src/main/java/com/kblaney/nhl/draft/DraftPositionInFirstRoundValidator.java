@@ -3,20 +3,16 @@ package com.kblaney.nhl.draft;
 import com.kblaney.commons.lang.ArgAssert;
 
 /**
- * Implements methods related to the validation of a draft position in the first
- * round of a draft.
+ * Implements methods related to the validation of a draft position in the first round of a draft.
  */
-public final class DraftPositionInFirstRoundValidator
-      implements IntOrStringValidator
+public final class DraftPositionInFirstRoundValidator implements IntOrStringValidator
 {
   private final int numPoolees;
 
   /**
-   * Constructs a new instance of DraftPositionInFirstRoundValidator for
-   * a draft that has a specified number of poolees.
-   *
-   * @param numPoolees the number of poolees in the draft, which must be
-   * positive
+   * Constructs a new instance of DraftPositionInFirstRoundValidator for a draft that has a specified number of poolees.
+   * 
+   * @param numPoolees the number of poolees in the draft, which must be positive
    */
   public DraftPositionInFirstRoundValidator(final int numPoolees)
   {

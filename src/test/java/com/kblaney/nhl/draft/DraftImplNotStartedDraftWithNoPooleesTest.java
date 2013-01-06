@@ -22,8 +22,7 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   public void setUp()
   {
     draft = Drafts.notStartedDraftWithNoPoolees();
-    player = new Player("Steve", "Yzerman", Team.DETROIT_RED_WINGS,
-          Position.FORWARD);
+    player = new Player("Steve", "Yzerman", Team.DETROIT_RED_WINGS, Position.FORWARD);
     poolee = Drafts.FIRST_POOLEE;
   }
 
@@ -133,8 +132,7 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void getFirstRoundDraftOrder()
   {
-    final List<Poolee> firstRoundDraftOrder =
-          draft.getFirstRoundDraftOrder();
+    final List<Poolee> firstRoundDraftOrder = draft.getFirstRoundDraftOrder();
     final List<Poolee> expectedFirstRoundDraftOrder = new ArrayList<Poolee>();
     for (int i = 0; i < Drafts.NUM_POOLEES; i++)
     {
@@ -147,8 +145,7 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void getFirstRoundDraftOrder_defensiveCopy()
   {
-    final List<Poolee> firstRoundDraftOrder =
-          draft.getFirstRoundDraftOrder();
+    final List<Poolee> firstRoundDraftOrder = draft.getFirstRoundDraftOrder();
     firstRoundDraftOrder.set(0, Drafts.FIRST_POOLEE);
     assertFalse(draft.getFirstRoundDraftOrder().contains(Drafts.FIRST_POOLEE));
   }
@@ -162,8 +159,7 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void isPlayerDrafted()
   {
-    assertFalse(draft.isPlayerDrafted(new Player(
-          "Steve", "Yzerman", Team.DETROIT_RED_WINGS, Position.FORWARD)));
+    assertFalse(draft.isPlayerDrafted(new Player("Steve", "Yzerman", Team.DETROIT_RED_WINGS, Position.FORWARD)));
   }
 
   @Test
@@ -183,15 +179,13 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void getTeamsAvailableToDraftFrom()
   {
-    assertEquals(EnumSet.allOf(Team.class),
-          draft.getTeamsAvailableToDraftFrom(Drafts.FIRST_POOLEE));
+    assertEquals(EnumSet.allOf(Team.class), draft.getTeamsAvailableToDraftFrom(Drafts.FIRST_POOLEE));
   }
 
   @Test
   public void getTeamsAvailableToDraftFrom_defensiveCopy()
   {
-    final Set<Team> teams = draft.getTeamsAvailableToDraftFrom(
-          Drafts.FIRST_POOLEE);
+    final Set<Team> teams = draft.getTeamsAvailableToDraftFrom(Drafts.FIRST_POOLEE);
     teams.clear();
     getTeamsAvailableToDraftFrom();
   }
@@ -213,8 +207,7 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   {
     for (final Team team : EnumSet.allOf(Team.class))
     {
-      assertTrue(draft.getDraftPicksOfPooleeFromTeam(
-            poolee, team).isEmpty());
+      assertTrue(draft.getDraftPicksOfPooleeFromTeam(poolee, team).isEmpty());
     }
   }
 
@@ -233,19 +226,14 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void getForwardsDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.FORWARD).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.FORWARD).isEmpty());
   }
 
   @Test
   public void getForwardsDraftedByPoolee_defensiveCopy()
   {
-    final List<DraftPick> forwardDraftPicks =
-          draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.FORWARD);
-    forwardDraftPicks.add(new DraftPick(
-          new Player("Mike", "Ribeiro", Team.MONTREAL_CANADIENS,
-          Position.FORWARD),
+    final List<DraftPick> forwardDraftPicks = draft.getDraftPicksOfPooleeAtPosition(poolee, Position.FORWARD);
+    forwardDraftPicks.add(new DraftPick(new Player("Mike", "Ribeiro", Team.MONTREAL_CANADIENS, Position.FORWARD),
           poolee, 2, 17));
     getForwardsDraftedByPoolee();
   }
@@ -253,37 +241,29 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
   @Test
   public void getDefensemenDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.DEFENSEMAN).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.DEFENSEMAN).isEmpty());
   }
 
   @Test
   public void getDefensemenDraftedByPoolee_defensiveCopy()
   {
-    final List<DraftPick> defensemenDraftPicks =
-          draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.DEFENSEMAN);
-    defensemenDraftPicks.add(new DraftPick(new Player(
-          "Sheldon", "Souray", Team.MONTREAL_CANADIENS, Position.DEFENSEMAN),
-          poolee, 2, 17));
+    final List<DraftPick> defensemenDraftPicks = draft.getDraftPicksOfPooleeAtPosition(poolee, Position.DEFENSEMAN);
+    defensemenDraftPicks.add(new DraftPick(
+          new Player("Sheldon", "Souray", Team.MONTREAL_CANADIENS, Position.DEFENSEMAN), poolee, 2, 17));
     getDefensemenDraftedByPoolee();
   }
 
   @Test
   public void getGoaliesDraftedByPoolee()
   {
-    assertTrue(draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.GOALIE).isEmpty());
+    assertTrue(draft.getDraftPicksOfPooleeAtPosition(poolee, Position.GOALIE).isEmpty());
   }
 
   @Test
   public void getGoaliesDraftedByPoolee_defensiveCopy()
   {
-    final List<DraftPick> goalieDraftPicks =
-          draft.getDraftPicksOfPooleeAtPosition(
-          poolee, Position.GOALIE);
-    goalieDraftPicks.add(new DraftPick(new Player(
-          "Jose", "Theodore", Team.MONTREAL_CANADIENS, Position.GOALIE),
+    final List<DraftPick> goalieDraftPicks = draft.getDraftPicksOfPooleeAtPosition(poolee, Position.GOALIE);
+    goalieDraftPicks.add(new DraftPick(new Player("Jose", "Theodore", Team.MONTREAL_CANADIENS, Position.GOALIE),
           poolee, 2, 17));
     getGoaliesDraftedByPoolee();
   }

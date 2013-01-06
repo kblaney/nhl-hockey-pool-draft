@@ -32,17 +32,13 @@ final class DraftImpl implements Draft
   private final Set<Player> draftedPlayers;
   private final List<DraftPick> draftPicks;
   private final Map<Poolee, List<DraftPick>> draftPicksByPoolee;
-  private final IntOrStringValidator numRoundsValidator =
-        new NumRoundsValidator();
-  private final IntOrStringValidator numPooleesValidator =
-        new NumPooleesValidator();
+  private final IntOrStringValidator numRoundsValidator = new NumRoundsValidator();
+  private final IntOrStringValidator numPooleesValidator = new NumPooleesValidator();
   private List<Poolee> draftOrder;
   private DraftState draftState;
 
-  DraftImpl(final SeasonType seasonType,
-        final PlayersByTeamAndPosition playersByTeamAndPosition,
-        final int numRounds, final int numPoolees,
-        final DraftOrderGetter draftOrderGetter)
+  DraftImpl(final SeasonType seasonType, final PlayersByTeamAndPosition playersByTeamAndPosition, final int numRounds,
+        final int numPoolees, final DraftOrderGetter draftOrderGetter)
   {
     ArgAssert.notNull(seasonType, "seasonType");
     ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
@@ -57,19 +53,17 @@ final class DraftImpl implements Draft
     this.draftOrderGetter = draftOrderGetter;
 
     draftState = DraftState.NOT_STARTED;
-    draftPositionInFirstRoundValidator =
-          new DraftPositionInFirstRoundValidator(numPoolees);
+    draftPositionInFirstRoundValidator = new DraftPositionInFirstRoundValidator(numPoolees);
     draftPicksByPoolee = Maps.newHashMapWithExpectedSize(numPoolees);
 
     final int totalNumDraftPicks = getTotalNumDraftPicksUponCompletion();
     draftedPlayers = Sets.newHashSetWithExpectedSize(totalNumDraftPicks);
     draftPicks = Lists.newArrayListWithCapacity(totalNumDraftPicks);
 
-    // We add null poolees to the first round draft order.  (The null values
+    // We add null poolees to the first round draft order. (The null values
     // get overwritten when the addPoolee method is called.)
     //
-    firstRoundDraftOrder = Lists.newArrayList(
-          Collections.<Poolee>nCopies(numPoolees, null));
+    firstRoundDraftOrder = Lists.newArrayList(Collections.<Poolee> nCopies(numPoolees, null));
   }
 
   private int getTotalNumDraftPicksUponCompletion()
@@ -112,13 +106,11 @@ final class DraftImpl implements Draft
   }
 
   /** {@inheritDoc} */
-  public void addPoolee(final Poolee poolee,
-        final int draftPositionInFirstRound)
+  public void addPoolee(final Poolee poolee, final int draftPositionInFirstRound)
   {
     ArgAssert.notNull(poolee, "poolee");
     assertDraftStateIs(DraftState.NOT_STARTED);
-    Validate.isTrue(draftPositionInFirstRoundValidator.
-          isValid(draftPositionInFirstRound));
+    Validate.isTrue(draftPositionInFirstRoundValidator.isValid(draftPositionInFirstRound));
 
     // We have to shift the draft position by 1 to get a list index because
     // draft positions start at 1 and indices start at 0.
@@ -130,8 +122,7 @@ final class DraftImpl implements Draft
   {
     if (draftState != expectedDraftState)
     {
-      throw new IllegalStateException("Illegal draft state:" + draftState +
-            " (expected " + expectedDraftState + ")");
+      throw new IllegalStateException("Illegal draft state:" + draftState + " (expected " + expectedDraftState + ")");
     }
   }
 
@@ -141,8 +132,7 @@ final class DraftImpl implements Draft
     assertDraftStateIs(DraftState.NOT_STARTED);
     assertDraftOrderIsValid();
 
-    draftOrder = draftOrderGetter.getDraftOrder(firstRoundDraftOrder,
-          numRounds);
+    draftOrder = draftOrderGetter.getDraftOrder(firstRoundDraftOrder, numRounds);
     draftState = DraftState.UNDERWAY;
   }
 
@@ -191,8 +181,7 @@ final class DraftImpl implements Draft
     // Add this draft pick to the list of all draft picks.
     //
     final int pickNum = draftedPlayers.size();
-    final DraftPick draftPick = new DraftPick(player, poolee, roundNum,
-          pickNum);
+    final DraftPick draftPick = new DraftPick(player, poolee, roundNum, pickNum);
     draftPicks.add(draftPick);
 
     // Add this draft pick to the list of draft picks of this poolee.
@@ -217,8 +206,7 @@ final class DraftImpl implements Draft
     return draftPick;
   }
 
-  private void validateDraftPick(final Player draftedPlayer,
-        final Poolee poolee)
+  private void validateDraftPick(final Player draftedPlayer, final Poolee poolee)
   {
     assertPlayerIsKnown(draftedPlayer);
     assertPooleeIsNextToDraft(poolee);
@@ -228,13 +216,11 @@ final class DraftImpl implements Draft
 
   private void assertPlayerIsKnown(final Player player)
   {
-    final Set<Player> playersOnTeamAtPosition =
-          playersByTeamAndPosition.getPlayersOnTeamAtPosition(
-          player.getTeam(), player.getPosition());
+    final Set<Player> playersOnTeamAtPosition = playersByTeamAndPosition.getPlayersOnTeamAtPosition(player.getTeam(),
+          player.getPosition());
     if (!playersOnTeamAtPosition.contains(player))
     {
-      throw new IllegalArgumentException("Unknown player:" +
-            player.getFullName());
+      throw new IllegalArgumentException("Unknown player:" + player.getFullName());
     }
   }
 
@@ -242,25 +228,20 @@ final class DraftImpl implements Draft
   {
     if (!poolee.equals(getNextPooleeToDraft()))
     {
-      throw new IllegalArgumentException(poolee.getFullName() +
-            " is drafting out of position");
+      throw new IllegalArgumentException(poolee.getFullName() + " is drafting out of position");
     }
   }
 
-  private void assertPooleeAllowedToDraftPlayer(final Poolee poolee,
-        final Player player)
+  private void assertPooleeAllowedToDraftPlayer(final Poolee poolee, final Player player)
   {
     if (seasonType == SeasonType.REGULAR_SEASON)
     {
-      final List<DraftPick> draftPicksByPooleeOnTeam =
-            getDraftPicksOfPooleeFromTeam(poolee, player.getTeam());
+      final List<DraftPick> draftPicksByPooleeOnTeam = getDraftPicksOfPooleeFromTeam(poolee, player.getTeam());
       if (!draftPicksByPooleeOnTeam.isEmpty())
       {
-        final Player alreadyDraftedPlayer =
-              draftPicksByPooleeOnTeam.get(0).getPlayer();
-        throw new IllegalArgumentException(poolee.getFullName() +
-              " has already picked " + alreadyDraftedPlayer.getFullName() +
-              " from " + player.getTeam());
+        final Player alreadyDraftedPlayer = draftPicksByPooleeOnTeam.get(0).getPlayer();
+        throw new IllegalArgumentException(poolee.getFullName() + " has already picked " +
+              alreadyDraftedPlayer.getFullName() + " from " + player.getTeam());
       }
     }
   }
@@ -269,8 +250,7 @@ final class DraftImpl implements Draft
   {
     if (draftedPlayers.contains(player))
     {
-      throw new IllegalArgumentException(player.getFullName() +
-            " has already been drafted");
+      throw new IllegalArgumentException(player.getFullName() + " has already been drafted");
     }
   }
 
@@ -281,8 +261,7 @@ final class DraftImpl implements Draft
     {
       return false;
     }
-    return (getNumPlayersAlreadyDrafted() >=
-          getTotalNumDraftPicksUponCompletion());
+    return (getNumPlayersAlreadyDrafted() >= getTotalNumDraftPicksUponCompletion());
   }
 
   /** {@inheritDoc} */
@@ -315,8 +294,7 @@ final class DraftImpl implements Draft
 
     int numConsecutivePicksForNextPooleeToDraft = 0;
     int draftOrderIndex = draftedPlayers.size();
-    while ((draftOrderIndex < draftOrder.size()) &&
-          (draftOrder.get(draftOrderIndex).equals(nextPooleeToDraft)))
+    while ((draftOrderIndex < draftOrder.size()) && (draftOrder.get(draftOrderIndex).equals(nextPooleeToDraft)))
     {
       draftOrderIndex++;
       numConsecutivePicksForNextPooleeToDraft++;
@@ -333,8 +311,7 @@ final class DraftImpl implements Draft
     // We assume that every team is available to draft from, then remove
     // teams as necessary.
     //
-    final Set<Team> teamsAvailableToDraftFrom = EnumSet.copyOf(
-          playersByTeamAndPosition.getTeams());
+    final Set<Team> teamsAvailableToDraftFrom = EnumSet.copyOf(playersByTeamAndPosition.getTeams());
 
     if (seasonType == SeasonType.REGULAR_SEASON)
     {
@@ -389,8 +366,7 @@ final class DraftImpl implements Draft
   }
 
   /** {@inheritDoc} */
-  public List<DraftPick> getDraftPicksOfPooleeFromTeam(final Poolee poolee,
-        final Team team)
+  public List<DraftPick> getDraftPicksOfPooleeFromTeam(final Poolee poolee, final Team team)
   {
     ArgAssert.notNull(poolee, "poolee");
     ArgAssert.notNull(team, "team");
@@ -409,8 +385,7 @@ final class DraftImpl implements Draft
   }
 
   /** {@inheritDoc} */
-  public List<DraftPick> getDraftPicksOfPooleeAtPosition(final Poolee poolee,
-        final Position position)
+  public List<DraftPick> getDraftPicksOfPooleeAtPosition(final Poolee poolee, final Position position)
   {
     ArgAssert.notNull(poolee, "poolee");
     ArgAssert.notNull(position, "position");
@@ -447,8 +422,7 @@ final class DraftImpl implements Draft
   }
 
   /** {@inheritDoc} */
-  public List<DraftPick> getMostRecentNDraftPicks(
-        final int numDraftPicksToReturn)
+  public List<DraftPick> getMostRecentNDraftPicks(final int numDraftPicksToReturn)
   {
     ArgAssert.notNegative(numDraftPicksToReturn, "numDraftPicksToReturn");
     assertDraftStateIsNot(DraftState.NOT_STARTED);
@@ -471,8 +445,7 @@ final class DraftImpl implements Draft
     // We create a new list so that reversing it doesn't reverse the elements
     // in our private member.
     //
-    final List<DraftPick> mostRecentNDraftPicks = Lists.newArrayList(
-          draftPicks.subList(fromIndex, toIndex));
+    final List<DraftPick> mostRecentNDraftPicks = Lists.newArrayList(draftPicks.subList(fromIndex, toIndex));
     Collections.reverse(mostRecentNDraftPicks);
 
     return mostRecentNDraftPicks;
@@ -493,11 +466,8 @@ final class DraftImpl implements Draft
     else
     {
       final DraftImpl that = (DraftImpl) thatObject;
-      return new EqualsBuilder().
-            append(seasonType, that.seasonType).
-            append(numRounds, that.numRounds).
-            append(firstRoundDraftOrder, that.firstRoundDraftOrder).
-            append(draftPicks, that.draftPicks).isEquals();
+      return new EqualsBuilder().append(seasonType, that.seasonType).append(numRounds, that.numRounds)
+            .append(firstRoundDraftOrder, that.firstRoundDraftOrder).append(draftPicks, that.draftPicks).isEquals();
     }
   }
 
@@ -505,10 +475,7 @@ final class DraftImpl implements Draft
   @Override
   public int hashCode()
   {
-      return new HashCodeBuilder().
-            append(seasonType).
-            append(numRounds).
-            append(firstRoundDraftOrder).
-            append(draftPicks).toHashCode();
+    return new HashCodeBuilder().append(seasonType).append(numRounds).append(firstRoundDraftOrder).append(draftPicks)
+          .toHashCode();
   }
 }

@@ -21,8 +21,7 @@ public final class PlayerNameComparatorTest
     arbitraryLastName = "LAST_NAME";
     arbitraryTeam = Team.ANAHEIM_DUCKS;
     arbitraryPosition = Position.DEFENSEMAN;
-    arbitraryPlayer = new Player(arbitraryFirstName, arbitraryLastName,
-          arbitraryTeam, arbitraryPosition);
+    arbitraryPlayer = new Player(arbitraryFirstName, arbitraryLastName, arbitraryTeam, arbitraryPosition);
     comparator = new PlayerNameComparator();
   }
 
@@ -45,12 +44,10 @@ public final class PlayerNameComparatorTest
 
   private Player getPlayerWithLastName(final String lastName)
   {
-    return new Player(arbitraryFirstName, lastName, arbitraryTeam,
-          arbitraryPosition);
+    return new Player(arbitraryFirstName, lastName, arbitraryTeam, arbitraryPosition);
   }
 
-  private void assertFirstPlayerLessThanSecond(final Player firstPlayer,
-        final Player secondPlayer)
+  private void assertFirstPlayerLessThanSecond(final Player firstPlayer, final Player secondPlayer)
   {
     assertTrue(comparator.compare(firstPlayer, secondPlayer) < 0);
     assertTrue(comparator.compare(secondPlayer, firstPlayer) > 0);
@@ -70,10 +67,8 @@ public final class PlayerNameComparatorTest
   @Test
   public void compare_playersWithSameLastName()
   {
-    final Player firstPlayer = new Player("Daniel", "Sedin", arbitraryTeam,
-          arbitraryPosition);
-    final Player secondPlayer = new Player("Henrik", "Sedin", arbitraryTeam,
-          arbitraryPosition);
+    final Player firstPlayer = new Player("Daniel", "Sedin", arbitraryTeam, arbitraryPosition);
+    final Player secondPlayer = new Player("Henrik", "Sedin", arbitraryTeam, arbitraryPosition);
 
     assertFirstPlayerLessThanSecond(firstPlayer, secondPlayer);
   }
