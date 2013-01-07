@@ -109,7 +109,7 @@ Anthony,Stewart,CAR,F
 Tim,Wallace,CAR,F
 Tuomo,Ruutu,CAR,F
 Joni,Pitkanen,CAR,D
-Joseph,Corvo,CAR,D
+Joe,Corvo,CAR,D
 Tim,Gleason,CAR,D
 Jamie,McBain,CAR,D
 Justin,Faulk,CAR,D
@@ -138,7 +138,7 @@ Duncan,Keith,CHI,D
 Brent,Seabrook,CHI,D
 Nick,Leddy,CHI,D
 Niklas,Hjalmarsson,CHI,D
-John,Oduya,CHI,D
+Johnny,Oduya,CHI,D
 Sheldon,Brookbank,CHI,D
 Steve,Montador,CHI,D
 Dylan,Olsen,CHI,D
@@ -177,7 +177,7 @@ Gabriel,Landeskog,COL,F
 David,Jones,COL,F
 Jamie,McGinn,COL,F
 Cody,McLeod,COL,F
-Pierre-Alexandre,Parenteau,COL,F
+P.A.,Parenteau,COL,F
 Steve,Downie,COL,F
 Milan,Hejduk,COL,F
 Chuck,Kobasew,COL,F
@@ -240,7 +240,7 @@ Carlo,Colaiacovo,DET,D
 Kyle,Quincey,DET,D
 Brendan,Smith,DET,D
 Jakub,Kindl,DET,D
-James,Howard,DET,G
+Jimmy,Howard,DET,G
 Jonas,Gustavsson,DET,G
 Joey,MacDonald,DET,G
 Ryan,Nugent-Hopkins,EDM,F
@@ -277,7 +277,7 @@ Tomas,Fleischmann,FLA,F
 Peter,Mueller,FLA,F
 Tomas,Kopecky,FLA,F
 Sean,Bergenheim,FLA,F
-Kristopher,Versteeg,FLA,F
+Kris,Versteeg,FLA,F
 Scottie,Upshall,FLA,F
 Jack,Skille,FLA,F
 George,Parros,FLA,F
@@ -311,7 +311,7 @@ Trevor,Lewis,LA,F
 Tyler,Toffoli,LA,F
 Kevin,Westgarth,LA,F
 Drew,Doughty,LA,D
-William,Mitchell,LA,D
+Willy,Mitchell,LA,D
 Slava,Voynov,LA,D
 Alec,Martinez,LA,D
 Matt,Greene,LA,D
@@ -407,7 +407,7 @@ Steve,Bernier,NJ,F
 Cam,Janssen,NJ,F
 Stephen,Gionta,NJ,F
 Henrik,Tallinder,NJ,D
-Andrew,Greene,NJ,D
+Andy,Greene,NJ,D
 Marek,Zidlicky,NJ,D
 Adam,Larsson,NJ,D
 Anton,Volchenkov,NJ,D
@@ -477,7 +477,7 @@ Colin,Greening,OTT,F
 Kaspar,Daugavins,OTT,F
 Jim,O'Brien,OTT,F
 Daniel,Alfredsson,OTT,F
-Christopher,Neil,OTT,F
+Chris,Neil,OTT,F
 Erik,Condra,OTT,F
 Mark,Stone,OTT,F
 Jakob,Silfverberg,OTT,F
@@ -557,7 +557,7 @@ Pascal,Dupuis,PIT,F
 Tyler,Kennedy,PIT,F
 Craig,Adams,PIT,F
 Benn,Ferriero,PIT,F
-Kristopher,Letang,PIT,D
+Kris,Letang,PIT,D
 Paul,Martin,PIT,D
 Matt,Niskanen,PIT,D
 Brooks,Orpik,PIT,D
@@ -585,7 +585,7 @@ Dan,Boyle,SJ,D
 Brent,Burns,SJ,D
 Brad,Stuart,SJ,D
 Marc-Edouard,Vlasic,SJ,D
-Douglas,Murray,SJ,D
+Doug,Murray,SJ,D
 Jason,Demers,SJ,D
 Justin,Braun,SJ,D
 Sena,Acolatse,SJ,D
@@ -623,16 +623,16 @@ Vladislav,Namestnikov,TB,F
 Ryan,Malone,TB,F
 Brett,Connolly,TB,F
 Benoit,Pouliot,TB,F
-Brandon,Crombeen,TB,F
+B.J.,Crombeen,TB,F
 Tom,Pyatt,TB,F
 Martin,St. Louis,TB,F
-Edward (Ted),Purcell,TB,F
+Teddy,Purcell,TB,F
 James,Wyman,TB,F
 Dana,Tyrell,TB,F
 J.T.,Brown,TB,F
 Eric,Brewer,TB,D
 Victor,Hedman,TB,D
-Matthew,Carle,TB,D
+Matt,Carle,TB,D
 Sami,Salo,TB,D
 Brian,Lee,TB,D
 Marc-Andre,Bergeron,TB,D
@@ -661,7 +661,7 @@ John-Michael,Liles,TOR,D
 Jake,Gardiner,TOR,D
 Carl,Gunnarsson,TOR,D
 Cody,Franson,TOR,D
-Michael,Komisarek,TOR,D
+Mike,Komisarek,TOR,D
 Korbinian,Holzer,TOR,D
 Paul,Ranger,TOR,D
 James,Reimer,TOR,G
