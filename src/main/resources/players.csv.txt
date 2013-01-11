@@ -35,6 +35,7 @@ Nathan,Horton,BOS,F
 Tyler,Seguin,BOS,F
 Rich,Peverley,BOS,F
 Shawn,Thornton,BOS,F
+Dougie,Hamilton,BOS,D
 Zdeno,Chara,BOS,D
 Dennis,Seidenberg,BOS,D
 Johnny,Boychuk,BOS,D
@@ -45,6 +46,7 @@ Aaron,Johnson,BOS,D
 Torey,Krug,BOS,D
 Tuukka,Rask,BOS,G
 Anton,Khudobin,BOS,G
+Mikhail,Grigorenko,BUF,F
 Cody,Hodgson,BUF,F
 Steve,Ott,BUF,F
 Ville,Leino,BUF,F
@@ -108,6 +110,7 @@ Pat,Dwyer,CAR,F
 Anthony,Stewart,CAR,F
 Tim,Wallace,CAR,F
 Tuomo,Ruutu,CAR,F
+Ryan,Murphy,CAR,D
 Joni,Pitkanen,CAR,D
 Joe,Corvo,CAR,D
 Tim,Gleason,CAR,D
@@ -144,6 +147,7 @@ Steve,Montador,CHI,D
 Dylan,Olsen,CHI,D
 Corey,Crawford,CHI,G
 Ray,Emery,CHI,G
+Boone,Jenner,CLB,F
 Brandon,Dubinsky,CLB,F
 Derick,Brassard,CLB,F
 Artem,Anisimov,CLB,F
@@ -191,6 +195,8 @@ Ryan,O'Byrne,COL,D
 Matt,Hunwick,COL,D
 Semyon,Varlamov,COL,G
 Jean-Sebastien,Giguere,COL,G
+Brett,Ritchie,DAL,F
+Radek,Faksa,DAL,F
 Jamie,Benn,DAL,F
 Derek,Roy,DAL,F
 Cody,Eakin,DAL,F
@@ -268,6 +274,7 @@ Corey,Potter,EDM,D
 Andy,Sutton,EDM,D
 Devan,Dubnyk,EDM,G
 Nikolai,Khabibulin,EDM,G
+Jonathan,Huberdeau,FLA,F
 Stephen,Weiss,FLA,F
 Jonathan,Huberdeau,FLA,F
 Shawn,Matthias,FLA,F
@@ -334,6 +341,7 @@ Mikael,Granlund,MIN,F
 Pierre-Marc,Bouchard,MIN,F
 Torrey,Mitchell,MIN,F
 Stephane,Veilleux,MIN,F
+Matt,Dumba,MIN,D
 Ryan,Suter,MIN,D
 Tom,Gilbert,MIN,D
 Jared,Spurgeon,MIN,D
@@ -344,6 +352,7 @@ Nate,Prosser,MIN,D
 Niklas,Backstrom,MIN,G
 Josh,Harding,MIN,G
 Matthew,Hackett,MIN,G
+Alex,Galchenyuk,MON,F
 Tomas,Plekanec,MON,F
 David,Desharnais,MON,F
 Lars,Eller,MON,F
@@ -416,6 +425,7 @@ Mark,Fayne,NJ,D
 Peter,Harrold,NJ,D
 Martin,Brodeur,NJ,G
 Johan,Hedberg,NJ,G
+Ryan,Strome,NYI,F
 John,Tavares,NYI,F
 Frans,Nielsen,NYI,F
 Joshua,Bailey,NYI,F
@@ -430,6 +440,7 @@ Brad,Boyes,NYI,F
 Jesse,Joensuu,NYI,F
 Matt,Martin,NYI,F
 Eric,Boulton,NYI,F
+Griffin,Reinhart,NYI,D
 Mark,Streit,NYI,D
 Lubomir,Visnovsky,NYI,D
 Travis,Hamonic,NYI,D
@@ -465,6 +476,7 @@ Stu,Bickel,NYR,D
 Dylan,McIlrath,NYR,D
 Henrik,Lundqvist,NYR,G
 Martin,Biron,NYR,G
+Stefan,Noesen,OTT,F
 Jason,Spezza,OTT,F
 Kyle,Turris,OTT,F
 Mika,Zibanejad,OTT,F
@@ -481,6 +493,7 @@ Chris,Neil,OTT,F
 Erik,Condra,OTT,F
 Mark,Stone,OTT,F
 Jakob,Silfverberg,OTT,F
+Cody,Ceci,OTT,D
 Erik,Karlsson,OTT,D
 Sergei,Gonchar,OTT,D
 Jared,Cowen,OTT,D
@@ -492,6 +505,7 @@ Eric,Gryba,OTT,D
 Craig,Anderson,OTT,G
 Ben,Bishop,OTT,G
 Robin,Lehner,OTT,G
+Scott,Laughton,PHI,F
 Claude,Giroux,PHI,F
 Daniel,Briere,PHI,F
 Sean,Couturier,PHI,F
@@ -656,6 +670,7 @@ Nikolai,Kulemin,TOR,F
 Keith,Aucoin,TOR,F
 Mike,Brown,TOR,F
 Tyler,Biggs,TOR,F
+Morgan,Rielly,TOR,D
 Dion,Phaneuf,TOR,D
 John-Michael,Liles,TOR,D
 Jake,Gardiner,TOR,D
@@ -681,6 +696,7 @@ Christopher,Higgins,VAN,F
 Jannik,Hansen,VAN,F
 Zack,Kassian,VAN,F
 Dale,Weise,VAN,F
+Frank,Corrado,VAN,D
 Alexander,Edler,VAN,D
 Kevin,Bieksa,VAN,D
 Jason,Garrison,VAN,D
@@ -715,6 +731,7 @@ Jeff,Schultz,WAS,D
 John,Erskine,WAS,D
 Braden,Holtby,WAS,G
 Michal,Neuvirth,WAS,G
+Mark,Scheifele,WIN,F
 Olli,Jokinen,WIN,F
 Bryan,Little,WIN,F
 Nikolai,Antropov,WIN,F
