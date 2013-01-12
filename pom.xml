@@ -35,9 +35,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<descriptors>
-						<descriptor>src/main/assembly/assembly.xml</descriptor>
-					</descriptors>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 					<archive>
 						<manifest>
 							<mainClass>com.kblaney.nhl.draft.ui.EntryPoint</mainClass>
