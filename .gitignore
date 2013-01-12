@@ -2,7 +2,7 @@
 #
 .classpath
 .project
-.settings
+.settings/
 
 # Maven-generated files
-target
+target/
