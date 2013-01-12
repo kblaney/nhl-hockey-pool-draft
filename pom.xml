@@ -6,7 +6,7 @@
    <artifactId>nhl-hockey-pool-draft-pom</artifactId>
    <packaging>pom</packaging>
    <version>1.1-SNAPSHOT</version>
-   <name>NHL Hockey Pool Draft POM</name>
+   <name>NHL Hockey Pool Draft Parent POM</name>
    <url>https://github.com/kblaney/nhl-hockey-pool-draft</url>
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
