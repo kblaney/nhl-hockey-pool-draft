@@ -107,7 +107,7 @@ Andreas,Nodl,CAR,F
 Alexander,Semin,CAR,F
 Chad,LaRose,CAR,F
 Pat,Dwyer,CAR,F
-Anthony,Stewart,CAR,F
+Anthony,Stewart,LA,F
 Tim,Wallace,CAR,F
 Tuomo,Ruutu,CAR,F
 Ryan,Murphy,CAR,D
@@ -290,6 +290,7 @@ Jack,Skille,FLA,F
 George,Parros,FLA,F
 Jerred,Smithson,FLA,F
 Michal,Repik,FLA,F
+Alexei,Kovalev,FLA,F
 Brian,Campbell,FLA,D
 Dmitry,Kulikov,FLA,D
 Filip,Kuba,FLA,D
@@ -316,7 +317,7 @@ Jeff,Carter,LA,F
 Justin,Williams,LA,F
 Trevor,Lewis,LA,F
 Tyler,Toffoli,LA,F
-Kevin,Westgarth,LA,F
+Kevin,Westgarth,CAR,F
 Drew,Doughty,LA,D
 Willy,Mitchell,LA,D
 Slava,Voynov,LA,D
@@ -520,6 +521,7 @@ Jakub,Voracek,PHI,F
 Brayden,Schenn,PHI,F
 Wayne,Simmonds,PHI,F
 Ruslan,Fedotenko,PHI,F
+Kurtis,Foster,PHI,D
 Kimmo,Timonen,PHI,D
 Braydon,Coburn,PHI,D
 Andrej,Meszaros,PHI,D
@@ -627,6 +629,7 @@ Barret,Jackman,STL,D
 Roman,Polak,STL,D
 Ian,Cole,STL,D
 Jeff,Woywitka,STL,D
+Wade,Redden,STL,D
 Jaroslav,Halak,STL,G
 Brian,Elliott,STL,G
 Steven,Stamkos,TB,F
@@ -664,7 +667,7 @@ James,van Riemsdyk,TOR,F
 Clarke,MacArthur,TOR,F
 Nazem,Kadri,TOR,F
 Matt,Frattin,TOR,F
-Matthew,Lombardi,TOR,F
+Matthew,Lombardi,PHO,F
 Phil,Kessel,TOR,F
 Nikolai,Kulemin,TOR,F
 Keith,Aucoin,TOR,F
@@ -721,6 +724,7 @@ Troy,Brouwer,WAS,F
 Joel,Ward,WAS,F
 Joey,Crabb,WAS,F
 Matt,Hendricks,WAS,F
+Eric,Fehr,WAS,F
 Mike,Green,WAS,D
 John,Carlson,WAS,D
 Roman,Hamrlik,WAS,D
