@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.draft.Poolee;
 import java.awt.Frame;
 import java.util.List;
@@ -17,8 +17,8 @@ final class ShowPooleesDialog extends JDialog
         final List<Poolee> firstRoundDraftOrder)
   {
     super(parent, IS_MODAL);
-    ArgAssert.notNull(parent, "parent");
-    ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
+    ArgAssert.assertNotNull(parent, "parent");
+    ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
 
     // Store a defensive copy.
     //

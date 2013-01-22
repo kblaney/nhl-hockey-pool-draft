@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import com.kblaney.nhl.Position;
@@ -81,11 +81,11 @@ final class MainFrame extends JFrame
         final DraftFactory draftFactory,
         final DraftReaderWriter draftReaderWriter)
   {
-    ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
-    ArgAssert.notNull(tableModelFactory, "tableModelFactory");
-    ArgAssert.notNull(draftOrderGetter, "draftOrderGetter");
-    ArgAssert.notNull(draftFactory, "draftFactory");
-    ArgAssert.notNull(draftReaderWriter, "draftReaderWriter");
+    ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
+    ArgAssert.assertNotNull(tableModelFactory, "tableModelFactory");
+    ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
+    ArgAssert.assertNotNull(draftFactory, "draftFactory");
+    ArgAssert.assertNotNull(draftReaderWriter, "draftReaderWriter");
 
     this.playersByTeamAndPosition = playersByTeamAndPosition;
     this.tableModelFactory = tableModelFactory;

@@ -5,7 +5,7 @@ import com.Ostermiller.util.CSVParser;
 import com.Ostermiller.util.CSVPrint;
 import com.Ostermiller.util.CSVPrinter;
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import java.io.IOException;
 import java.io.Reader;
@@ -35,8 +35,8 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
   public DraftCsvReaderWriter(final PlayersByTeamAndPosition playersByTeamAndPosition,
         final DraftOrderGetter draftOrderGetter)
   {
-    ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
-    ArgAssert.notNull(draftOrderGetter, "draftOrderGetter");
+    ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
+    ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
 
     this.playersByTeamAndPosition = playersByTeamAndPosition;
     this.draftOrderGetter = draftOrderGetter;
@@ -45,8 +45,8 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
   /** {@inheritDoc} */
   public void writeDraft(final Draft draft, final Writer writer) throws IOException
   {
-    ArgAssert.notNull(draft, "draft");
-    ArgAssert.notNull(writer, "writer");
+    ArgAssert.assertNotNull(draft, "draft");
+    ArgAssert.assertNotNull(writer, "writer");
 
     final CSVPrint csvPrinter = new CSVPrinter(writer);
     try
@@ -104,7 +104,7 @@ public final class DraftCsvReaderWriter implements DraftReaderWriter
   /** {@inheritDoc} */
   public Draft readDraft(final Reader reader) throws IOException, ParseException
   {
-    ArgAssert.notNull(reader, "reader");
+    ArgAssert.assertNotNull(reader, "reader");
 
     final CSVParse csvParser = new CSVParser(reader);
 

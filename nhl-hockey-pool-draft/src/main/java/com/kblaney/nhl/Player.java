@@ -1,6 +1,6 @@
 package com.kblaney.nhl;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -45,9 +45,9 @@ public final class Player
   {
     Validate.notEmpty(firstName, "firstName can't be null or empty");
     Validate.notEmpty(lastName, "lastName can't be null or empty");
-    this.team = ArgAssert.notNull(team, "team");
-    this.position = ArgAssert.notNull(position, "position");
-    this.id = ArgAssert.notNull(id, "id");
+    this.team = ArgAssert.assertNotNull(team, "team");
+    this.position = ArgAssert.assertNotNull(position, "position");
+    this.id = ArgAssert.assertNotNull(id, "id");
 
     this.firstName = firstName;
     this.lastName = lastName;

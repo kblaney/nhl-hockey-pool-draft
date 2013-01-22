@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.PlayoffTeamsGetter;
 import com.kblaney.nhl.Team;
 import com.kblaney.nhl.draft.Draft;
@@ -21,7 +21,7 @@ final class TableModelFactoryImpl implements TableModelFactory
    */
   public TableModelFactoryImpl(final PlayoffTeamsGetter playoffTeamsGetter)
   {
-    ArgAssert.notNull(playoffTeamsGetter, "playoffTeamsGetter");
+    ArgAssert.assertNotNull(playoffTeamsGetter, "playoffTeamsGetter");
 
     this.playoffTeamsGetter = playoffTeamsGetter;
   }
@@ -29,7 +29,7 @@ final class TableModelFactoryImpl implements TableModelFactory
   /** {@inheritDoc} */
   public TableModel getTableModel(final Draft draft)
   {
-    ArgAssert.notNull(draft, "draft");
+    ArgAssert.assertNotNull(draft, "draft");
 
     switch (draft.getSeasonType())
     {

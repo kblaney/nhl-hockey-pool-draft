@@ -2,7 +2,7 @@ package com.kblaney.nhl;
 
 import com.Ostermiller.util.CSVParse;
 import com.Ostermiller.util.CSVParser;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import java.io.IOException;
 import java.io.Reader;
 import java.text.ParseException;
@@ -38,7 +38,7 @@ public final class CsvPlayerParser implements PlayerParser
    */
   public CsvPlayerParser(final Reader reader)
   {
-    ArgAssert.notNull(reader, "reader");
+    ArgAssert.assertNotNull(reader, "reader");
 
     csvParser = new CSVParser(reader);
   }

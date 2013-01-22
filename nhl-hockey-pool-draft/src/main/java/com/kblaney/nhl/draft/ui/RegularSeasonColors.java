@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Position;
 import java.awt.Color;
 
@@ -15,7 +15,7 @@ final class RegularSeasonColors
   /** {@inheritDoc} */
   public Color getColor(final Position position)
   {
-    ArgAssert.notNull(position, "position");
+    ArgAssert.assertNotNull(position, "position");
 
     switch (position)
     {

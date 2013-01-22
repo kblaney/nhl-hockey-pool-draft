@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.Validate;
@@ -17,7 +17,7 @@ public final class SCurveDraftOrderGetter implements DraftOrderGetter
   /** {@inheritDoc} */
   public List<Poolee> getDraftOrder(final List<Poolee> firstRoundDraftOrder, final int numRounds)
   {
-    ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
+    ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
     Validate.isTrue(numPooleesValidator.isValid(firstRoundDraftOrder.size()));
     Validate.isTrue(numRoundsValidator.isValid(numRounds));
 

@@ -1,6 +1,6 @@
 package com.kblaney.nhl;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 
 /**
  * A National Hockey League team.
@@ -82,7 +82,7 @@ public enum Team
    */
   public static Team getTeamThatHasShortform(final String shortform)
   {
-    ArgAssert.notNull(shortform, "shortform");
+    ArgAssert.assertNotNull(shortform, "shortform");
 
     for (final Team team : Team.values())
     {

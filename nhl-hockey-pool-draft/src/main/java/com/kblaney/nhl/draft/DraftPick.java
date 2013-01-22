@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -30,10 +30,10 @@ public final class DraftPick
    */
   public DraftPick(final Player player, final Poolee poolee, final int roundNum, final int pickNum)
   {
-    ArgAssert.notNull(player, "player");
-    ArgAssert.notNull(poolee, "poolee");
-    ArgAssert.positive(roundNum, "roundNum");
-    ArgAssert.positive(pickNum, "pickNum");
+    ArgAssert.assertNotNull(player, "player");
+    ArgAssert.assertNotNull(poolee, "poolee");
+    ArgAssert.assertGreaterThanOrEqual(roundNum, 1, "roundNum");
+    ArgAssert.assertGreaterThanOrEqual(pickNum, 1, "pickNum");
 
     this.player = player;
     this.poolee = poolee;

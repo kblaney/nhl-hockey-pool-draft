@@ -2,7 +2,7 @@ package com.kblaney.nhl;
 
 import com.Ostermiller.util.CSVParser;
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import java.io.IOException;
 import java.io.Reader;
 import java.text.ParseException;
@@ -36,7 +36,7 @@ public final class CsvPlayoffTeamsGetter implements PlayoffTeamsGetter
    */
   public CsvPlayoffTeamsGetter(final Reader reader) throws IOException, ParseException
   {
-    ArgAssert.notNull(reader, "reader");
+    ArgAssert.assertNotNull(reader, "reader");
 
     final String[][] lines = getLines(reader);
     validate(lines);

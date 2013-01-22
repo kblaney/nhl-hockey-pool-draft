@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Team;
 import java.util.List;
 import java.util.Set;
@@ -19,7 +19,7 @@ final class TeamComboBoxModel extends AbstractListModel implements ComboBoxModel
 
   public TeamComboBoxModel(final Set<Team> teamsToInclude)
   {
-    ArgAssert.notNull(teamsToInclude, "teamsToInclude");
+    ArgAssert.assertNotNull(teamsToInclude, "teamsToInclude");
 
     teams = Lists.newArrayList();
     for (final Team team : Team.values())

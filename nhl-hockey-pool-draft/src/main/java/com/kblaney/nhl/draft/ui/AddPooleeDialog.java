@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.draft.DraftPositionInFirstRoundValidator;
 import com.kblaney.nhl.draft.IntOrStringValidator;
 import com.kblaney.nhl.draft.NumPooleesValidator;
@@ -35,7 +35,7 @@ final class AddPooleeDialog extends JDialog
   public AddPooleeDialog(final Frame parent, final int numPoolees)
   {
     super(parent, AddPooleeDialog.IS_MODAL);
-    ArgAssert.notNull(parent, "parent");
+    ArgAssert.assertNotNull(parent, "parent");
     Validate.isTrue(new NumPooleesValidator().isValid(numPoolees));
 
     draftPositionInFirstRoundValidator =

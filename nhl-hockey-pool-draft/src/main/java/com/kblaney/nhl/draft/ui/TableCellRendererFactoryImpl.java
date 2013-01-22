@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.draft.Draft;
 import javax.swing.table.TableCellRenderer;
 
@@ -12,7 +12,7 @@ final class TableCellRendererFactoryImpl implements TableCellRendererFactory
   /** {@inheritDoc} */
   public TableCellRenderer getTableCellRenderer(final Draft draft)
   {
-    ArgAssert.notNull(draft, "draft");
+    ArgAssert.assertNotNull(draft, "draft");
 
     switch (draft.getSeasonType())
     {

@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Position;
 import com.kblaney.nhl.Team;
 import com.kblaney.nhl.draft.Draft;
@@ -32,9 +32,9 @@ final class RegularSeasonChartTableModel extends AbstractTableModel
   public RegularSeasonChartTableModel(final List<Poolee> firstRoundDraftOrder,
         final List<Team> teams, final Draft draft)
   {
-    ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
-    ArgAssert.notNull(teams, "teams");
-    ArgAssert.notNull(draft, "draft");
+    ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
+    ArgAssert.assertNotNull(teams, "teams");
+    ArgAssert.assertNotNull(draft, "draft");
 
     this.firstRoundDraftOrder = Lists.newArrayList(firstRoundDraftOrder);
     this.teams = Lists.newArrayList(teams);

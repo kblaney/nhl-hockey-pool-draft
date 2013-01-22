@@ -1,7 +1,7 @@
 package com.kblaney.nhl;
 
 import com.google.common.collect.Sets;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashSet;
@@ -23,7 +23,7 @@ public final class PlayersByTeamAndPositionMapImpl implements PlayersByTeamAndPo
   /** {@inheritDoc} */
   public void addPlayer(final Player player)
   {
-    ArgAssert.notNull(player, "player");
+    ArgAssert.assertNotNull(player, "player");
 
     if (doesTeamAlreadyHavePlayers(player.getTeam()))
     {
@@ -68,8 +68,8 @@ public final class PlayersByTeamAndPositionMapImpl implements PlayersByTeamAndPo
   /** {@inheritDoc} */
   public Set<Player> getPlayersOnTeamAtPosition(final Team team, final Position position)
   {
-    ArgAssert.notNull(team, "team");
-    ArgAssert.notNull(position, "position");
+    ArgAssert.assertNotNull(team, "team");
+    ArgAssert.assertNotNull(position, "position");
 
     final Map<Position, Set<Player>> playersOnTeam = getPlayersOnTeam(team);
     if (playersOnTeam.containsKey(position))
@@ -87,7 +87,7 @@ public final class PlayersByTeamAndPositionMapImpl implements PlayersByTeamAndPo
   /** {@inheritDoc} */
   public Map<Position, Set<Player>> getPlayersOnTeam(final Team team)
   {
-    ArgAssert.notNull(team, "team");
+    ArgAssert.assertNotNull(team, "team");
 
     final Map<Position, Set<Player>> playersOnTeam = playersByTeamAndPosition.get(team);
 

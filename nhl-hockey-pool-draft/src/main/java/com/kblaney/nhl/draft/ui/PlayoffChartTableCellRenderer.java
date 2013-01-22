@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.Team;
 import com.kblaney.nhl.draft.Draft;
@@ -47,7 +47,7 @@ final class PlayoffChartTableCellRenderer implements TableCellRenderer
    */
   public PlayoffChartTableCellRenderer(final Draft draft)
   {
-    ArgAssert.notNull(draft, "draft");
+    ArgAssert.assertNotNull(draft, "draft");
 
     this.draft = draft;
   }

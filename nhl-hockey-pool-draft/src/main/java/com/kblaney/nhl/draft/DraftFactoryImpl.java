@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import java.util.List;
@@ -18,9 +18,9 @@ public final class DraftFactoryImpl implements DraftFactory
   public Draft createNewDraft(final SeasonType seasonType, final PlayersByTeamAndPosition playersByTeamAndPosition,
         final int numRounds, final int numPoolees, final DraftOrderGetter draftOrderGetter)
   {
-    ArgAssert.notNull(seasonType, "seasonType");
-    ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
-    ArgAssert.notNull(draftOrderGetter, "draftOrderGetter");
+    ArgAssert.assertNotNull(seasonType, "seasonType");
+    ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
+    ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
     Validate.isTrue(numRoundsValidator.isValid(numRounds));
     Validate.isTrue(numPooleesValidator.isValid(numPoolees));
 
@@ -32,13 +32,13 @@ public final class DraftFactoryImpl implements DraftFactory
         final int numRounds, final int numPoolees, final DraftOrderGetter draftOrderGetter,
         final List<Poolee> firstRoundDraftOrder, final List<DraftPick> draftPicks)
   {
-    ArgAssert.notNull(seasonType, "seasonType");
-    ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
+    ArgAssert.assertNotNull(seasonType, "seasonType");
+    ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
     Validate.isTrue(numRoundsValidator.isValid(numRounds));
     Validate.isTrue(numPooleesValidator.isValid(numPoolees));
-    ArgAssert.notNull(draftOrderGetter, "draftOrderGetter");
-    ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
-    ArgAssert.notNull(draftPicks, "draftPicks");
+    ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
+    ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
+    ArgAssert.assertNotNull(draftPicks, "draftPicks");
 
     final Draft draft = new DraftImpl(seasonType, playersByTeamAndPosition, numRounds, numPoolees, draftOrderGetter);
 

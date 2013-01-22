@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Position;
 import com.kblaney.nhl.Team;
 import com.kblaney.nhl.draft.Draft;
@@ -48,8 +48,8 @@ final class PlayoffChartTableModel extends AbstractTableModel
   {
     Validate.notEmpty(upperHalfTeams);
     Validate.notEmpty(lowerHalfTeams);
-    ArgAssert.notNull(draft, "draft");
-    ArgAssert.positive(maxNumPicksPerTeam, "maxNumPicksPerTeam ");
+    ArgAssert.assertNotNull(draft, "draft");
+    ArgAssert.assertGreaterThanOrEqual(maxNumPicksPerTeam, 1, "maxNumPicksPerTeam ");
     Validate.isTrue(draft.getNumPoolees() <= upperHalfTeams.size());
     Validate.isTrue(draft.getNumPoolees() <= lowerHalfTeams.size());
 
@@ -165,8 +165,8 @@ final class PlayoffChartTableModel extends AbstractTableModel
    */
   private Team getTeamAt(final int columnIndex, final List<Team> teams)
   {
-    ArgAssert.notNegative(columnIndex, "columnIndex");
-    ArgAssert.notNull(teams, "teams");
+    ArgAssert.assertGreaterThanOrEqual(columnIndex, 0, "columnIndex");
+    ArgAssert.assertNotNull(teams, "teams");
 
     if (columnIndex != POOLEE_SUMMARY_POSITION_COLUMN_INDEX)
     {
@@ -194,7 +194,7 @@ final class PlayoffChartTableModel extends AbstractTableModel
    */
   private Poolee getPooleeAt(final int columnIndex)
   {
-    ArgAssert.notNegative(columnIndex, "columnIndex");
+    ArgAssert.assertGreaterThanOrEqual(columnIndex, 0, "columnIndex");
 
     if (columnIndex != POOLEE_SUMMARY_POSITION_COLUMN_INDEX)
     {
@@ -226,8 +226,8 @@ final class PlayoffChartTableModel extends AbstractTableModel
   private Integer getNumPlayersAt(final int columnIndex,
         final Position position)
   {
-    ArgAssert.notNegative(columnIndex, "columnIndex");
-    ArgAssert.notNull(position, "position");
+    ArgAssert.assertGreaterThanOrEqual(columnIndex, 0, "columnIndex");
+    ArgAssert.assertNotNull(position, "position");
 
     final Poolee poolee = getPooleeAt(columnIndex);
     if (poolee == null)
@@ -252,9 +252,9 @@ final class PlayoffChartTableModel extends AbstractTableModel
   private DraftPick getDraftPickAt(final int columnIndex, final int rowIndex,
         final List<Team> teams)
   {
-    ArgAssert.notNegative(columnIndex, "columnIndex");
-    ArgAssert.notNegative(rowIndex, "rowIndex");
-    ArgAssert.notNull(teams, "teams");
+    ArgAssert.assertGreaterThanOrEqual(columnIndex, 0, "columnIndex");
+    ArgAssert.assertGreaterThanOrEqual(rowIndex, 0, "rowIndex");
+    ArgAssert.assertNotNull(teams, "teams");
 
     final Team team = getTeamAt(columnIndex, teams);
     if (team == null)

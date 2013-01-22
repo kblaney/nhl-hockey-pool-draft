@@ -1,6 +1,6 @@
 package com.kblaney.nhl;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 
 /**
  * Enumerates a player's position.
@@ -56,7 +56,7 @@ public enum Position
    */
   public static Position getPositionThatHasShortform(final String shortform)
   {
-    ArgAssert.notNull(shortform, "shortform");
+    ArgAssert.assertNotNull(shortform, "shortform");
 
     for (final Position position : Position.values())
     {

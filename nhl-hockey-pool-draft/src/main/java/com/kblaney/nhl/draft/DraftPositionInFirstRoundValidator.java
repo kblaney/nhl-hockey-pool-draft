@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 
 /**
  * Implements methods related to the validation of a draft position in the first round of a draft.
@@ -16,7 +16,7 @@ public final class DraftPositionInFirstRoundValidator implements IntOrStringVali
    */
   public DraftPositionInFirstRoundValidator(final int numPoolees)
   {
-    this.numPoolees = ArgAssert.positive(numPoolees, "numPoolees");
+    this.numPoolees = ArgAssert.assertGreaterThanOrEqual(numPoolees, 1, "numPoolees");
   }
 
   /** {@inheritDoc} */

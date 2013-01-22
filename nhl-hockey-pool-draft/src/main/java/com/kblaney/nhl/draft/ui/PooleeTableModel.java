@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.draft.Poolee;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -23,7 +23,7 @@ final class PooleeTableModel extends AbstractTableModel
 
   public PooleeTableModel(final List<Poolee> firstRoundDraftOrder)
   {
-    ArgAssert.notNull(firstRoundDraftOrder, "firstRoundDraftOrder");
+    ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
 
     this.firstRoundDraftOrder = Lists.newArrayList(firstRoundDraftOrder);
   }

@@ -3,7 +3,7 @@ package com.kblaney.nhl.draft;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import com.kblaney.nhl.Position;
@@ -40,9 +40,9 @@ final class DraftImpl implements Draft
   DraftImpl(final SeasonType seasonType, final PlayersByTeamAndPosition playersByTeamAndPosition, final int numRounds,
         final int numPoolees, final DraftOrderGetter draftOrderGetter)
   {
-    ArgAssert.notNull(seasonType, "seasonType");
-    ArgAssert.notNull(playersByTeamAndPosition, "playersByTeamAndPosition");
-    ArgAssert.notNull(draftOrderGetter, "draftOrderGetter");
+    ArgAssert.assertNotNull(seasonType, "seasonType");
+    ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
+    ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
     Validate.isTrue(numRoundsValidator.isValid(numRounds));
     Validate.isTrue(numPooleesValidator.isValid(numPoolees));
 
@@ -108,7 +108,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public void addPoolee(final Poolee poolee, final int draftPositionInFirstRound)
   {
-    ArgAssert.notNull(poolee, "poolee");
+    ArgAssert.assertNotNull(poolee, "poolee");
     assertDraftStateIs(DraftState.NOT_STARTED);
     Validate.isTrue(draftPositionInFirstRoundValidator.isValid(draftPositionInFirstRound));
 
@@ -169,8 +169,8 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public DraftPick addDraftPick(final Player player, final Poolee poolee)
   {
-    ArgAssert.notNull(player, "player");
-    ArgAssert.notNull(poolee, "poolee");
+    ArgAssert.assertNotNull(player, "player");
+    ArgAssert.assertNotNull(poolee, "poolee");
     assertDraftStateIs(DraftState.UNDERWAY);
     validateDraftPick(player, poolee);
 
@@ -306,7 +306,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public Set<Team> getTeamsAvailableToDraftFrom(final Poolee poolee)
   {
-    ArgAssert.notNull(poolee, "poolee");
+    ArgAssert.assertNotNull(poolee, "poolee");
 
     // We assume that every team is available to draft from, then remove
     // teams as necessary.
@@ -335,7 +335,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public boolean isPlayerDrafted(final Player player)
   {
-    ArgAssert.notNull(player, "player");
+    ArgAssert.assertNotNull(player, "player");
 
     return draftedPlayers.contains(player);
   }
@@ -351,7 +351,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public List<DraftPick> getDraftPicksOfPoolee(final Poolee poolee)
   {
-    ArgAssert.notNull(poolee, "poolee");
+    ArgAssert.assertNotNull(poolee, "poolee");
 
     if (draftPicksByPoolee.containsKey(poolee))
     {
@@ -368,8 +368,8 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public List<DraftPick> getDraftPicksOfPooleeFromTeam(final Poolee poolee, final Team team)
   {
-    ArgAssert.notNull(poolee, "poolee");
-    ArgAssert.notNull(team, "team");
+    ArgAssert.assertNotNull(poolee, "poolee");
+    ArgAssert.assertNotNull(team, "team");
 
     final List<DraftPick> draftPicksOfPooleeFromTeam = Lists.newArrayList();
 
@@ -387,8 +387,8 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public List<DraftPick> getDraftPicksOfPooleeAtPosition(final Poolee poolee, final Position position)
   {
-    ArgAssert.notNull(poolee, "poolee");
-    ArgAssert.notNull(position, "position");
+    ArgAssert.assertNotNull(poolee, "poolee");
+    ArgAssert.assertNotNull(position, "position");
 
     final List<DraftPick> draftPicksOfPooleeAtPosition = Lists.newArrayList();
 
@@ -406,7 +406,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public List<DraftPick> getDraftPicksOnTeam(final Team team)
   {
-    ArgAssert.notNull(team, "team");
+    ArgAssert.assertNotNull(team, "team");
 
     final List<DraftPick> draftPicksOnTeam = Lists.newArrayList();
 
@@ -424,7 +424,7 @@ final class DraftImpl implements Draft
   /** {@inheritDoc} */
   public List<DraftPick> getMostRecentNDraftPicks(final int numDraftPicksToReturn)
   {
-    ArgAssert.notNegative(numDraftPicksToReturn, "numDraftPicksToReturn");
+    ArgAssert.assertNotNegative(numDraftPicksToReturn, "numDraftPicksToReturn");
     assertDraftStateIsNot(DraftState.NOT_STARTED);
 
     final int fromIndex;

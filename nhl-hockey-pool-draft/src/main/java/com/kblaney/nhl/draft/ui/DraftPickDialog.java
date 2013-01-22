@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.draft.DraftPick;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -28,8 +28,8 @@ final class DraftPickDialog extends JDialog
   public DraftPickDialog(final Frame parent, final DraftPick draftPick)
   {
     super(parent, /*isModal=*/true);
-    ArgAssert.notNull(parent, "parent");
-    this.draftPick = ArgAssert.notNull(draftPick, "draftPick");
+    ArgAssert.assertNotNull(parent, "parent");
+    this.draftPick = ArgAssert.assertNotNull(draftPick, "draftPick");
 
     initComponents();
 

@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft.ui;
 
 import com.google.common.collect.Lists;
-import com.kblaney.commons.lang.ArgAssert;
+import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayerNameComparator;
 import java.util.Collections;
@@ -27,7 +27,7 @@ final class PlayerComboBoxModel extends AbstractListModel
    */
   public PlayerComboBoxModel(final Set<Player> players)
   {
-    ArgAssert.notNull(players, "players");
+    ArgAssert.assertNotNull(players, "players");
 
     this.players = Lists.newArrayList(players);
     Collections.sort(this.players, new PlayerNameComparator());
