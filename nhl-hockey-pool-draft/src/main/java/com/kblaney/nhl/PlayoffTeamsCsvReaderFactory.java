@@ -1,7 +1,7 @@
 package com.kblaney.nhl;
 
-import com.kblaney.commons.io.FileOrResourceReaderFactory;
-import com.kblaney.commons.io.ReaderFactory;
+import com.kblaney.io.FileOrResourceReaderFactory;
+import com.kblaney.io.ReaderFactory;
 import java.io.IOException;
 import java.io.Reader;
 
