@@ -1,6 +1,6 @@
 package com.kblaney.nhl.draft;
 
-import org.apache.commons.lang3.Validate;
+import com.kblaney.assertions.ArgAssert;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -23,8 +23,8 @@ public final class Poolee
    */
   public Poolee(final String firstName, final String lastName)
   {
-    Validate.notEmpty(firstName, "firstName can't be null or empty");
-    Validate.notEmpty(lastName, "lastName can't be null or empty");
+    ArgAssert.assertNotEmpty(firstName, "firstName");
+    ArgAssert.assertNotEmpty(lastName, "lastName");
 
     this.firstName = firstName;
     this.lastName = lastName;

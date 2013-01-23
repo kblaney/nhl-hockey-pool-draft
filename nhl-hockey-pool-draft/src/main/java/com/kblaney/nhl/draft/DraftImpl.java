@@ -13,7 +13,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -43,8 +42,8 @@ final class DraftImpl implements Draft
     ArgAssert.assertNotNull(seasonType, "seasonType");
     ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
     ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
-    Validate.isTrue(numRoundsValidator.isValid(numRounds));
-    Validate.isTrue(numPooleesValidator.isValid(numPoolees));
+    ArgAssert.assertTrue(numRoundsValidator.isValid(numRounds), "numRounds is valid");
+    ArgAssert.assertTrue(numPooleesValidator.isValid(numPoolees), "numPoolees is valid");
 
     this.seasonType = seasonType;
     this.playersByTeamAndPosition = playersByTeamAndPosition;
@@ -110,7 +109,8 @@ final class DraftImpl implements Draft
   {
     ArgAssert.assertNotNull(poolee, "poolee");
     assertDraftStateIs(DraftState.NOT_STARTED);
-    Validate.isTrue(draftPositionInFirstRoundValidator.isValid(draftPositionInFirstRound));
+    ArgAssert.assertTrue(draftPositionInFirstRoundValidator.isValid(draftPositionInFirstRound),
+          "draftPositionInFirstRound is valid");
 
     // We have to shift the draft position by 1 to get a list index because
     // draft positions start at 1 and indices start at 0.

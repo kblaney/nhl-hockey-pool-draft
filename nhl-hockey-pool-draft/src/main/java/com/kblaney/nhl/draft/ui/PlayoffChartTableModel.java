@@ -9,7 +9,6 @@ import com.kblaney.nhl.draft.DraftPick;
 import com.kblaney.nhl.draft.Poolee;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import org.apache.commons.lang3.Validate;
 
 /**
  * The table model for a playoff pool chart.
@@ -46,12 +45,12 @@ final class PlayoffChartTableModel extends AbstractTableModel
         final List<Team> lowerHalfTeams, final Draft draft,
         final int maxNumPicksPerTeam)
   {
-    Validate.notEmpty(upperHalfTeams);
-    Validate.notEmpty(lowerHalfTeams);
+    ArgAssert.assertNotEmpty(upperHalfTeams, "upperHalfTeams");
+    ArgAssert.assertNotEmpty(lowerHalfTeams, "lowerHalfTeams");
     ArgAssert.assertNotNull(draft, "draft");
     ArgAssert.assertGreaterThanOrEqual(maxNumPicksPerTeam, 1, "maxNumPicksPerTeam ");
-    Validate.isTrue(draft.getNumPoolees() <= upperHalfTeams.size());
-    Validate.isTrue(draft.getNumPoolees() <= lowerHalfTeams.size());
+    ArgAssert.assertTrue(draft.getNumPoolees() <= upperHalfTeams.size(), "numPoolees <= numUpperHalfTeams");
+    ArgAssert.assertTrue(draft.getNumPoolees() <= lowerHalfTeams.size(), "numPoolees <= numLowerHalfTeams");
 
     // Make defensive copies.
     //

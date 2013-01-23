@@ -4,7 +4,6 @@ import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import java.util.List;
-import org.apache.commons.lang3.Validate;
 
 /**
  * Implements methods that create drafts.
@@ -21,8 +20,8 @@ public final class DraftFactoryImpl implements DraftFactory
     ArgAssert.assertNotNull(seasonType, "seasonType");
     ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
     ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
-    Validate.isTrue(numRoundsValidator.isValid(numRounds));
-    Validate.isTrue(numPooleesValidator.isValid(numPoolees));
+    ArgAssert.assertTrue(numRoundsValidator.isValid(numRounds), "numRounds is valid");
+    ArgAssert.assertTrue(numPooleesValidator.isValid(numPoolees), "numPoolees is valid");
 
     return new DraftImpl(seasonType, playersByTeamAndPosition, numRounds, numPoolees, draftOrderGetter);
   }
@@ -34,8 +33,8 @@ public final class DraftFactoryImpl implements DraftFactory
   {
     ArgAssert.assertNotNull(seasonType, "seasonType");
     ArgAssert.assertNotNull(playersByTeamAndPosition, "playersByTeamAndPosition");
-    Validate.isTrue(numRoundsValidator.isValid(numRounds));
-    Validate.isTrue(numPooleesValidator.isValid(numPoolees));
+    ArgAssert.assertTrue(numRoundsValidator.isValid(numRounds), "numRounds is valid");
+    ArgAssert.assertTrue(numPooleesValidator.isValid(numPoolees), "numPoolees is valid");
     ArgAssert.assertNotNull(draftOrderGetter, "draftOrderGetter");
     ArgAssert.assertNotNull(firstRoundDraftOrder, "firstRoundDraftOrder");
     ArgAssert.assertNotNull(draftPicks, "draftPicks");

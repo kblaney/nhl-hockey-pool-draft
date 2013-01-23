@@ -19,7 +19,7 @@ public final class PooleeTest
     poolee = new Poolee(firstName, lastName);
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void constructorNullFirstName()
   {
     new Poolee(null, lastName);
@@ -31,7 +31,7 @@ public final class PooleeTest
     new Poolee(StringUtils.EMPTY, lastName);
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void constructorNullLastName()
   {
     new Poolee(firstName, null);

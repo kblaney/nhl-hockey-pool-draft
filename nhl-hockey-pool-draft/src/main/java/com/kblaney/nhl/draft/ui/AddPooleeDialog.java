@@ -10,7 +10,6 @@ import java.awt.Frame;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import org.apache.commons.lang3.Validate;
 
 /**
  * A dialog that adds a poolee to a draft.
@@ -36,7 +35,7 @@ final class AddPooleeDialog extends JDialog
   {
     super(parent, AddPooleeDialog.IS_MODAL);
     ArgAssert.assertNotNull(parent, "parent");
-    Validate.isTrue(new NumPooleesValidator().isValid(numPoolees));
+    ArgAssert.assertTrue(new NumPooleesValidator().isValid(numPoolees), "numPoolees is valid");
 
     draftPositionInFirstRoundValidator =
           new DraftPositionInFirstRoundValidator(numPoolees);
