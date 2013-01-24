@@ -9,6 +9,7 @@
    </parent>
    <artifactId>nhl-hockey-pool-draft</artifactId>
    <name>NHL Hockey Pool Draft</name>
+   <url>https://github.com/kblaney/nhl-hockey-pool-draft</url>
    <build>
       <plugins>
          <plugin>
