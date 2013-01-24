@@ -113,16 +113,13 @@ public final class PlayersByTeamAndPositionMapImpl implements PlayersByTeamAndPo
   public int getNumPlayers()
   {
     int numPlayers = 0;
-
-    for (final Team team : playersByTeamAndPosition.keySet())
+    for (final Map.Entry<Team, Map<Position, Set<Player>>> teamEntry : playersByTeamAndPosition.entrySet())
     {
-      final Map<Position, Set<Player>> playersOnTeam = playersByTeamAndPosition.get(team);
-      for (final Position position : playersOnTeam.keySet())
+      for (final Map.Entry<Position, Set<Player>> positionEntry : teamEntry.getValue().entrySet())
       {
-        numPlayers += playersOnTeam.get(position).size();
+        numPlayers += positionEntry.getValue().size();
       }
     }
-
     return numPlayers;
   }
 }

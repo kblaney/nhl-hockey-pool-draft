@@ -77,6 +77,13 @@ public final class DraftImplConstructorTest
   }
 
   @Test
+  public void equals_null()
+  {
+    final Draft arbitraryDraft = Drafts.completedDraft();
+    assertFalse(arbitraryDraft.equals(null));
+  }
+
+  @Test
   public void equals_wrongType()
   {
     final Draft arbitraryDraft = Drafts.completedDraft();

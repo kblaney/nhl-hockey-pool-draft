@@ -83,7 +83,7 @@ public final class Player
   {
     if (firstName.contains("-"))
     {
-      return firstName.charAt(0) + "." + firstName.charAt(firstName.indexOf("-") + 1) + ". " + lastName;
+      return firstName.charAt(0) + "." + firstName.charAt(firstName.indexOf('-') + 1) + ". " + lastName;
     }
     else
     {

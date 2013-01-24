@@ -459,7 +459,7 @@ final class DraftImpl implements Draft
     {
       return true;
     }
-    else if (thatObject.getClass() != getClass())
+    else if (!(thatObject instanceof DraftImpl))
     {
       return false;
     }
