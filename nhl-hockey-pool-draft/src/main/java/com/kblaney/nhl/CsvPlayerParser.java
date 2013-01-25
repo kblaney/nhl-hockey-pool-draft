@@ -48,7 +48,7 @@ public final class CsvPlayerParser implements PlayerParser
   {
     final String[][] allLines = csvParser.getAllValues();
 
-    final PlayersByTeamAndPosition playersByTeamAndPosition = new PlayersByTeamAndPositionMapImpl();
+    final PlayersByTeamAndPosition playersByTeamAndPosition = new PlayersByTeamAndPositionImpl();
     for (final String[] line : allLines)
     {
       validate(line);
