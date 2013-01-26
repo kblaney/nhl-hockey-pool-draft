@@ -1,5 +1,8 @@
 package com.kblaney.nhl.draft;
 
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import com.kblaney.nhl.Position;
@@ -11,8 +14,6 @@ import java.io.Writer;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public final class DraftCsvReaderWriterTest
 {

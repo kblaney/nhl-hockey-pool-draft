@@ -1,7 +1,8 @@
 package com.kblaney.nhl.draft;
 
-import com.kblaney.nhl.Position;
+import static org.junit.Assert.*;
 import com.kblaney.nhl.Player;
+import com.kblaney.nhl.Position;
 import com.kblaney.nhl.Team;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -9,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class DraftImplNotStartedDraftWithNoPooleesTest
 {

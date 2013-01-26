@@ -1,7 +1,7 @@
 package com.kblaney.nhl.draft;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public final class DraftPositionInFirstRoundValidatorTest
 {

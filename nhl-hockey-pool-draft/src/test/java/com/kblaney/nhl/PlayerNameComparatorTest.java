@@ -1,9 +1,9 @@
 package com.kblaney.nhl;
 
+import static org.junit.Assert.*;
 import java.util.Comparator;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class PlayerNameComparatorTest
 {

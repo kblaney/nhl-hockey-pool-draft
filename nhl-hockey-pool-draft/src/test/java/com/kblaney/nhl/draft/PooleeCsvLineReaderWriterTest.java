@@ -1,10 +1,10 @@
 package com.kblaney.nhl.draft;
 
+import static org.junit.Assert.*;
 import java.text.ParseException;
 import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class PooleeCsvLineReaderWriterTest
 {

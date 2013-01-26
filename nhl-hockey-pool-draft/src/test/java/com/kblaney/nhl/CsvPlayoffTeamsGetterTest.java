@@ -1,10 +1,10 @@
 package com.kblaney.nhl;
 
+import static org.junit.Assert.*;
 import com.google.common.collect.Lists;
 import java.io.StringReader;
 import java.text.ParseException;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class CsvPlayoffTeamsGetterTest
 {

@@ -1,12 +1,12 @@
 package com.kblaney.nhl.draft;
 
+import static org.junit.Assert.*;
 import com.kblaney.nhl.Position;
 import com.kblaney.nhl.Team;
 import java.util.EnumSet;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class DraftImplCompletedDraftTest
 {

@@ -1,9 +1,9 @@
 package com.kblaney.nhl.draft;
 
+import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public final class DraftImplNotStartedDraftWithOnePooleeTest
 {

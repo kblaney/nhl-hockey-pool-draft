@@ -1,10 +1,10 @@
 package com.kblaney.nhl.draft;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public final class DraftImplConstructorTest
 {
