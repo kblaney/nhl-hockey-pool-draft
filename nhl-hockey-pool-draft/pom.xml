@@ -8,7 +8,8 @@
       <version>1.1-SNAPSHOT</version>   
    </parent>
    <artifactId>nhl-hockey-pool-draft</artifactId>
-   <name>NHL Hockey Pool Draft</name>
+   <name>Kyle Blaney's NHL Hockey Pool Draft</name>
+   <description>Kyle Blaney's NHL Hockey Pool Draft</description>
    <url>https://github.com/kblaney/nhl-hockey-pool-draft</url>
    <build>
       <plugins>
