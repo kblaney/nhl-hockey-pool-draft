@@ -50,8 +50,6 @@ final class MainFrame extends JFrame
   private final DraftFactory draftFactory;
   private final DraftReaderWriter draftReaderWriter;
   private final TableModelFactory tableModelFactory;
-  private final RegularSeasonColors regularSeasonColors =
-        new RegularSeasonColors();
   private final IntOrStringValidator numRoundsValidator =
         new NumRoundsValidator();
   private final IntOrStringValidator numPooleesValidator =
@@ -890,8 +888,7 @@ final class MainFrame extends JFrame
       labelText.append(draftPick.getPlayer().getTeam().getShortform());
       labelText.append(")");
 
-      tickerLabel.setForeground(regularSeasonColors.getColor(
-            draftPick.getPlayer().getPosition()));
+      tickerLabel.setForeground(new TickerDraftPickColorSupplier().getColor(draftPick, draft));
       tickerLabel.setText(labelText.toString());
       tickerLabel.getWidth();
     }

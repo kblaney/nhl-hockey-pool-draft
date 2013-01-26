@@ -1,6 +1,5 @@
 package com.kblaney.nhl.draft.ui;
 
-import com.google.common.collect.Lists;
 import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.Team;
@@ -10,7 +9,6 @@ import com.kblaney.nhl.draft.Poolee;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -24,20 +22,6 @@ final class PlayoffChartTableCellRenderer implements TableCellRenderer
 {
   private static final DefaultTableCellRenderer DEFAULT_RENDERER =
         new DefaultTableCellRenderer();
-  private static final Color REAL_ORANGE = new Color(255, 100, 0);
-  private static final Color FOREST_GREEN = new Color(0, 100, 100);
-  private static final Color PURPLE = new Color(100, 0, 100);
-  private static final Color LIME_GREEN = new Color(100, 125, 0);
-  private static final List<Color> POOLEE_COLORS = Lists.newArrayList(
-        Color.BLUE,
-        Color.RED,
-        Color.DARK_GRAY,
-        Color.MAGENTA,
-        REAL_ORANGE,
-        FOREST_GREEN,
-        PURPLE,
-        LIME_GREEN,
-        Color.PINK);
   private final Draft draft;
 
   /**
@@ -74,8 +58,7 @@ final class PlayoffChartTableCellRenderer implements TableCellRenderer
             player.getFullName() +
             " (" + player.getPosition().getShortform() + ")");
 
-      backgroundColor = POOLEE_COLORS.get(draft.getFirstRoundDraftOrder().
-            indexOf(draftPick.getPoolee()));
+      backgroundColor = new PlayoffColors().getColor(draftPick.getPoolee(), draft);
       foregroundColor = Color.WHITE;
       label.setFont(label.getFont().deriveFont(11.0f));
 
@@ -94,8 +77,7 @@ final class PlayoffChartTableCellRenderer implements TableCellRenderer
       label.setFont(label.getFont().deriveFont(Font.BOLD));
 
       final Poolee poolee = (Poolee) value;
-      backgroundColor = POOLEE_COLORS.get(
-            draft.getFirstRoundDraftOrder().indexOf(poolee));
+      backgroundColor = new PlayoffColors().getColor(poolee, draft);
       foregroundColor = Color.WHITE;
     }
     else if (value instanceof Team)
