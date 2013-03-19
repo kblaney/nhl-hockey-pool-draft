@@ -76,4 +76,15 @@ public final class DraftImplStartedDraftWithOneRoundCompletedTest
             draft.getDraftPicksOfPooleeAtPosition(poolee, Position.GOALIE).size());
     }
   }
+
+  @Test
+  public void undoLastDraftPick()
+  {
+    final int numDraftPicksBeforePickIsUndone = draft.getDraftPicks().size();
+    draft.undoLastDraftPick();
+
+    assertFalse(draft.isDraftOver());
+    assertEquals(numDraftPicksBeforePickIsUndone - 1, draft.getDraftPicks().size());
+    assertEquals(numDraftPicksBeforePickIsUndone, draft.getNextDraftPickNum());
+  }
 }

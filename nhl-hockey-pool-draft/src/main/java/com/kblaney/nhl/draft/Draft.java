@@ -95,6 +95,11 @@ public interface Draft
   DraftPick addDraftPick(Player player, Poolee poolee);
 
   /**
+   * Undoes the last draft pick.
+   */
+  void undoLastDraftPick();
+
+  /**
    * Gets the first round draft order. Note that this method always returns a list with a size that is equal to the
    * number of poolees. The return value has the following properties:
    * <ul>

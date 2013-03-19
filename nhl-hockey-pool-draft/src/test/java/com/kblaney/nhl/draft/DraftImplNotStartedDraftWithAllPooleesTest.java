@@ -29,4 +29,10 @@ public final class DraftImplNotStartedDraftWithAllPooleesTest
     final int arbitraryNumDraftPicks = 2;
     draft.getMostRecentNDraftPicks(arbitraryNumDraftPicks);
   }
+
+  @Test(expected = IllegalStateException.class)
+  public void undoLastDraftPick()
+  {
+    draft.undoLastDraftPick();
+  }
 }

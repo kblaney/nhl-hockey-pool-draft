@@ -254,6 +254,24 @@ final class DraftImpl implements Draft
     }
   }
 
+  public void undoLastDraftPick()
+  {
+    assertDraftStateIsNot(DraftState.NOT_STARTED);
+    if (draftPicks.isEmpty())
+    {
+      throw new IllegalStateException("No draft pick to undo");
+    }
+
+    final DraftPick draftPickToUndo = draftPicks.remove(draftPicks.size() - 1);
+    draftedPlayers.remove(draftPickToUndo.getPlayer());
+    draftPicksByPoolee.get(draftPickToUndo.getPoolee()).remove(draftPickToUndo);
+
+    if (draftState == DraftState.COMPLETED)
+    {
+      draftState = DraftState.UNDERWAY;
+    }
+  }
+
   /** {@inheritDoc} */
   public boolean isDraftOver()
   {

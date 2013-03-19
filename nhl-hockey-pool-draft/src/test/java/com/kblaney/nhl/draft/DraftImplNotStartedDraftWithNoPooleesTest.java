@@ -267,4 +267,10 @@ public final class DraftImplNotStartedDraftWithNoPooleesTest
           poolee, 2, 17));
     getGoaliesDraftedByPoolee();
   }
+
+  @Test(expected = IllegalStateException.class)
+  public void undoLastDraftPick()
+  {
+    draft.undoLastDraftPick();
+  }
 }

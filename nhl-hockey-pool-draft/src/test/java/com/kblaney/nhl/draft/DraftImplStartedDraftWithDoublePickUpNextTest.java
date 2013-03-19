@@ -49,4 +49,15 @@ public final class DraftImplStartedDraftWithDoublePickUpNextTest
     draft.addDraftPick(firstPlayer, Drafts.THIRD_POOLEE);
     draft.addDraftPick(secondPlayer, Drafts.THIRD_POOLEE);
   }
+
+  @Test
+  public void undoLastDraftPick()
+  {
+    final int numDraftPicksBeforePickIsUndone = draft.getDraftPicks().size();
+    draft.undoLastDraftPick();
+
+    assertFalse(draft.isDraftOver());
+    assertEquals(numDraftPicksBeforePickIsUndone - 1, draft.getDraftPicks().size());
+    assertEquals(numDraftPicksBeforePickIsUndone, draft.getNextDraftPickNum());
+  }
 }

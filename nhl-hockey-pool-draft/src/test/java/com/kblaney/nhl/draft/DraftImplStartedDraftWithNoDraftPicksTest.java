@@ -187,4 +187,10 @@ public final class DraftImplStartedDraftWithNoDraftPicksTest
     final int arbitraryNumDraftPicks = 2;
     assertTrue(draft.getMostRecentNDraftPicks(arbitraryNumDraftPicks).isEmpty());
   }
+
+  @Test(expected = IllegalStateException.class)
+  public void undoLastDraftPick()
+  {
+    draft.undoLastDraftPick();
+  }
 }

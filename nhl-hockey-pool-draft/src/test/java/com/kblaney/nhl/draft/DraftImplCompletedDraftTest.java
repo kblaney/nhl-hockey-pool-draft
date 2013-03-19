@@ -85,4 +85,15 @@ public final class DraftImplCompletedDraftTest
       assertEquals(i, draft.getMostRecentNDraftPicks(i).size());
     }
   }
+
+  @Test
+  public void undoLastDraftPick()
+  {
+    final int numDraftPicksBeforePickIsUndone = draft.getDraftPicks().size();
+    draft.undoLastDraftPick();
+
+    assertFalse(draft.isDraftOver());
+    assertEquals(numDraftPicksBeforePickIsUndone - 1, draft.getDraftPicks().size());
+    assertEquals(numDraftPicksBeforePickIsUndone, draft.getNextDraftPickNum());
+  }
 }
