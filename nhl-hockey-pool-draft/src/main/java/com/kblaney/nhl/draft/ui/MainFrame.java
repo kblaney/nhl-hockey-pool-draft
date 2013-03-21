@@ -38,6 +38,12 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import org.apache.commons.io.IOUtils;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 /**
  * The main frame of the application.
@@ -683,13 +689,30 @@ final class MainFrame extends JFrame
     draftMenu.add(startDraftMenuItem);
 
     menuBar.add(draftMenu);
+    
+    undoLastDraftPickMenuItem = new JMenuItem("Undo last draft pick");
+    undoLastDraftPickMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
+    undoLastDraftPickMenuItem.setEnabled(false);
+    undoLastDraftPickMenuItem.addActionListener(new ActionListener() {
+      public void actionPerformed(final ActionEvent unused) {
+        undoLastDraftPickActionPerformed();
+      }
+    });
+    draftMenu.add(undoLastDraftPickMenuItem);
 
     setJMenuBar(menuBar);
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-   private void newRegularSeasonDraftActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newRegularSeasonDraftActionPerformed
+  private void undoLastDraftPickActionPerformed()
+  {
+    draft.undoLastDraftPick();
+    updateUiForUnderwayDraft();
+    fireChartTableDataChanged();
+  }
+
+  private void newRegularSeasonDraftActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newRegularSeasonDraftActionPerformed
    {//GEN-HEADEREND:event_newRegularSeasonDraftActionPerformed
      handleNewDraft(SeasonType.REGULAR_SEASON);
    }//GEN-LAST:event_newRegularSeasonDraftActionPerformed
@@ -863,6 +886,7 @@ final class MainFrame extends JFrame
       setPlayerEmptyModel();
     }
 
+    setEnabledStatusForUndoLastDraftPickMenuItem();
     updateTicker();
   }
 
@@ -1105,9 +1129,15 @@ final class MainFrame extends JFrame
     addPooleeMenuItem.setEnabled(false);
     showPooleesMenuItem.setEnabled(true);
     startDraftMenuItem.setEnabled(false);
+    setEnabledStatusForUndoLastDraftPickMenuItem();
   }
 
-   private void addPooleeActionPerformed(java.awt.event.ActionEvent event)//GEN-FIRST:event_addPooleeActionPerformed
+  private void setEnabledStatusForUndoLastDraftPickMenuItem()
+  {
+    undoLastDraftPickMenuItem.setEnabled(!draft.getDraftPicks().isEmpty());
+  }
+
+  private void addPooleeActionPerformed(java.awt.event.ActionEvent event)//GEN-FIRST:event_addPooleeActionPerformed
    {//GEN-HEADEREND:event_addPooleeActionPerformed
      try
      {
@@ -1339,5 +1369,6 @@ final class MainFrame extends JFrame
   private javax.swing.JLabel westernConferenceLabel;
   private javax.swing.JPanel westernConferencePanel;
   private javax.swing.JLabel winnipegLabel;
+  private JMenuItem undoLastDraftPickMenuItem;
   // End of variables declaration//GEN-END:variables
 }
