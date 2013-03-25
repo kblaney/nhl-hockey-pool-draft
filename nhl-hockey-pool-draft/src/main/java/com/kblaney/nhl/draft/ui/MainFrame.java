@@ -1,5 +1,6 @@
 package com.kblaney.nhl.draft.ui;
 
+import java.io.IOException;
 import com.kblaney.assertions.ArgAssert;
 import com.kblaney.nhl.Player;
 import com.kblaney.nhl.PlayersByTeamAndPosition;
@@ -16,8 +17,13 @@ import com.kblaney.nhl.draft.NumRoundsValidator;
 import com.kblaney.nhl.draft.Poolee;
 import com.kblaney.nhl.draft.SeasonType;
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Reader;
@@ -32,18 +38,14 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import org.apache.commons.io.IOUtils;
-import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.KeyStroke;
-import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
 
 /**
  * The main frame of the application.
@@ -66,6 +68,7 @@ final class MainFrame extends JFrame
         new HashMap<JLabel, DraftPick>();
   private Draft draft;
   private JFileChooser fileChooser;
+  private File draftOutputFile;
 
   /**
    * Consructs a new instance of MainFrame for a draft that has specified
@@ -802,16 +805,9 @@ final class MainFrame extends JFrame
 
       if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION)
       {
-        final Writer writer = new BufferedWriter(new FileWriter(fileChooser.getSelectedFile()));
-        try
-        {
-          draftReaderWriter.writeDraft(draft, writer);
-          JOptionPane.showMessageDialog(this, "Draft successfully saved");
-        }
-        finally
-        {
-          writer.close();
-        }
+        draftOutputFile = fileChooser.getSelectedFile();
+        saveDraftIfOutputFileSelected();
+        JOptionPane.showMessageDialog(this, "Draft successfully saved");
       }
     }
     catch (final Exception e)
@@ -819,6 +815,22 @@ final class MainFrame extends JFrame
       UiUtil.showErrorMessageDialog(this, e.getMessage());
     }
    }//GEN-LAST:event_saveDraftActionPerformed
+
+  private void saveDraftIfOutputFileSelected() throws IOException
+  {
+    if (draftOutputFile != null)
+    {
+      final Writer writer = new BufferedWriter(new FileWriter(draftOutputFile));
+      try
+      {
+        draftReaderWriter.writeDraft(draft, writer);
+      }
+      finally
+      {
+        writer.close();
+      }
+    }
+  }
 
    private void makeDraftPickActionPerformed(java.awt.event.ActionEvent event)//GEN-FIRST:event_makeDraftPickActionPerformed
    {//GEN-HEADEREND:event_makeDraftPickActionPerformed
@@ -855,8 +867,8 @@ final class MainFrame extends JFrame
          draftPickDialog.setVisible(true);
 
          updateUiAfterDraftPick();
-
          fireChartTableDataChanged();
+         saveDraftIfOutputFileSelected();
        }
      }
      catch (final Exception e)
