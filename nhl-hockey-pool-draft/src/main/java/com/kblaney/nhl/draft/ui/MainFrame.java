@@ -793,27 +793,31 @@ final class MainFrame extends JFrame
 
    private void saveDraftActionPerformed(java.awt.event.ActionEvent event)//GEN-FIRST:event_saveDraftActionPerformed
    {//GEN-HEADEREND:event_saveDraftActionPerformed
-     try
-     {
-       if (fileChooser == null)
-       {
-         fileChooser = new JFileChooser();
-       }
+    try
+    {
+      if (fileChooser == null)
+      {
+        fileChooser = new JFileChooser();
+      }
 
-       if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION)
-       {
-         final Writer writer = new BufferedWriter(
-               new FileWriter(fileChooser.getSelectedFile()));
-
-         draftReaderWriter.writeDraft(draft, writer);
-
-         JOptionPane.showMessageDialog(this, "Draft successfully saved");
-       }
-     }
-     catch (final Exception e)
-     {
-       UiUtil.showErrorMessageDialog(this, e.getMessage());
-     }
+      if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION)
+      {
+        final Writer writer = new BufferedWriter(new FileWriter(fileChooser.getSelectedFile()));
+        try
+        {
+          draftReaderWriter.writeDraft(draft, writer);
+          JOptionPane.showMessageDialog(this, "Draft successfully saved");
+        }
+        finally
+        {
+          writer.close();
+        }
+      }
+    }
+    catch (final Exception e)
+    {
+      UiUtil.showErrorMessageDialog(this, e.getMessage());
+    }
    }//GEN-LAST:event_saveDraftActionPerformed
 
    private void makeDraftPickActionPerformed(java.awt.event.ActionEvent event)//GEN-FIRST:event_makeDraftPickActionPerformed
