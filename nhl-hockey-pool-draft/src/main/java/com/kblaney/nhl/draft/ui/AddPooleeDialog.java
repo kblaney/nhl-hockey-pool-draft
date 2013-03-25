@@ -26,20 +26,19 @@ import javax.swing.WindowConstants;
 @SuppressWarnings("serial")
 final class AddPooleeDialog extends JDialog
 {
-  private static final boolean IS_MODAL = true;
   private final PooleeNameValidator nameValidator = new PooleeNameValidator();
   private final IntOrStringValidator draftPositionInFirstRoundValidator;
+  private final JPanel buttonPanel = new JPanel();
+  private final JLabel draftPositionInFirstRoundLabel = new JLabel();
+  private final JTextField draftPositionInFirstRoundTextField = new JTextField();
+  private final JLabel firstNameLabel = new JLabel();
+  private final JTextField firstNameTextField = new JTextField();
+  private final JLabel lastNameLabel = new JLabel();
+  private final JTextField lastNameTextField = new JTextField();
+  private final JButton okButton = new JButton();
   private boolean wasOkPressed;
   private Poolee poolee;
   private int draftPositionInFirstRound;
-  private JPanel buttonPanel;
-  private JLabel draftPositionInFirstRoundLabel;
-  private JTextField draftPositionInFirstRoundTextField;
-  private JLabel firstNameLabel;
-  private JTextField firstNameTextField;
-  private JLabel lastNameLabel;
-  private JTextField lastNameTextField;
-  private JButton okButton;
 
   /**
    * Constructs a new instance of AddPooleeDialog that has a specified parent frame for a draft that has a specified
@@ -50,7 +49,7 @@ final class AddPooleeDialog extends JDialog
    */
   public AddPooleeDialog(final Frame parent, final int numPoolees)
   {
-    super(parent, AddPooleeDialog.IS_MODAL);
+    super(parent, /*isModal=*/true);
     ArgAssert.assertNotNull(parent, "parent");
     ArgAssert.assertTrue(new NumPooleesValidator().isValid(numPoolees), "numPoolees is valid");
 
@@ -94,15 +93,6 @@ final class AddPooleeDialog extends JDialog
 
   private void initComponents()
   {
-    firstNameLabel = new JLabel();
-    lastNameLabel = new JLabel();
-    draftPositionInFirstRoundLabel = new JLabel();
-    firstNameTextField = new JTextField();
-    lastNameTextField = new JTextField();
-    draftPositionInFirstRoundTextField = new JTextField();
-    buttonPanel = new JPanel();
-    okButton = new JButton();
-
     getContentPane().setLayout(new GridBagLayout());
 
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

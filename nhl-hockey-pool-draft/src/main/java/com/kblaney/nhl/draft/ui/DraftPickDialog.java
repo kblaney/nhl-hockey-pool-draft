@@ -24,12 +24,12 @@ final class DraftPickDialog extends JDialog
 {
   private final DraftPick draftPick;
   private Timer pollingTimer;
-  private JLabel pickNumLabel;
-  private JLabel playerNameLabel;
-  private JLabel playerPhotoLabel;
-  private JLabel pooleeLabel;
-  private JLabel positionLabel;
-  private JLabel teamLabel;
+  private final JLabel pickNumLabel = new JLabel();
+  private final JLabel playerNameLabel = new JLabel();
+  private final JLabel playerPhotoLabel = new JLabel();
+  private final JLabel pooleeLabel = new JLabel();
+  private final JLabel positionLabel = new JLabel();
+  private final JLabel teamLabel = new JLabel();
 
   /**
    * Constructs a new instance of DraftPickDialog with a specified parent frame and draft pick.
@@ -106,13 +106,6 @@ final class DraftPickDialog extends JDialog
 
   private void initComponents()
   {
-    pooleeLabel = new JLabel();
-    pickNumLabel = new JLabel();
-    playerPhotoLabel = new JLabel();
-    playerNameLabel = new JLabel();
-    positionLabel = new JLabel();
-    teamLabel = new JLabel();
-
     setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     setTitle("Last draft pick");
     getContentPane().setLayout(new GridBagLayout());

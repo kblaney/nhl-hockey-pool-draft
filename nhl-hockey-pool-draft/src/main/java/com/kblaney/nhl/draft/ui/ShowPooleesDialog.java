@@ -25,8 +25,8 @@ final class ShowPooleesDialog extends JDialog
   private final JPanel buttonPanel = new JPanel();
   private final JButton okButton = new JButton();
   private final JScrollPane pooleeScrollPane = new JScrollPane();
-  private JTable pooleeTable = new JTable();
-  private JLabel titleLabel = new JLabel();
+  private final JTable pooleeTable = new JTable();
+  private final JLabel titleLabel = new JLabel();
 
   public ShowPooleesDialog(final Frame parent, final List<Poolee> firstRoundDraftOrder)
   {
