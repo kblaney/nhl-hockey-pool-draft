@@ -85,18 +85,12 @@ final class MainFrame extends JFrame
   private File draftOutputFile;
   private final JMenuItem addPooleeMenuItem = new JMenuItem();
   private final JLabel anaheimLabel = new JLabel();
-  private final JLabel atlanticDivisionLabel = new JLabel();
-  private final JPanel atlanticDivisionPanel = new JPanel();
-  private final JPanel atlanticDivisionTeamPanel = new JPanel();
   private final JLabel bostonLabel = new JLabel();
   private final JPanel bottomPanel = new JPanel();
   private final JLabel buffaloLabel = new JLabel();
   private final JPanel buttonPanel = new JPanel();
   private final JLabel calgaryLabel = new JLabel();
   private final JLabel carolinaLabel = new JLabel();
-  private final JLabel centralDivisionLabel = new JLabel();
-  private final JPanel centralDivisionPanel = new JPanel();
-  private final JPanel centralDivisionTeamsPanel = new JPanel();
   private final JTable chartTable = new JTable();
   private final JLabel chicagoLabel = new JLabel();
   private final JLabel coloradoLabel = new JLabel();
@@ -131,18 +125,9 @@ final class MainFrame extends JFrame
   private final JMenuItem newRegularSeasonDraftMenuItem = new JMenuItem();
   private final JLabel newYorkIslandersLabel = new JLabel();
   private final JLabel newYorkRangersLabel = new JLabel();
-  private final JLabel northeastDivisionLabel = new JLabel();
-  private final JPanel northeastDivisionPanel = new JPanel();
-  private final JPanel northeastDivisionTeamsPanel = new JPanel();
-  private final JLabel northwestDivisionLabel = new JLabel();
-  private final JPanel northwestDivisionPanel = new JPanel();
-  private final JPanel northwestDivisionTeamsPanel = new JPanel();
   private final JLabel nowDraftingLabel = new JLabel();
   private final JMenuItem openDraftMenuItem = new JMenuItem();
   private final JLabel ottawaLabel = new JLabel();
-  private final JLabel pacificDivisionLabel = new JLabel();
-  private final JPanel pacificDivisionPanel = new JPanel();
-  private final JPanel pacificDivisionTeamsPanel = new JPanel();
   private final JLabel philadelphiaLabel = new JLabel();
   private final JLabel phoenixLabel = new JLabel();
   private final JLabel pittsburghLabel = new JLabel();
@@ -160,9 +145,6 @@ final class MainFrame extends JFrame
   private final JLabel secondMostRecentPickLabel = new JLabel();
   private final JPanel selectionPanel = new JPanel();
   private final JMenuItem showPooleesMenuItem = new JMenuItem();
-  private final JLabel southeastDivisionLabel = new JLabel();
-  private final JPanel southeastDivisionPanel = new JPanel();
-  private final JPanel southeastDivisionTeamsPanel = new JPanel();
   private final JLabel stLouisLabel = new JLabel();
   private final JMenuItem startDraftMenuItem = new JMenuItem();
   private final JLabel tampaBayLabel = new JLabel();
@@ -182,6 +164,8 @@ final class MainFrame extends JFrame
   private final JLabel westernConferenceLabel = new JLabel();
   private final JPanel westernConferencePanel = new JPanel();
   private final JLabel winnipegLabel = new JLabel();
+  private GridBagConstraints easternConferencePanelGridBagConstraints;
+  private GridBagConstraints westernConferencePanelGridBagConstraints;
 
   /**
    * Consructs a new instance of MainFrame for a draft that has specified players, a specified object that gets the
@@ -239,200 +223,243 @@ final class MainFrame extends JFrame
     });
     getContentPane().setLayout(new java.awt.CardLayout(5, 2));
 
-    preDraftPanel.setLayout(new GridBagLayout());
+    GridBagLayout gbl_preDraftPanel = new GridBagLayout();
+    gbl_preDraftPanel.columnWeights = new double[]{0.0, 1.0};
+    preDraftPanel.setLayout(gbl_preDraftPanel);
 
-    titleLabel.setFont(new Font("Tahoma", 1, 48));
+    titleLabel.setFont(new Font("Tahoma", Font.BOLD, 64));
     titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
     titleLabel.setText("Hockey Pool!");
     GridBagConstraints gridBagConstraints = new GridBagConstraints();
+    gridBagConstraints.insets = new Insets(50, 0, 50, 0);
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 0;
     gridBagConstraints.gridwidth = 2;
     preDraftPanel.add(titleLabel, gridBagConstraints);
+    GridBagLayout gbl_easternConferencePanel = new GridBagLayout();
+    gbl_easternConferencePanel.columnWidths = new int[]{125, 125, 125, 125, 0};
+    gbl_easternConferencePanel.rowHeights = new int[]{111, 111, 111, 111, 0};
+    gbl_easternConferencePanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+    gbl_easternConferencePanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+    easternConferencePanel.setLayout(gbl_easternConferencePanel);
+    
+        easternConferenceLabel.setFont(new Font("Tahoma", 1, 24));
+        easternConferenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        easternConferenceLabel.setIcon(new ImageIcon(getClass().getResource("/nhl-logos/easternConference.gif")));
+        GridBagConstraints gbc_easternConferenceLabel = new GridBagConstraints();
+        gbc_easternConferenceLabel.gridwidth = 4;
+        gbc_easternConferenceLabel.fill = GridBagConstraints.BOTH;
+        gbc_easternConferenceLabel.gridx = 0;
+        gbc_easternConferenceLabel.gridy = 0;
+        easternConferencePanel.add(easternConferenceLabel, gbc_easternConferenceLabel);
+    GridBagConstraints gbc_bostonLabel = new GridBagConstraints();
+    gbc_bostonLabel.gridx = 0;
+    gbc_bostonLabel.gridy = 1;
+    easternConferencePanel.add(bostonLabel, gbc_bostonLabel);
+    
+        bostonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/boston.png")));
+    GridBagConstraints gbc_buffaloLabel = new GridBagConstraints();
+    gbc_buffaloLabel.gridx = 1;
+    gbc_buffaloLabel.gridy = 1;
+    easternConferencePanel.add(buffaloLabel, gbc_buffaloLabel);
+    
+        buffaloLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/buffalo.png")));
+    GridBagConstraints gbc_carolinaLabel = new GridBagConstraints();
+    gbc_carolinaLabel.gridx = 2;
+    gbc_carolinaLabel.gridy = 1;
+    easternConferencePanel.add(carolinaLabel, gbc_carolinaLabel);
+    
+        carolinaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/carolina.png")));
+    GridBagConstraints gbc_columbusLabel = new GridBagConstraints();
+    gbc_columbusLabel.gridx = 3;
+    gbc_columbusLabel.gridy = 1;
+    easternConferencePanel.add(columbusLabel, gbc_columbusLabel);
+    
+        columbusLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/columbus.png")));
+    GridBagConstraints gbc_detroitLabel = new GridBagConstraints();
+    gbc_detroitLabel.gridx = 0;
+    gbc_detroitLabel.gridy = 2;
+    easternConferencePanel.add(detroitLabel, gbc_detroitLabel);
+    
+        detroitLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/detroit.png")));
 
-    easternConferencePanel.setLayout(new GridLayout(4, 0, 0, 20));
+    easternConferencePanelGridBagConstraints = new GridBagConstraints();
+    easternConferencePanelGridBagConstraints.insets = new Insets(0, 75, 50, 50);
+    easternConferencePanelGridBagConstraints.gridx = 1;
+    easternConferencePanelGridBagConstraints.gridy = 1;
+    preDraftPanel.add(easternConferencePanel, easternConferencePanelGridBagConstraints);
+    GridBagConstraints gbc_floridaLabel = new GridBagConstraints();
+    gbc_floridaLabel.gridx = 1;
+    gbc_floridaLabel.gridy = 2;
+    easternConferencePanel.add(floridaLabel, gbc_floridaLabel);
+    
+        floridaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/florida.png")));
+    GridBagConstraints gbc_montrealLabel = new GridBagConstraints();
+    gbc_montrealLabel.gridx = 2;
+    gbc_montrealLabel.gridy = 2;
+    easternConferencePanel.add(montrealLabel, gbc_montrealLabel);
+    
+        montrealLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/montreal.png")));
+    GridBagConstraints gbc_newJerseyLabel = new GridBagConstraints();
+    gbc_newJerseyLabel.gridx = 3;
+    gbc_newJerseyLabel.gridy = 2;
+    easternConferencePanel.add(newJerseyLabel, gbc_newJerseyLabel);
+    
+        newJerseyLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newJersey.png")));
+    GridBagConstraints gbc_newYorkIslandersLabel = new GridBagConstraints();
+    gbc_newYorkIslandersLabel.gridx = 0;
+    gbc_newYorkIslandersLabel.gridy = 3;
+    easternConferencePanel.add(newYorkIslandersLabel, gbc_newYorkIslandersLabel);
+    
+        newYorkIslandersLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newYorkIslanders.png")));
+    GridBagConstraints gbc_newYorkRangersLabel = new GridBagConstraints();
+    gbc_newYorkRangersLabel.gridx = 1;
+    gbc_newYorkRangersLabel.gridy = 3;
+    easternConferencePanel.add(newYorkRangersLabel, gbc_newYorkRangersLabel);
+    
+        newYorkRangersLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newYorkRangers.png")));
+    GridBagConstraints gbc_ottawaLabel = new GridBagConstraints();
+    gbc_ottawaLabel.gridx = 2;
+    gbc_ottawaLabel.gridy = 3;
+    easternConferencePanel.add(ottawaLabel, gbc_ottawaLabel);
+    
+        ottawaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/ottawa.png")));
+    GridBagConstraints gbc_philadelphiaLabel = new GridBagConstraints();
+    gbc_philadelphiaLabel.gridx = 3;
+    gbc_philadelphiaLabel.gridy = 3;
+    easternConferencePanel.add(philadelphiaLabel, gbc_philadelphiaLabel);
+    
+        philadelphiaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/philadelphia.png")));
+    GridBagConstraints gbc_pittsburghLabel = new GridBagConstraints();
+    gbc_pittsburghLabel.gridx = 0;
+    gbc_pittsburghLabel.gridy = 4;
+    easternConferencePanel.add(pittsburghLabel, gbc_pittsburghLabel);
+    
+        pittsburghLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/pittsburgh.png")));
+    GridBagConstraints gbc_tampaBayLabel = new GridBagConstraints();
+    gbc_tampaBayLabel.gridx = 1;
+    gbc_tampaBayLabel.gridy = 4;
+    easternConferencePanel.add(tampaBayLabel, gbc_tampaBayLabel);
+    
+        tampaBayLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/tampaBay.png")));
+    GridBagConstraints gbc_torontoLabel = new GridBagConstraints();
+    gbc_torontoLabel.gridx = 2;
+    gbc_torontoLabel.gridy = 4;
+    easternConferencePanel.add(torontoLabel, gbc_torontoLabel);
+    
+        torontoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/toronto.png")));
+    GridBagConstraints gbc_washingtonLabel = new GridBagConstraints();
+    gbc_washingtonLabel.gridx = 3;
+    gbc_washingtonLabel.gridy = 4;
+    easternConferencePanel.add(washingtonLabel, gbc_washingtonLabel);
+    
+        washingtonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/washington.png")));
+    GridBagLayout gbl_westernConferencePanel = new GridBagLayout();
+    gbl_westernConferencePanel.columnWidths = new int[]{125, 125, 125, 125, 0};
+    gbl_westernConferencePanel.rowHeights = new int[]{111, 111, 111, 111, 0, 0};
+    gbl_westernConferencePanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+    gbl_westernConferencePanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+    westernConferencePanel.setLayout(gbl_westernConferencePanel);
+    
+        westernConferenceLabel.setFont(new Font("Tahoma", 1, 24));
+        westernConferenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        westernConferenceLabel.setIcon(new ImageIcon(getClass().getResource("/nhl-logos/westernConference.gif")));
+        GridBagConstraints gbc_westernConferenceLabel = new GridBagConstraints();
+        gbc_westernConferenceLabel.gridwidth = 4;
+        gbc_westernConferenceLabel.fill = GridBagConstraints.BOTH;
+        gbc_westernConferenceLabel.gridx = 0;
+        gbc_westernConferenceLabel.gridy = 0;
+        westernConferencePanel.add(westernConferenceLabel, gbc_westernConferenceLabel);
+    GridBagConstraints gbc_anaheimLabel = new GridBagConstraints();
+    gbc_anaheimLabel.gridx = 0;
+    gbc_anaheimLabel.gridy = 1;
+    westernConferencePanel.add(anaheimLabel, gbc_anaheimLabel);
+    
+        anaheimLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/anaheim.png")));
+    GridBagConstraints gbc_calgaryLabel = new GridBagConstraints();
+    gbc_calgaryLabel.gridx = 1;
+    gbc_calgaryLabel.gridy = 1;
+    westernConferencePanel.add(calgaryLabel, gbc_calgaryLabel);
+    
+        calgaryLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/calgary.png")));
+    GridBagConstraints gbc_chicagoLabel = new GridBagConstraints();
+    gbc_chicagoLabel.gridx = 2;
+    gbc_chicagoLabel.gridy = 1;
+    westernConferencePanel.add(chicagoLabel, gbc_chicagoLabel);
+    
+        chicagoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/chicago.png")));
+    GridBagConstraints gbc_coloradoLabel = new GridBagConstraints();
+    gbc_coloradoLabel.gridx = 3;
+    gbc_coloradoLabel.gridy = 1;
+    westernConferencePanel.add(coloradoLabel, gbc_coloradoLabel);
+    
+        coloradoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/colorado.png")));
 
-    easternConferenceLabel.setFont(new Font("Tahoma", 1, 24));
-    easternConferenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    easternConferenceLabel.setIcon(new ImageIcon(getClass().getResource("/nhl-logos/easternConference.gif")));
-    easternConferencePanel.add(easternConferenceLabel);
-
-    atlanticDivisionPanel.setLayout(new BorderLayout());
-
-    newJerseyLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newJersey.png")));
-    atlanticDivisionTeamPanel.add(newJerseyLabel);
-
-    newYorkIslandersLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newYorkIslanders.png")));
-    atlanticDivisionTeamPanel.add(newYorkIslandersLabel);
-
-    newYorkRangersLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/newYorkRangers.png")));
-    atlanticDivisionTeamPanel.add(newYorkRangersLabel);
-
-    philadelphiaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/philadelphia.png")));
-    atlanticDivisionTeamPanel.add(philadelphiaLabel);
-
-    pittsburghLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/pittsburgh.png")));
-    atlanticDivisionTeamPanel.add(pittsburghLabel);
-
-    atlanticDivisionPanel.add(atlanticDivisionTeamPanel, BorderLayout.CENTER);
-
-    atlanticDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    atlanticDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    atlanticDivisionLabel.setText("Atlantic");
-    atlanticDivisionPanel.add(atlanticDivisionLabel, BorderLayout.NORTH);
-
-    easternConferencePanel.add(atlanticDivisionPanel);
-
-    southeastDivisionPanel.setLayout(new BorderLayout());
-
-    carolinaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/carolina.png")));
-    southeastDivisionTeamsPanel.add(carolinaLabel);
-
-    floridaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/florida.png")));
-    southeastDivisionTeamsPanel.add(floridaLabel);
-
-    tampaBayLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/tampaBay.png")));
-    southeastDivisionTeamsPanel.add(tampaBayLabel);
-
-    washingtonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/washington.png")));
-    southeastDivisionTeamsPanel.add(washingtonLabel);
-
-    winnipegLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/winnipeg.png")));
-    southeastDivisionTeamsPanel.add(winnipegLabel);
-
-    southeastDivisionPanel.add(southeastDivisionTeamsPanel, BorderLayout.CENTER);
-
-    southeastDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    southeastDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    southeastDivisionLabel.setText("Southeast");
-    southeastDivisionPanel.add(southeastDivisionLabel, BorderLayout.NORTH);
-
-    easternConferencePanel.add(southeastDivisionPanel);
-
-    northeastDivisionPanel.setLayout(new BorderLayout());
-
-    bostonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/boston.png")));
-    northeastDivisionTeamsPanel.add(bostonLabel);
-
-    buffaloLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/buffalo.png")));
-    northeastDivisionTeamsPanel.add(buffaloLabel);
-
-    montrealLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/montreal.png")));
-    northeastDivisionTeamsPanel.add(montrealLabel);
-
-    ottawaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/ottawa.png")));
-    northeastDivisionTeamsPanel.add(ottawaLabel);
-
-    torontoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/toronto.png")));
-    northeastDivisionTeamsPanel.add(torontoLabel);
-
-    northeastDivisionPanel.add(northeastDivisionTeamsPanel, BorderLayout.CENTER);
-
-    northeastDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    northeastDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    northeastDivisionLabel.setText("Northeast");
-    northeastDivisionPanel.add(northeastDivisionLabel, BorderLayout.NORTH);
-
-    easternConferencePanel.add(northeastDivisionPanel);
-
-    gridBagConstraints = new GridBagConstraints();
-    gridBagConstraints.gridx = 1;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipady = 20;
-    gridBagConstraints.insets = new Insets(0, 35, 0, 0);
-    preDraftPanel.add(easternConferencePanel, gridBagConstraints);
-
-    westernConferencePanel.setLayout(new GridLayout(4, 0, 0, 20));
-
-    westernConferenceLabel.setFont(new Font("Tahoma", 1, 24));
-    westernConferenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    westernConferenceLabel.setIcon(new ImageIcon(getClass().getResource("/nhl-logos/westernConference.gif")));
-    westernConferencePanel.add(westernConferenceLabel);
-
-    pacificDivisionPanel.setLayout(new BorderLayout());
-
-    pacificDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    pacificDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    pacificDivisionLabel.setText("Pacific");
-    pacificDivisionPanel.add(pacificDivisionLabel, BorderLayout.NORTH);
-
-    anaheimLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/anaheim.png")));
-    pacificDivisionTeamsPanel.add(anaheimLabel);
-
-    dallasLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/dallas.png")));
-    pacificDivisionTeamsPanel.add(dallasLabel);
-
-    losAngelesLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/losAngeles.png")));
-    pacificDivisionTeamsPanel.add(losAngelesLabel);
-
-    phoenixLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/phoenix.png")));
-    pacificDivisionTeamsPanel.add(phoenixLabel);
-
-    sanJoseLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/sanJose.png")));
-    pacificDivisionTeamsPanel.add(sanJoseLabel);
-
-    pacificDivisionPanel.add(pacificDivisionTeamsPanel, BorderLayout.CENTER);
-
-    westernConferencePanel.add(pacificDivisionPanel);
-
-    northwestDivisionPanel.setLayout(new BorderLayout());
-
-    calgaryLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/calgary.png")));
-    northwestDivisionTeamsPanel.add(calgaryLabel);
-
-    coloradoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/colorado.png")));
-    northwestDivisionTeamsPanel.add(coloradoLabel);
-
-    edmontonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/edmonton.png")));
-    northwestDivisionTeamsPanel.add(edmontonLabel);
-
-    minnesotaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/minnesota.png")));
-    northwestDivisionTeamsPanel.add(minnesotaLabel);
-
-    vancouverLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/vancouver.png")));
-    northwestDivisionTeamsPanel.add(vancouverLabel);
-
-    northwestDivisionPanel.add(northwestDivisionTeamsPanel, BorderLayout.CENTER);
-
-    northwestDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    northwestDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    northwestDivisionLabel.setText("Northwest");
-    northwestDivisionPanel.add(northwestDivisionLabel, BorderLayout.NORTH);
-
-    westernConferencePanel.add(northwestDivisionPanel);
-
-    centralDivisionPanel.setLayout(new BorderLayout());
-
-    chicagoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/chicago.png")));
-    centralDivisionTeamsPanel.add(chicagoLabel);
-
-    columbusLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/columbus.png")));
-    centralDivisionTeamsPanel.add(columbusLabel);
-
-    detroitLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/detroit.png")));
-    centralDivisionTeamsPanel.add(detroitLabel);
-
-    nashvilleLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/nashville.png")));
-    centralDivisionTeamsPanel.add(nashvilleLabel);
-
-    stLouisLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/stLouis.png")));
-    centralDivisionTeamsPanel.add(stLouisLabel);
-
-    centralDivisionPanel.add(centralDivisionTeamsPanel, BorderLayout.CENTER);
-
-    centralDivisionLabel.setFont(new Font("Tahoma", 1, 24));
-    centralDivisionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    centralDivisionLabel.setText("Central");
-    centralDivisionPanel.add(centralDivisionLabel, BorderLayout.NORTH);
-
-    westernConferencePanel.add(centralDivisionPanel);
-
-    gridBagConstraints = new GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipady = 20;
-    gridBagConstraints.insets = new Insets(0, 0, 0, 35);
-    preDraftPanel.add(westernConferencePanel, gridBagConstraints);
+    westernConferencePanelGridBagConstraints = new GridBagConstraints();
+    westernConferencePanelGridBagConstraints.insets = new Insets(0, 50, 50, 0);
+    westernConferencePanelGridBagConstraints.gridx = 0;
+    westernConferencePanelGridBagConstraints.gridy = 1;
+    preDraftPanel.add(westernConferencePanel, westernConferencePanelGridBagConstraints);
+    GridBagConstraints gbc_dallasLabel = new GridBagConstraints();
+    gbc_dallasLabel.gridx = 0;
+    gbc_dallasLabel.gridy = 2;
+    westernConferencePanel.add(dallasLabel, gbc_dallasLabel);
+    
+        dallasLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/dallas.png")));
+    GridBagConstraints gbc_edmontonLabel = new GridBagConstraints();
+    gbc_edmontonLabel.gridx = 1;
+    gbc_edmontonLabel.gridy = 2;
+    westernConferencePanel.add(edmontonLabel, gbc_edmontonLabel);
+    
+        edmontonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/edmonton.png")));
+    GridBagConstraints gbc_losAngelesLabel = new GridBagConstraints();
+    gbc_losAngelesLabel.gridx = 2;
+    gbc_losAngelesLabel.gridy = 2;
+    westernConferencePanel.add(losAngelesLabel, gbc_losAngelesLabel);
+    
+        losAngelesLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/losAngeles.png")));
+    GridBagConstraints gbc_minnesotaLabel = new GridBagConstraints();
+    gbc_minnesotaLabel.gridx = 3;
+    gbc_minnesotaLabel.gridy = 2;
+    westernConferencePanel.add(minnesotaLabel, gbc_minnesotaLabel);
+    
+        minnesotaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/minnesota.png")));
+    GridBagConstraints gbc_nashvilleLabel = new GridBagConstraints();
+    gbc_nashvilleLabel.gridx = 0;
+    gbc_nashvilleLabel.gridy = 3;
+    westernConferencePanel.add(nashvilleLabel, gbc_nashvilleLabel);
+    
+        nashvilleLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/nashville.png")));
+    GridBagConstraints gbc_phoenixLabel = new GridBagConstraints();
+    gbc_phoenixLabel.gridx = 1;
+    gbc_phoenixLabel.gridy = 3;
+    westernConferencePanel.add(phoenixLabel, gbc_phoenixLabel);
+    
+        phoenixLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/phoenix.png")));
+    GridBagConstraints gbc_sanJoseLabel = new GridBagConstraints();
+    gbc_sanJoseLabel.gridx = 2;
+    gbc_sanJoseLabel.gridy = 3;
+    westernConferencePanel.add(sanJoseLabel, gbc_sanJoseLabel);
+    
+        sanJoseLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/sanJose.png")));
+    GridBagConstraints gbc_stLouisLabel = new GridBagConstraints();
+    gbc_stLouisLabel.gridx = 3;
+    gbc_stLouisLabel.gridy = 3;
+    westernConferencePanel.add(stLouisLabel, gbc_stLouisLabel);
+    
+        stLouisLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/stLouis.png")));
+    GridBagConstraints gbc_vancouverLabel = new GridBagConstraints();
+    gbc_vancouverLabel.gridx = 0;
+    gbc_vancouverLabel.gridy = 4;
+    westernConferencePanel.add(vancouverLabel, gbc_vancouverLabel);
+    
+        vancouverLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/vancouver.png")));
+        GridBagConstraints gbc_winnipegLabel = new GridBagConstraints();
+        gbc_winnipegLabel.gridx = 1;
+        gbc_winnipegLabel.gridy = 4;
+        westernConferencePanel.add(winnipegLabel, gbc_winnipegLabel);
+        
+            winnipegLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/winnipeg.png")));
 
     getContentPane().add(preDraftPanel, "preDraftPanel");
 
