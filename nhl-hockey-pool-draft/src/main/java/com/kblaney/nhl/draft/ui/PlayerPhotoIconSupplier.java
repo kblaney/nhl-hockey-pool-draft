@@ -13,7 +13,7 @@ final class PlayerPhotoIconSupplier
           player.getFirstName() + "_" + player.getLastName() + ".jpg");
     if (url == null)
     {
-      return new ImageIcon(getClass().getResource("/nhlpa-photos/Unknown.jpg"));
+      return new ImageIcon(getClass().getResource("/unknown-player-photo.jpg"));
     }
     else
     {
