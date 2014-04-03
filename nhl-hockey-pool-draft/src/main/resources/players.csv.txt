@@ -120,7 +120,7 @@ Cody,McLeod,COL,F
 Patrick,Bordeleau,COL,F
 David,Van der Gulik,COL,F
 Alex,Tanguay,COL,F
-P.,A. Parenteau,COL,F
+P.A.,Parenteau,COL,F
 Jamie,McGinn,COL,F
 Maxime,Talbot,COL,F
 Erik,Johnson,COL,D
@@ -187,8 +187,6 @@ Brendan,Smith,DET,D
 Kyle,Quincey,DET,D
 Jakub,Kindl,DET,D
 Brian,Lashoff,DET,D
-Adam,Almquist,DET,D
-Gleason,Fournier,DET,D
 Jimmy,Howard,DET,G
 Jonas,Gustavsson,DET,G
 Petr,Mrazek,DET,G
