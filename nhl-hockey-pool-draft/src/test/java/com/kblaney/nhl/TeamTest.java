@@ -9,6 +9,7 @@ public final class TeamTest
   public void getShortform()
   {
     assertEquals("ANA", Team.ANAHEIM_DUCKS.getShortform());
+    assertEquals("ARI", Team.ARIZONA_COYOTES.getShortform());
     assertEquals("BOS", Team.BOSTON_BRUINS.getShortform());
     assertEquals("BUF", Team.BUFFALO_SABRES.getShortform());
     assertEquals("CGY", Team.CALGARY_FLAMES.getShortform());
@@ -29,7 +30,6 @@ public final class TeamTest
     assertEquals("NYR", Team.NEW_YORK_RANGERS.getShortform());
     assertEquals("OTT", Team.OTTAWA_SENATORS.getShortform());
     assertEquals("PHI", Team.PHILADELPHIA_FLYERS.getShortform());
-    assertEquals("PHO", Team.PHOENIX_COYOTES.getShortform());
     assertEquals("PIT", Team.PITTSBURGH_PENGUINS.getShortform());
     assertEquals("SJ", Team.SAN_JOSE_SHARKS.getShortform());
     assertEquals("STL", Team.ST_LOUIS_BLUES.getShortform());

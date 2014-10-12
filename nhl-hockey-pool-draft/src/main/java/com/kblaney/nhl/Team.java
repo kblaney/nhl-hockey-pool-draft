@@ -8,6 +8,7 @@ import com.kblaney.assertions.ArgAssert;
 public enum Team
 {
   ANAHEIM_DUCKS("Anaheim Ducks", "ANA"),
+  ARIZONA_COYOTES("Arizona Coyotes", "ARI"),
   BOSTON_BRUINS("Boston Bruins", "BOS"),
   BUFFALO_SABRES("Buffalo Sabres", "BUF"),
   CALGARY_FLAMES("Calgary Flames", "CGY"),
@@ -28,7 +29,6 @@ public enum Team
   NEW_YORK_RANGERS("New York Rangers", "NYR"),
   OTTAWA_SENATORS("Ottawa Senators", "OTT"),
   PHILADELPHIA_FLYERS("Philadelphia Flyers", "PHI"),
-  PHOENIX_COYOTES("Phoenix Coyotes", "PHO"),
   PITTSBURGH_PENGUINS("Pittsburgh Penguins", "PIT"),
   SAN_JOSE_SHARKS("San Jose Sharks", "SJ"),
   ST_LOUIS_BLUES("St. Louis Blues", "STL"),

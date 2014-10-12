@@ -129,7 +129,7 @@ final class MainFrame extends JFrame
   private final JMenuItem openDraftMenuItem = new JMenuItem();
   private final JLabel ottawaLabel = new JLabel();
   private final JLabel philadelphiaLabel = new JLabel();
-  private final JLabel phoenixLabel = new JLabel();
+  private final JLabel arizonaLabel = new JLabel();
   private final JLabel pittsburghLabel = new JLabel();
   private final JComboBox playerComboBox = new JComboBox();
   private final JLabel playerLabel = new JLabel();
@@ -377,20 +377,20 @@ final class MainFrame extends JFrame
     
         anaheimLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/anaheim.png")));
     GridBagConstraints gbc_calgaryLabel = new GridBagConstraints();
-    gbc_calgaryLabel.gridx = 1;
+    gbc_calgaryLabel.gridx = 2;
     gbc_calgaryLabel.gridy = 1;
     westernConferencePanel.add(calgaryLabel, gbc_calgaryLabel);
     
         calgaryLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/calgary.png")));
     GridBagConstraints gbc_chicagoLabel = new GridBagConstraints();
-    gbc_chicagoLabel.gridx = 2;
+    gbc_chicagoLabel.gridx = 3;
     gbc_chicagoLabel.gridy = 1;
     westernConferencePanel.add(chicagoLabel, gbc_chicagoLabel);
     
         chicagoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/chicago.png")));
     GridBagConstraints gbc_coloradoLabel = new GridBagConstraints();
-    gbc_coloradoLabel.gridx = 3;
-    gbc_coloradoLabel.gridy = 1;
+    gbc_coloradoLabel.gridx = 0;
+    gbc_coloradoLabel.gridy = 2;
     westernConferencePanel.add(coloradoLabel, gbc_coloradoLabel);
     
         coloradoLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/colorado.png")));
@@ -401,41 +401,41 @@ final class MainFrame extends JFrame
     westernConferencePanelGridBagConstraints.gridy = 1;
     preDraftPanel.add(westernConferencePanel, westernConferencePanelGridBagConstraints);
     GridBagConstraints gbc_dallasLabel = new GridBagConstraints();
-    gbc_dallasLabel.gridx = 0;
+    gbc_dallasLabel.gridx = 1;
     gbc_dallasLabel.gridy = 2;
     westernConferencePanel.add(dallasLabel, gbc_dallasLabel);
     
         dallasLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/dallas.png")));
     GridBagConstraints gbc_edmontonLabel = new GridBagConstraints();
-    gbc_edmontonLabel.gridx = 1;
+    gbc_edmontonLabel.gridx = 2;
     gbc_edmontonLabel.gridy = 2;
     westernConferencePanel.add(edmontonLabel, gbc_edmontonLabel);
     
         edmontonLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/edmonton.png")));
     GridBagConstraints gbc_losAngelesLabel = new GridBagConstraints();
-    gbc_losAngelesLabel.gridx = 2;
+    gbc_losAngelesLabel.gridx = 3;
     gbc_losAngelesLabel.gridy = 2;
     westernConferencePanel.add(losAngelesLabel, gbc_losAngelesLabel);
     
         losAngelesLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/losAngeles.png")));
     GridBagConstraints gbc_minnesotaLabel = new GridBagConstraints();
-    gbc_minnesotaLabel.gridx = 3;
-    gbc_minnesotaLabel.gridy = 2;
+    gbc_minnesotaLabel.gridx = 0;
+    gbc_minnesotaLabel.gridy = 3;
     westernConferencePanel.add(minnesotaLabel, gbc_minnesotaLabel);
     
         minnesotaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/minnesota.png")));
     GridBagConstraints gbc_nashvilleLabel = new GridBagConstraints();
-    gbc_nashvilleLabel.gridx = 0;
+    gbc_nashvilleLabel.gridx = 1;
     gbc_nashvilleLabel.gridy = 3;
     westernConferencePanel.add(nashvilleLabel, gbc_nashvilleLabel);
     
         nashvilleLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/nashville.png")));
-    GridBagConstraints gbc_phoenixLabel = new GridBagConstraints();
-    gbc_phoenixLabel.gridx = 1;
-    gbc_phoenixLabel.gridy = 3;
-    westernConferencePanel.add(phoenixLabel, gbc_phoenixLabel);
+    GridBagConstraints gbc_arizonaLabel = new GridBagConstraints();
+    gbc_arizonaLabel.gridx = 1;
+    gbc_arizonaLabel.gridy = 1;
+    westernConferencePanel.add(arizonaLabel, gbc_arizonaLabel);
     
-        phoenixLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/phoenix.png")));
+        arizonaLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/arizona.png")));
     GridBagConstraints gbc_sanJoseLabel = new GridBagConstraints();
     gbc_sanJoseLabel.gridx = 2;
     gbc_sanJoseLabel.gridy = 3;
