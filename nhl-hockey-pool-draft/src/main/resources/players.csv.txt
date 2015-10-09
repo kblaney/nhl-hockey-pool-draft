@@ -700,3 +700,4 @@ Adam,Pardy,WIN,D
 Paul,Postma,WIN,D
 Ondrej,Pavelec,WIN,G
 Michael,Hutchinson,WIN,G
+Robby,Fabbri,STL,F
