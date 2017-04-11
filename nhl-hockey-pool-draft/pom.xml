@@ -63,7 +63,7 @@
    </build>
    <dependencies>
       <dependency>
-         <groupId>com.kblaney.</groupId>
+         <groupId>com.kblaney</groupId>
          <artifactId>kblaney-assert</artifactId>
          <version>0.1-SNAPSHOT</version>
       </dependency>
