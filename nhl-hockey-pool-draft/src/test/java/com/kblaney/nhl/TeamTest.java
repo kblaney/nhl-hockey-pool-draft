@@ -36,6 +36,7 @@ public final class TeamTest
     assertEquals("TB", Team.TAMPA_BAY_LIGHTNING.getShortform());
     assertEquals("TOR", Team.TORONTO_MAPLE_LEAFS.getShortform());
     assertEquals("VAN", Team.VANCOUVER_CANUCKS.getShortform());
+    assertEquals("VEG", Team.VEGAS_GOLDEN_KNIGHTS.getShortform());
     assertEquals("WAS", Team.WASHINGTON_CAPITALS.getShortform());
     assertEquals("WIN", Team.WINNIPEG_JETS.getShortform());
   }

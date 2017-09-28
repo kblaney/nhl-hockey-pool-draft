@@ -35,6 +35,7 @@ public enum Team
   TAMPA_BAY_LIGHTNING("Tampa Bay Lightning", "TB"),
   TORONTO_MAPLE_LEAFS("Toronto Maple Leafs", "TOR"),
   VANCOUVER_CANUCKS("Vancouver Canucks", "VAN"),
+  VEGAS_GOLDEN_KNIGHTS("Vegas Golden Knights", "VEG"),
   WASHINGTON_CAPITALS("Washington Capitals", "WAS"),
   WINNIPEG_JETS("Winnipeg Jets", "WIN");
 

@@ -804,6 +804,11 @@ public final class MockPlayersByTeamAndPosition implements PlayersByTeamAndPosit
     s.append("Olaf,Kolzig,WAS,G\n");
     s.append("Maxime,Ouellet,WAS,G\n");
     s.append("Brent,Johnson,WAS,G\n");
+    s.append("Bill,Barilko,VEG,F\n");
+    s.append("Steve,Wilson,VEG,F\n");
+    s.append("Jeff,Kasper,VEG,D\n");
+    s.append("William,Eminger,VEG,D\n");
+    s.append("Barry,Trotz,VEG,G\n");
     final Reader reader = new StringReader(s.toString());
     final PlayerParser playerParser = new CsvPlayerParser(reader);
     try
