@@ -160,6 +160,7 @@ final class MainFrame extends JFrame
   private final JLabel totalNumRoundsLabel = new JLabel();
   private final JMenuItem undoLastDraftPickMenuItem = new JMenuItem("Undo last draft pick");
   private final JLabel vancouverLabel = new JLabel();
+  private final JLabel vegasLabel = new JLabel();
   private final JLabel washingtonLabel = new JLabel();
   private final JLabel westernConferenceLabel = new JLabel();
   private final JPanel westernConferencePanel = new JPanel();
@@ -454,8 +455,15 @@ final class MainFrame extends JFrame
     westernConferencePanel.add(vancouverLabel, gbc_vancouverLabel);
     
         vancouverLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/vancouver.png")));
+
+    GridBagConstraints gbc_vegasLabel = new GridBagConstraints();
+    gbc_vegasLabel.gridx = 1;
+    gbc_vegasLabel.gridy = 4;
+    westernConferencePanel.add(vegasLabel, gbc_vegasLabel);
+    vegasLabel.setIcon(new ImageIcon(getClass().getResource("/team-logos/vegas.png")));
+
         GridBagConstraints gbc_winnipegLabel = new GridBagConstraints();
-        gbc_winnipegLabel.gridx = 1;
+        gbc_winnipegLabel.gridx = 2;
         gbc_winnipegLabel.gridy = 4;
         westernConferencePanel.add(winnipegLabel, gbc_winnipegLabel);
         
