@@ -75,7 +75,7 @@ Paul,Postma,BOS,D
 Matthew,Grzelcyk,BOS,D
 Tuukka,Rask,BOS,G
 Anton,Khudobin,BOS,G
-Malcolm,Subban,BOS,G
+Malcolm,Subban,VEG,G
 Jack,Eichel,BUF,F
 Ryan,O'Reilly,BUF,F
 Johan,Larsson,BUF,F
@@ -753,7 +753,7 @@ Jonathon,Merrill,VEG,D
 Luca,Sbisa,VEG,D
 Clayton,Stoner,VEG,D
 Marc-Andre,Fleury,VEG,G
-Calvin,Pickard,VEG,G
+Calvin,Pickard,TOR,G
 Nicklas,Backstrom,WAS,F
 Evgeny,Kuznetsov,WAS,F
 Lars,Eller,WAS,F
@@ -817,3 +817,4 @@ Zach,Sanford,STL,F
 Alex,Volkov,TB,F
 Nikita,Zaitsev,TOR,D
 Tucker,Poolman,WIN,D
+Jaromir,Jagr,CGY,F
